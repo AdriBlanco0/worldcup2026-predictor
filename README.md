@@ -1,55 +1,55 @@
 # ⚽ World Cup 2026 Predictor
 
-> ¿Puede un modelo de Machine Learning predecir los resultados del Mundial mejor que un aficionado?
+> Can a Machine Learning model predict World Cup results better than a football fan?
 
-Proyecto de Data Science **en directo** durante el Mundial 2026 (Canadá · USA · México, 12 jun – 19 jul). Las predicciones se publican **antes** de cada jornada y el rendimiento del modelo se muestra públicamente: si falla, se verá. Si acierta, también.
+A **live** Data Science project running throughout the 2026 World Cup (Canada · USA · Mexico, Jun 12 – Jul 19). Predictions are published **before** every matchday and the model's performance is tracked publicly: if it fails, everyone will see it. If it succeeds, too.
 
-## 🎯 El proyecto
+## 🎯 The project
 
-Pipeline completo de Data Science, de principio a fin:
+End-to-end Data Science pipeline:
 
 ```
-📊 DATOS  →  🗄️ SQL  →  🔍 EDA  →  🤖 MACHINE LEARNING  →  📈 STREAMLIT
+📊 DATA  →  🗄️ SQL  →  🔍 EDA  →  🤖 MACHINE LEARNING  →  📈 STREAMLIT
 ```
 
-| Fase | Qué se hace | Herramientas |
-|------|-------------|--------------|
-| **1. Datos** | Históricos de mundiales (1930-2022), convocatorias de los 48 equipos, resultados en tiempo real | `requests`, `BeautifulSoup`, APIs |
-| **2. Base de datos** | Modelo relacional con partidos, equipos, jugadores y estadísticas | `MySQL`, `mysql-connector` |
-| **3. EDA** | Análisis exploratorio: tendencias históricas, patrones, visualizaciones | `pandas`, `matplotlib`, `seaborn` |
-| **4. Modelo ML** | Clasificación multiclase (1/X/2) comparando varios algoritmos | `scikit-learn`, `XGBoost` |
-| **5. Dashboard** | Web interactiva con predicciones, stats y simulador del torneo | `Streamlit`, `Plotly`, `Folium` |
+| Phase | What happens | Tools |
+|-------|--------------|-------|
+| **1. Data** | World Cup history (1930-2022), squads of all 48 teams, real-time results | `requests`, `BeautifulSoup`, APIs |
+| **2. Database** | Relational model with matches, teams, players and stats | `MySQL`, `mysql-connector` |
+| **3. EDA** | Exploratory analysis: historical trends, patterns, visualizations | `pandas`, `matplotlib`, `seaborn` |
+| **4. ML Model** | Multiclass classification (home win / draw / away win) comparing several algorithms | `scikit-learn`, `XGBoost` |
+| **5. Dashboard** | Interactive web app with predictions, stats and tournament simulator | `Streamlit`, `Plotly`, `Folium` |
 
-## 📡 Fuentes de datos
+## 📡 Data sources
 
-- **Kaggle** — históricos de todos los mundiales desde 1930
-- **Wikipedia** — convocatorias oficiales de las 48 selecciones (1.248 jugadores)
-- **APIs en tiempo real** — resultados y estadísticas durante el torneo
-- **FBref / Transfermarkt** — estadísticas avanzadas y valores de mercado
+- **Kaggle** — historical data from every World Cup since 1930
+- **Wikipedia** — official squads of all 48 national teams (1,248 players)
+- **Real-time APIs** — results and statistics during the tournament
+- **FBref / Transfermarkt** — advanced stats and market values
 
-## 🗓️ Estado del proyecto
+## 🗓️ Project status
 
-- [x] Investigación y validación de fuentes de datos
-- [ ] Recolección de datos históricos y convocatorias
-- [ ] Base de datos MySQL
-- [ ] EDA histórico (1930-2022)
-- [ ] Entrenamiento y comparación de modelos
-- [ ] Dashboard Streamlit
-- [ ] Deploy en Streamlit Cloud
-- [ ] Predicciones en directo durante el torneo
+- [x] Research and validation of data sources
+- [ ] Historical data and squads collection
+- [ ] MySQL database
+- [ ] Historical EDA (1930-2022)
+- [ ] Model training and comparison
+- [ ] Streamlit dashboard
+- [ ] Deploy on Streamlit Cloud
+- [ ] Live predictions during the tournament
 
-## 📈 Rendimiento del modelo
+## 📈 Model performance
 
-| Jornada | Partidos | Aciertos | % Acierto |
-|---------|----------|----------|-----------|
-| _El torneo empieza el 12 de junio..._ | – | – | – |
+| Matchday | Matches | Correct | Accuracy |
+|----------|---------|---------|----------|
+| _Tournament starts June 12..._ | – | – | – |
 
-## 👤 Autor
+## 👤 Author
 
 **Adrián Blanco** — Data Scientist
 
-Sígueme el proyecto en [LinkedIn](https://www.linkedin.com/in/adrianblancoajenjo/) — predicciones publicadas antes de cada jornada.
+Follow the project on [LinkedIn](https://www.linkedin.com/in/adrianblancoajenjo/) — predictions published before every matchday.
 
-## 📄 Licencia
+## 📄 License
 
-MIT — úsalo, cópialo, aprende con él.
+MIT — use it, copy it, learn from it.
