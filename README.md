@@ -48,7 +48,7 @@ Pipeline completo de Data Science, de principio a fin:
 
 **Adrián Blanco** — Data Scientist
 
-Sígueme el proyecto en [LinkedIn](https://www.linkedin.com/) — predicciones publicadas antes de cada jornada.
+Sígueme el proyecto en [LinkedIn](https://www.linkedin.com/in/adrianblancoajenjo/) — predicciones publicadas antes de cada jornada.
 
 ## 📄 Licencia
 
