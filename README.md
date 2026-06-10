@@ -2,7 +2,7 @@
 
 > Can a Machine Learning model predict World Cup results better than a football fan?
 
-A **live** Data Science project running throughout the 2026 World Cup (Canada · USA · Mexico, Jun 12 – Jul 19). Predictions are published **before** every matchday and the model's performance is tracked publicly: if it fails, everyone will see it. If it succeeds, too.
+A **live** Data Science project running throughout the 2026 World Cup (Canada · USA · Mexico, Jun 11 – Jul 19). Predictions are published **before** every matchday and the model's performance is tracked publicly: if it fails, everyone will see it. If it succeeds, too.
 
 ## 🎯 The project
 
@@ -42,7 +42,7 @@ End-to-end Data Science pipeline:
 
 | Matchday | Matches | Correct | Accuracy |
 |----------|---------|---------|----------|
-| _Tournament starts June 12..._ | – | – | – |
+| _Tournament starts June 11..._ | – | – | – |
 
 ## 👤 Author
 
