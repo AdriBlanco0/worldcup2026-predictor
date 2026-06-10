@@ -30,13 +30,26 @@ End-to-end Data Science pipeline:
 ## 🗓️ Project status
 
 - [x] Research and validation of data sources
-- [ ] Historical data and squads collection
+- [x] Historical data and squads collection
+- [x] Historical EDA (1930-2022) — see [notebook 01](notebooks/01_eda_historical.ipynb)
+- [ ] Feature engineering and model v0
 - [ ] MySQL database
-- [ ] Historical EDA (1930-2022)
-- [ ] Model training and comparison
+- [ ] Model v1 (Elo ratings + squad features) and comparison
 - [ ] Streamlit dashboard
 - [ ] Deploy on Streamlit Cloud
 - [ ] Live predictions during the tournament
+
+## 🧭 Roadmap — Player Performance Tracker
+
+Beyond match predictions, the project will include a **player performance module** during the tournament:
+
+- **Tournament form index:** which players are over- or under-performing their expected level
+  (based on their historical caps/goals ratio and market value) — the tournament's *revelations*
+  and *disappointments*, updated after every matchday.
+- **Tournament vs club season** *(after the group stage)*: comparison of each player's World Cup
+  performance against their 2025/26 club season stats.
+- **Group stage vs knockout stage** *(after the group stage)*: which players raise their level
+  when elimination is on the line — and which ones disappear in big matches.
 
 ## 📈 Model performance
 
