@@ -1,0 +1,7 @@
+{
+  "home_intercept": 0.37726404397399305,
+  "home_coef": 0.8747835461528588,
+  "away_intercept": 0.03071818951472256,
+  "away_coef": -0.9011421830198074,
+  "note": "lambda = exp(intercept + coef * elo_diff/400); trained on internationals 1990-2026"
+}

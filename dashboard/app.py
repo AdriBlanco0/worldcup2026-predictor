@@ -1,5 +1,10 @@
+import json
+import math
+
 import streamlit as st
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 from pathlib import Path
 
 st.set_page_config(
@@ -21,8 +26,32 @@ def load_predictions():
 def load_squads():
     return pd.read_csv(DATA / "raw" / "squads_2026" / "squads_2026.csv")
 
+@st.cache_data
+def load_poisson():
+    with open(DATA / "processed" / "poisson_params.json") as f:
+        params = json.load(f)
+    elo = pd.read_csv(DATA / "processed" / "elo_ratings_2026.csv")
+    return params, elo.set_index("team")["elo"].to_dict()
+
 pred = load_predictions()
 squads = load_squads()
+poisson_params, current_elo = load_poisson()
+
+
+def poisson_pmf(k, lam):
+    return lam ** k * math.exp(-lam) / math.factorial(k)
+
+
+def score_matrix(elo_home, elo_away, max_goals=6):
+    """Exact score probabilities from the Poisson goal model."""
+    d = (elo_home - elo_away) / 400
+    lam_h = math.exp(poisson_params["home_intercept"] + poisson_params["home_coef"] * d)
+    lam_a = math.exp(poisson_params["away_intercept"] + poisson_params["away_coef"] * d)
+    matrix = np.outer(
+        [poisson_pmf(i, lam_h) for i in range(max_goals + 1)],
+        [poisson_pmf(j, lam_a) for j in range(max_goals + 1)],
+    )
+    return matrix, lam_h, lam_a
 
 
 def probability_bar(p_home, p_draw, p_away):
@@ -51,7 +80,9 @@ c2.metric("Baseline beaten by", "+12.5 pts")
 c3.metric("Matches predicted", len(pred))
 c4.metric("Matchdays tracked", "1 / 3")
 
-tab_pred, tab_teams, tab_model = st.tabs(["🔮 Predictions", "🌍 Teams", "🤖 The Model"])
+tab_pred, tab_scores, tab_teams, tab_model = st.tabs(
+    ["🔮 Predictions", "🎯 Exact Scores", "🌍 Teams", "🤖 The Model"]
+)
 
 
 # ───────────────────────── TAB 1: PREDICTIONS ─────────────────────────
@@ -96,7 +127,66 @@ with tab_pred:
     )
 
 
-# ───────────────────────── TAB 2: TEAMS ─────────────────────────
+# ───────────────────────── TAB 2: EXACT SCORES ─────────────────────────
+with tab_scores:
+    st.subheader("Exact score probabilities — Poisson model")
+    st.caption(
+        "Experimental model: each team's expected goals are estimated from the Elo gap "
+        "(Poisson regression on 32,000+ internationals since 1990), then Poisson gives the "
+        "probability of every exact score."
+    )
+
+    match_options = pred.sort_values("kickoff_spain").apply(
+        lambda r: f"{r['home_team']} vs {r['away_team']} ({r['kickoff_spain'].strftime('%d %b')})", axis=1
+    )
+    selected_match = st.selectbox("Pick a match", match_options)
+
+    sel = pred.sort_values("kickoff_spain").iloc[list(match_options).index(selected_match)]
+    home, away = sel["home_team"], sel["away_team"]
+    elo_h = current_elo.get(home, 1500)
+    elo_a = current_elo.get(away, 1500)
+
+    matrix, lam_h, lam_a = score_matrix(elo_h, elo_a)
+    n = matrix.shape[0]
+
+    c1, c2 = st.columns([3, 2])
+
+    with c1:
+        fig, ax = plt.subplots(figsize=(7, 6))
+        ax.imshow(matrix * 100, cmap="Greens")
+        ax.set_xticks(range(n)); ax.set_yticks(range(n))
+        ax.set_xlabel(f"{away} goals"); ax.set_ylabel(f"{home} goals")
+        for i in range(n):
+            for j in range(n):
+                ax.text(j, i, f"{matrix[i, j]*100:.1f}", ha="center", va="center",
+                        color="white" if matrix[i, j] > 0.06 else "black", fontsize=8)
+        ax.set_title(f"{home} (Elo {elo_h:.0f}) vs {away} (Elo {elo_a:.0f})", fontweight="bold")
+        st.pyplot(fig)
+        plt.close(fig)
+
+    with c2:
+        st.metric("Expected goals", f"{lam_h:.2f} — {lam_a:.2f}")
+
+        p_home = np.tril(matrix, -1).sum() * 100
+        p_draw = np.trace(matrix) * 100
+        p_away = np.triu(matrix, 1).sum() * 100
+        st.markdown(probability_bar(round(p_home, 1), round(p_draw, 1), round(p_away, 1)),
+                    unsafe_allow_html=True)
+        st.caption(f"🟢 {home} {p_home:.1f}% · 🟡 draw {p_draw:.1f}% · 🔴 {away} {p_away:.1f}%")
+
+        flat = [(f"{i}-{j}", matrix[i, j]) for i in range(n) for j in range(n)]
+        top5 = sorted(flat, key=lambda t: -t[1])[:5]
+        st.markdown("**Most likely scores:**")
+        for s, p in top5:
+            st.markdown(f"- **{s}** — {p*100:.1f}%")
+
+    st.info(
+        "💡 Note: even the most likely exact score rarely exceeds ~14% — football is beautifully "
+        "unpredictable. The value is in the full distribution, not a single guess."
+    )
+
+
+# ───────────────────────── TAB 3: TEAMS ─────────────────────────
 with tab_teams:
     st.subheader("Team explorer")
 
