@@ -2,6 +2,8 @@
 
 > Can a Machine Learning model predict World Cup results better than a football fan?
 
+### 🔴 **[LIVE DASHBOARD → predictor-worldcup2026.streamlit.app](https://predictor-worldcup2026.streamlit.app)**
+
 A **live** Data Science project running throughout the 2026 World Cup (Canada · USA · Mexico, Jun 11 – Jul 19). Predictions are published **before** every matchday and the model's performance is tracked publicly: if it fails, everyone will see it. If it succeeds, too.
 
 ## 🎯 The project
@@ -35,8 +37,8 @@ End-to-end Data Science pipeline:
 - [ ] Feature engineering and model v0
 - [ ] MySQL database
 - [ ] Model v1 (Elo ratings + squad features) and comparison
-- [ ] Streamlit dashboard
-- [ ] Deploy on Streamlit Cloud
+- [x] Streamlit dashboard
+- [x] Deploy on Streamlit Cloud — [live app](https://predictor-worldcup2026.streamlit.app)
 - [ ] Live predictions during the tournament
 
 ## 🧭 Roadmap — Player Performance Tracker
