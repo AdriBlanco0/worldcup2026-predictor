@@ -42,11 +42,26 @@ def poisson_pmf(k, lam):
     return lam ** k * math.exp(-lam) / math.factorial(k)
 
 
-def score_matrix(elo_home, elo_away, max_goals=6):
-    """Exact score probabilities from the Poisson goal model."""
-    d = (elo_home - elo_away) / 400
-    lam_h = math.exp(poisson_params["home_intercept"] + poisson_params["home_coef"] * d)
-    lam_a = math.exp(poisson_params["away_intercept"] + poisson_params["away_coef"] * d)
+HOSTS_2026 = {"United States", "Mexico", "Canada"}
+
+
+def score_matrix(home, away, elo_home, elo_away, max_goals=6):
+    """Exact score probabilities. Hosts get the home-advantage model on home soil."""
+    if home in HOSTS_2026 and away not in HOSTS_2026:
+        p = poisson_params["home_advantage"]
+        d = (elo_home - elo_away) / 400
+        lam_h = math.exp(p["home_intercept"] + p["home_coef"] * d)
+        lam_a = math.exp(p["away_intercept"] + p["away_coef"] * d)
+    elif away in HOSTS_2026 and home not in HOSTS_2026:
+        p = poisson_params["home_advantage"]
+        d = (elo_away - elo_home) / 400
+        lam_a = math.exp(p["home_intercept"] + p["home_coef"] * d)
+        lam_h = math.exp(p["away_intercept"] + p["away_coef"] * d)
+    else:
+        p = poisson_params["neutral"]
+        d = (elo_home - elo_away) / 400
+        lam_h = math.exp(p["home_intercept"] + p["home_coef"] * d)
+        lam_a = math.exp(p["away_intercept"] + p["away_coef"] * d)
     matrix = np.outer(
         [poisson_pmf(i, lam_h) for i in range(max_goals + 1)],
         [poisson_pmf(j, lam_a) for j in range(max_goals + 1)],
@@ -156,8 +171,10 @@ with tab_scores:
     elo_h = current_elo.get(home, 1500)
     elo_a = current_elo.get(away, 1500)
 
-    matrix, lam_h, lam_a = score_matrix(elo_h, elo_a)
+    matrix, lam_h, lam_a = score_matrix(home, away, elo_h, elo_a)
     n = matrix.shape[0]
+    if home in HOSTS_2026 or away in HOSTS_2026:
+        st.caption("🏟️ Host playing on home soil — home-advantage model applied.")
 
     c1, c2 = st.columns([3, 2])
 

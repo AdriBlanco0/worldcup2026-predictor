@@ -1,7 +1,15 @@
 {
-  "home_intercept": 0.37726404397399305,
-  "home_coef": 0.8747835461528588,
-  "away_intercept": 0.03071818951472256,
-  "away_coef": -0.9011421830198074,
-  "note": "lambda = exp(intercept + coef * elo_diff/400); trained on internationals 1990-2026"
+  "neutral": {
+    "home_intercept": 0.317852686433406,
+    "home_coef": 1.0040335715256605,
+    "away_intercept": 0.23692407839626936,
+    "away_coef": -1.0026496100093416
+  },
+  "home_advantage": {
+    "home_intercept": 0.3983010685875708,
+    "home_coef": 0.843714040222379,
+    "away_intercept": -0.06602379764247171,
+    "away_coef": -0.8941935100161857
+  },
+  "note": "lambda = exp(intercept + coef * elo_diff/400). 'neutral' for neutral venues, 'home_advantage' when a team genuinely plays at home (e.g. 2026 hosts)."
 }
