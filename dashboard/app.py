@@ -43,6 +43,11 @@ def load_poisson(data_version):
 def load_odds(data_version):
     return pd.read_csv(DATA / "processed" / "tournament_odds.csv")
 
+@st.cache_data
+def load_bracket(data_version):
+    with open(DATA / "processed" / "projected_bracket.json", encoding="utf-8") as f:
+        return json.load(f)
+
 pred = load_predictions(mtime(DATA / "processed" / "predictions_2026_group_stage_v0.csv"))
 squads = load_squads(mtime(DATA / "raw" / "squads_2026" / "squads_2026.csv"))
 poisson_params, current_elo = load_poisson(mtime(DATA / "processed" / "poisson_params.json"))
@@ -266,6 +271,42 @@ with tab_odds:
         "(its Poisson slope is steep and knockout shootouts are Elo-weighted). The ranking "
         "matches the consensus; the magnitudes are the model's own opinion.",
         icon="📊",
+    )
+
+    st.divider()
+    st.subheader("🗺️ Projected bracket — the most likely World Cup")
+    st.caption(
+        "The tournament run deterministically: group standings by expected points, and in every "
+        "knockout tie the team with the higher win probability advances. One of thousands of "
+        "possible worlds — the one the model finds most likely."
+    )
+
+    bracket_data = load_bracket(mtime(DATA / "processed" / "projected_bracket.json"))
+    bracket = pd.DataFrame(bracket_data["bracket"])
+
+    st.success(f"🏆 **PROJECTED CHAMPION: {bracket_data['champion'].upper()}**", icon="🏆")
+
+    round_cols = st.columns(4)
+    rounds = ["Round of 32", "Round of 16", "Quarter-final", "Semi-final"]
+    for col, rnd in zip(round_cols, rounds):
+        with col:
+            st.markdown(f"**{rnd}**")
+            for _, b in bracket[bracket["round"] == rnd].iterrows():
+                t1 = f"**{b['team1']}**" if b["winner"] == b["team1"] else b["team1"]
+                t2 = f"**{b['team2']}**" if b["winner"] == b["team2"] else b["team2"]
+                st.markdown(
+                    f"<div style='border:1px solid #444; border-radius:6px; padding:5px 8px; "
+                    f"margin-bottom:6px; font-size:13px;'>{t1}<br>{t2}"
+                    f"<br><span style='color:#2E7D32; font-size:11px;'>→ {b['winner']} ({b['win_prob']}%)</span></div>",
+                    unsafe_allow_html=True,
+                )
+
+    final = bracket[bracket["round"] == "Final"].iloc[0]
+    st.markdown(
+        f"<div style='border:2px solid #2E7D32; border-radius:8px; padding:12px; text-align:center; "
+        f"font-size:16px; margin-top:8px;'>🏆 <b>FINAL:</b> {final['team1']} 🆚 {final['team2']} → "
+        f"<b>{final['winner']} ({final['win_prob']}%)</b></div>",
+        unsafe_allow_html=True,
     )
 
 

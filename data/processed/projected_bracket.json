@@ -1,0 +1,253 @@
+{
+ "champion": "Spain",
+ "bracket": [
+  {
+   "match_no": 73,
+   "round": "Round of 32",
+   "team1": "South Korea",
+   "team2": "Switzerland",
+   "winner": "Switzerland",
+   "win_prob": 50.7
+  },
+  {
+   "match_no": 74,
+   "round": "Round of 32",
+   "team1": "Germany",
+   "team2": "Paraguay",
+   "winner": "Germany",
+   "win_prob": 71.9
+  },
+  {
+   "match_no": 75,
+   "round": "Round of 32",
+   "team1": "Netherlands",
+   "team2": "Morocco",
+   "winner": "Netherlands",
+   "win_prob": 52.5
+  },
+  {
+   "match_no": 76,
+   "round": "Round of 32",
+   "team1": "Brazil",
+   "team2": "Japan",
+   "winner": "Brazil",
+   "win_prob": 59.0
+  },
+  {
+   "match_no": 77,
+   "round": "Round of 32",
+   "team1": "France",
+   "team2": "Egypt",
+   "winner": "France",
+   "win_prob": 86.2
+  },
+  {
+   "match_no": 78,
+   "round": "Round of 32",
+   "team1": "Ecuador",
+   "team2": "Norway",
+   "winner": "Ecuador",
+   "win_prob": 62.1
+  },
+  {
+   "match_no": 79,
+   "round": "Round of 32",
+   "team1": "Mexico",
+   "team2": "Scotland",
+   "winner": "Mexico",
+   "win_prob": 78.8
+  },
+  {
+   "match_no": 80,
+   "round": "Round of 32",
+   "team1": "England",
+   "team2": "Austria",
+   "winner": "England",
+   "win_prob": 77.3
+  },
+  {
+   "match_no": 81,
+   "round": "Round of 32",
+   "team1": "United States",
+   "team2": "Senegal",
+   "winner": "United States",
+   "win_prob": 61.2
+  },
+  {
+   "match_no": 82,
+   "round": "Round of 32",
+   "team1": "Belgium",
+   "team2": "Czech Republic",
+   "winner": "Belgium",
+   "win_prob": 69.9
+  },
+  {
+   "match_no": 83,
+   "round": "Round of 32",
+   "team1": "Colombia",
+   "team2": "Croatia",
+   "winner": "Colombia",
+   "win_prob": 60.7
+  },
+  {
+   "match_no": 84,
+   "round": "Round of 32",
+   "team1": "Spain",
+   "team2": "Algeria",
+   "winner": "Spain",
+   "win_prob": 89.3
+  },
+  {
+   "match_no": 85,
+   "round": "Round of 32",
+   "team1": "Canada",
+   "team2": "Ivory Coast",
+   "winner": "Canada",
+   "win_prob": 71.3
+  },
+  {
+   "match_no": 86,
+   "round": "Round of 32",
+   "team1": "Argentina",
+   "team2": "Uruguay",
+   "winner": "Argentina",
+   "win_prob": 80.8
+  },
+  {
+   "match_no": 87,
+   "round": "Round of 32",
+   "team1": "Portugal",
+   "team2": "Panama",
+   "winner": "Portugal",
+   "win_prob": 79.2
+  },
+  {
+   "match_no": 88,
+   "round": "Round of 32",
+   "team1": "Turkey",
+   "team2": "Iran",
+   "winner": "Turkey",
+   "win_prob": 62.5
+  },
+  {
+   "match_no": 89,
+   "round": "Round of 16",
+   "team1": "Germany",
+   "team2": "France",
+   "winner": "France",
+   "win_prob": 58.7
+  },
+  {
+   "match_no": 90,
+   "round": "Round of 16",
+   "team1": "Switzerland",
+   "team2": "Netherlands",
+   "winner": "Netherlands",
+   "win_prob": 60.4
+  },
+  {
+   "match_no": 91,
+   "round": "Round of 16",
+   "team1": "Brazil",
+   "team2": "Ecuador",
+   "winner": "Brazil",
+   "win_prob": 57.6
+  },
+  {
+   "match_no": 92,
+   "round": "Round of 16",
+   "team1": "Mexico",
+   "team2": "England",
+   "winner": "Mexico",
+   "win_prob": 53.3
+  },
+  {
+   "match_no": 93,
+   "round": "Round of 16",
+   "team1": "Colombia",
+   "team2": "Spain",
+   "winner": "Spain",
+   "win_prob": 73.1
+  },
+  {
+   "match_no": 94,
+   "round": "Round of 16",
+   "team1": "United States",
+   "team2": "Belgium",
+   "winner": "United States",
+   "win_prob": 59.7
+  },
+  {
+   "match_no": 95,
+   "round": "Round of 16",
+   "team1": "Argentina",
+   "team2": "Turkey",
+   "winner": "Argentina",
+   "win_prob": 77.7
+  },
+  {
+   "match_no": 96,
+   "round": "Round of 16",
+   "team1": "Canada",
+   "team2": "Portugal",
+   "winner": "Portugal",
+   "win_prob": 55.5
+  },
+  {
+   "match_no": 97,
+   "round": "Quarter-final",
+   "team1": "France",
+   "team2": "Netherlands",
+   "winner": "France",
+   "win_prob": 66.4
+  },
+  {
+   "match_no": 98,
+   "round": "Quarter-final",
+   "team1": "Spain",
+   "team2": "United States",
+   "winner": "Spain",
+   "win_prob": 72.2
+  },
+  {
+   "match_no": 99,
+   "round": "Quarter-final",
+   "team1": "Brazil",
+   "team2": "Mexico",
+   "winner": "Brazil",
+   "win_prob": 59.2
+  },
+  {
+   "match_no": 100,
+   "round": "Quarter-final",
+   "team1": "Argentina",
+   "team2": "Portugal",
+   "winner": "Argentina",
+   "win_prob": 69.3
+  },
+  {
+   "match_no": 101,
+   "round": "Semi-final",
+   "team1": "France",
+   "team2": "Spain",
+   "winner": "Spain",
+   "win_prob": 61.3
+  },
+  {
+   "match_no": 102,
+   "round": "Semi-final",
+   "team1": "Brazil",
+   "team2": "Argentina",
+   "winner": "Argentina",
+   "win_prob": 66.0
+  },
+  {
+   "match_no": 104,
+   "round": "Final",
+   "team1": "Spain",
+   "team2": "Argentina",
+   "winner": "Spain",
+   "win_prob": 58.1
+  }
+ ]
+}
