@@ -88,7 +88,10 @@ tab_pred, tab_scores, tab_teams, tab_model = st.tabs(
 # ───────────────────────── TAB 1: PREDICTIONS ─────────────────────────
 with tab_pred:
     st.subheader("Next matches")
-    st.caption("🟢 home win · 🟡 draw · 🔴 away win — kickoff times in Spanish time (CEST)")
+    st.caption(
+        "**Model: Random Forest v0** (trained on World Cup matches 1962-2022) · "
+        "🟢 home win · 🟡 draw · 🔴 away win — kickoff times in Spanish time (CEST)"
+    )
 
     dates = sorted(pred["date"].dt.date.unique())
     selected_date = st.selectbox("Pick a date", dates)
@@ -131,9 +134,16 @@ with tab_pred:
 with tab_scores:
     st.subheader("Exact score probabilities — Poisson model")
     st.caption(
-        "Experimental model: each team's expected goals are estimated from the Elo gap "
-        "(Poisson regression on 32,000+ internationals since 1990), then Poisson gives the "
-        "probability of every exact score."
+        "**Model: Poisson regression** — a DIFFERENT model from the Predictions tab. "
+        "Each team's expected goals are estimated from the current Elo gap (trained on 32,000+ "
+        "internationals since 1990), then Poisson gives the probability of every exact score."
+    )
+    st.warning(
+        "⚠️ The probabilities here may differ from the Predictions tab — they come from two "
+        "independent models. The Poisson model uses up-to-date Elo ratings (current form) and "
+        "carries real home advantage from its training data; the Random Forest only knows "
+        "World Cup history. Disagreement between models is normal — and interesting.",
+        icon="🤖",
     )
 
     match_options = pred.sort_values("kickoff_spain").apply(
