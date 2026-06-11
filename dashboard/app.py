@@ -47,7 +47,7 @@ for _, m in day_matches.iterrows():
     with st.container(border=True):
         c1, c2, c3, c4 = st.columns([3, 2, 2, 2])
         c1.subheader(f"{m['home_team']} 🆚 {m['away_team']}")
-        c1.caption(f"Group {m['group'][-1]} · {m['date'].date()}")
+        c1.caption(f"Group {m['group'][-1]} · {pd.to_datetime(m['kickoff_spain']).strftime('%d %b · %H:%M')} 🇪🇸")
         c2.metric(f"{m['home_team']} win", f"{m['p_home_win']}%")
         c3.metric("Draw", f"{m['p_draw']}%")
         c4.metric(f"{m['away_team']} win", f"{m['p_away_win']}%")
@@ -63,7 +63,7 @@ selected_group = st.selectbox("Filter by group", groups)
 
 table = pred if selected_group == "All" else pred[pred["group"] == selected_group]
 st.dataframe(
-    table[["date", "group", "home_team", "away_team",
+    table[["kickoff_spain", "group", "home_team", "away_team",
            "p_home_win", "p_draw", "p_away_win", "prediction"]],
     use_container_width=True, hide_index=True,
 )
