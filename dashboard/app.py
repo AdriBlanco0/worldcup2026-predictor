@@ -15,31 +15,37 @@ st.set_page_config(
 
 DATA = Path(__file__).parent.parent / "data"
 
+
+def mtime(path):
+    """File modification time — used as cache key so caches refresh when data files change."""
+    return path.stat().st_mtime
+
+
 @st.cache_data
-def load_predictions():
+def load_predictions(data_version):
     df = pd.read_csv(DATA / "processed" / "predictions_2026_group_stage_v0.csv")
     df["date"] = pd.to_datetime(df["date"])
     df["kickoff_spain"] = pd.to_datetime(df["kickoff_spain"])
     return df
 
 @st.cache_data
-def load_squads():
+def load_squads(data_version):
     return pd.read_csv(DATA / "raw" / "squads_2026" / "squads_2026.csv")
 
 @st.cache_data
-def load_poisson():
+def load_poisson(data_version):
     with open(DATA / "processed" / "poisson_params.json") as f:
         params = json.load(f)
     elo = pd.read_csv(DATA / "processed" / "elo_ratings_2026.csv")
     return params, elo.set_index("team")["elo"].to_dict()
 
 @st.cache_data
-def load_odds():
+def load_odds(data_version):
     return pd.read_csv(DATA / "processed" / "tournament_odds.csv")
 
-pred = load_predictions()
-squads = load_squads()
-poisson_params, current_elo = load_poisson()
+pred = load_predictions(mtime(DATA / "processed" / "predictions_2026_group_stage_v0.csv"))
+squads = load_squads(mtime(DATA / "raw" / "squads_2026" / "squads_2026.csv"))
+poisson_params, current_elo = load_poisson(mtime(DATA / "processed" / "poisson_params.json"))
 
 
 def poisson_pmf(k, lam):
@@ -226,7 +232,7 @@ with tab_odds:
         "Re-computed after every matchday."
     )
 
-    odds = load_odds().sort_values("Champion", ascending=False)
+    odds = load_odds(mtime(DATA / "processed" / "tournament_odds.csv")).sort_values("Champion", ascending=False)
 
     # Top contenders chart
     top15 = odds.head(15).iloc[::-1]
