@@ -6,8 +6,8 @@
    "round": "Round of 32",
    "team1": "South Korea",
    "team2": "Switzerland",
-   "winner": "Switzerland",
-   "win_prob": 50.7,
+   "winner": "South Korea",
+   "win_prob": 53.3,
    "ph1": "2A",
    "ph2": "2B"
   },
@@ -67,7 +67,7 @@
    "team1": "Mexico",
    "team2": "Ivory Coast",
    "winner": "Mexico",
-   "win_prob": 80.7,
+   "win_prob": 81.8,
    "ph1": "1A",
    "ph2": "3C/E/F/H/I"
   },
@@ -75,9 +75,9 @@
    "match_no": 80,
    "round": "Round of 32",
    "team1": "England",
-   "team2": "Austria",
+   "team2": "Uzbekistan",
    "winner": "England",
-   "win_prob": 77.3,
+   "win_prob": 82.6,
    "ph1": "1L",
    "ph2": "3E/H/I/J/K"
   },
@@ -85,9 +85,9 @@
    "match_no": 81,
    "round": "Round of 32",
    "team1": "United States",
-   "team2": "Senegal",
+   "team2": "Austria",
    "winner": "United States",
-   "win_prob": 61.2,
+   "win_prob": 65.0,
    "ph1": "1D",
    "ph2": "3B/E/F/I/J"
   },
@@ -95,9 +95,9 @@
    "match_no": 82,
    "round": "Round of 32",
    "team1": "Belgium",
-   "team2": "Czech Republic",
+   "team2": "Senegal",
    "winner": "Belgium",
-   "win_prob": 69.9,
+   "win_prob": 54.4,
    "ph1": "1G",
    "ph2": "3A/E/H/I/J"
   },
@@ -174,10 +174,10 @@
   {
    "match_no": 90,
    "round": "Round of 16",
-   "team1": "Switzerland",
+   "team1": "South Korea",
    "team2": "Netherlands",
    "winner": "Netherlands",
-   "win_prob": 60.4,
+   "win_prob": 59.6,
    "ph1": "W73",
    "ph2": "W75"
   },
@@ -197,7 +197,7 @@
    "team1": "Mexico",
    "team2": "England",
    "winner": "Mexico",
-   "win_prob": 53.3,
+   "win_prob": 55.0,
    "ph1": "W79",
    "ph2": "W80"
   },
@@ -267,7 +267,7 @@
    "team1": "Brazil",
    "team2": "Mexico",
    "winner": "Brazil",
-   "win_prob": 59.2,
+   "win_prob": 57.3,
    "ph1": "W91",
    "ph2": "W92"
   },
