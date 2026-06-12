@@ -23,10 +23,17 @@ def mtime(path):
 
 @st.cache_data
 def load_predictions(data_version):
-    df = pd.read_csv(DATA / "processed" / "predictions_2026_group_stage_v0.csv")
+    df = pd.read_csv(DATA / "processed" / "predictions_2026_group_stage_v1.csv")
     df["date"] = pd.to_datetime(df["date"])
     df["kickoff_spain"] = pd.to_datetime(df["kickoff_spain"])
     return df
+
+@st.cache_data
+def load_performance(data_version):
+    path = DATA / "processed" / "model_performance.csv"
+    if not path.exists():
+        return None
+    return pd.read_csv(path)
 
 @st.cache_data
 def load_squads(data_version):
@@ -48,7 +55,9 @@ def load_bracket(data_version):
     with open(DATA / "processed" / "projected_bracket.json", encoding="utf-8") as f:
         return json.load(f)
 
-pred = load_predictions(mtime(DATA / "processed" / "predictions_2026_group_stage_v0.csv"))
+pred = load_predictions(mtime(DATA / "processed" / "predictions_2026_group_stage_v1.csv"))
+perf_path = DATA / "processed" / "model_performance.csv"
+performance = load_performance(mtime(perf_path) if perf_path.exists() else 0)
 squads = load_squads(mtime(DATA / "raw" / "squads_2026" / "squads_2026.csv"))
 poisson_params, current_elo = load_poisson(mtime(DATA / "processed" / "poisson_params.json"))
 
@@ -100,15 +109,19 @@ def probability_bar(p_home, p_draw, p_away):
 st.title("⚽ World Cup 2026 Predictor")
 st.markdown(
     "**Machine Learning predictions for every match — published BEFORE each matchday, never edited.** "
-    "Model v0: Random Forest trained on World Cups 1962-2022 · "
+    "Model v1: Random Forest + self-computed Elo ratings (49,000 internationals since 1872) · "
     "[Code on GitHub](https://github.com/AdriBlanco0/worldcup2026-predictor)"
 )
 
 c1, c2, c3, c4 = st.columns(4)
-c1.metric("Model accuracy (test 2018-2022)", "50.0%")
-c2.metric("Baseline beaten by", "+12.5 pts")
+c1.metric("Validation accuracy (7 World Cups)", "52.4%")
+c2.metric("Improvement over v0", "+3.9 pts")
 c3.metric("Matches predicted", len(pred))
-c4.metric("Matchdays tracked", "1 / 3")
+if performance is not None:
+    live = f"{int(performance['v1_correct'].sum())}/{len(performance)}"
+else:
+    live = "0/0"
+c4.metric("🔴 Live record (tournament)", live)
 
 tab_pred, tab_scores, tab_odds, tab_teams, tab_model = st.tabs(
     ["🔮 Predictions", "🎯 Exact Scores", "🏆 Tournament Odds", "🌍 Teams", "🤖 The Model"]
@@ -119,7 +132,7 @@ tab_pred, tab_scores, tab_odds, tab_teams, tab_model = st.tabs(
 with tab_pred:
     st.subheader("Next matches")
     st.caption(
-        "**Model: Random Forest v0** (trained on World Cup matches 1962-2022) · "
+        "**Model: Random Forest v1** (World Cup history 1962-2022 + current Elo ratings) · "
         "🟢 home win · 🟡 draw · 🔴 away win — kickoff times in Spanish time (CEST)"
     )
 
@@ -357,24 +370,49 @@ with tab_model:
     |---|---|
     | **Algorithm** | Random Forest (300 trees, max depth 6) |
     | **Training data** | All men's World Cup group-stage matches 1962-2022 (636 matches) |
-    | **Features** | Historical win rate, goals for/against, World Cup experience, recent form (last 2 WCs), host advantage |
-    | **Evaluation** | Temporal split: trained on 1962-2014, tested on 2018-2022 |
-    | **Test accuracy** | **50.0%** vs 37.5% baseline (always picking "home win") |
+    | **Features (v1)** | Elo ratings (self-computed over 49,000 internationals since 1872, K by tournament importance), historical win rate, goals for/against, World Cup experience, recent form, host advantage |
+    | **Evaluation** | Leave-one-tournament-out: tested separately on each World Cup 1998-2022 |
+    | **Validation accuracy** | **52.4%** vs 48.5% (v0 without Elo) — v1 wins in 5 of 7 tournaments, never loses |
 
     **No data leakage:** every match's features are computed using only matches played *before* that
     tournament — the model never sees the future.
 
-    **Known limitations (v0):**
-    - Never predicts draws (minority class: only ~25% of matches)
+    **Known limitations:**
+    - Draws remain the hardest class (~25% of matches, weakly predicted)
     - 2026 has 3 hosts for the first time — host advantage may be diluted
     - Defunct nations mapped to FIFA heirs (West Germany → Germany, Soviet Union → Russia...)
 
-    **Coming in v1:** Elo ratings computed from scratch, squad features (age, caps, tournament
-    experience) and draw-aware calibration.
+    **Coming in v2:** squad features (age, caps, tournament experience), exact-score calibration
+    and the Player Performance Tracker.
     """)
 
-    st.subheader("📈 Model performance during the tournament")
-    st.info("The tournament starts on June 11. After every matchday, real results and model accuracy will be published here — hits and misses alike.")
+    st.subheader("📈 Live performance during the tournament")
+    if performance is None or len(performance) == 0:
+        st.info("After every matchday, real results and model accuracy are published here — hits and misses alike.")
+    else:
+        n = len(performance)
+        v1_ok = int(performance["v1_correct"].sum())
+        v0_ok = int(performance["v0_correct"].sum())
+        m1, m2, m3 = st.columns(3)
+        m1.metric("Matches played", n)
+        m2.metric("v1 record", f"{v1_ok}/{n} ({v1_ok/n*100:.0f}%)")
+        m3.metric("v0 record", f"{v0_ok}/{n} ({v0_ok/n*100:.0f}%)")
+
+        show = performance.copy()
+        show["score"] = show["home_score"].astype(int).astype(str) + "-" + show["away_score"].astype(int).astype(str)
+        show["v1"] = np.where(show["v1_correct"], "✅", "❌")
+        show["v0"] = np.where(show["v0_correct"], "✅", "❌")
+        st.dataframe(
+            show[["date", "home_team", "score", "away_team", "actual", "v1_pick", "v1", "v0_pick", "v0"]],
+            use_container_width=True, hide_index=True,
+            column_config={
+                "date": "Date", "home_team": "Home", "score": "Score", "away_team": "Away",
+                "actual": "Result", "v1_pick": "v1 pick", "v1": "v1",
+                "v0_pick": "v0 pick", "v0": "v0",
+            },
+        )
+        st.caption("Both model versions are tracked head-to-head for full transparency — "
+                   "matchday 1 was predicted with v0 (published before the tournament); v1 takes over from matchday 2.")
 
 st.divider()
 st.caption("Built by Adrián Blanco · [LinkedIn](https://www.linkedin.com/in/adrianblancoajenjo/) · [GitHub](https://github.com/AdriBlanco0/worldcup2026-predictor) · Predictions are published before each matchday and never edited.")
