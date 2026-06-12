@@ -55,9 +55,14 @@ Beyond match predictions, the project will include a **player performance module
 
 ## 📈 Model performance
 
-| Matchday | Matches | Correct | Accuracy |
-|----------|---------|---------|----------|
-| _Tournament starts June 11..._ | – | – | – |
+Updated after every matchday — hits and misses alike.
+
+| Matches played | v0 correct | v0 accuracy | v1 correct | v1 accuracy |
+|---|---|---|---|---|
+| 2 | 1 | 50.0% | 1 | 50.0% |
+
+🎯 **Highlight:** the Poisson model's most likely exact score for the opening match
+(Mexico vs South Africa) was **2-0 — the actual final score.**
 
 ## 👤 Author
 
