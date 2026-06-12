@@ -36,6 +36,13 @@ def load_performance(data_version):
     return pd.read_csv(path)
 
 @st.cache_data
+def load_results(data_version):
+    df = pd.read_csv(DATA / "results_2026.csv")
+    played = df[df["home_score"].notna()]
+    return {(r.home_team, r.away_team): (int(r.home_score), int(r.away_score))
+            for r in played.itertuples(index=False)}
+
+@st.cache_data
 def load_squads(data_version):
     return pd.read_csv(DATA / "raw" / "squads_2026" / "squads_2026.csv")
 
@@ -58,6 +65,7 @@ def load_bracket(data_version):
 pred = load_predictions(mtime(DATA / "processed" / "predictions_2026_group_stage_v1.csv"))
 perf_path = DATA / "processed" / "model_performance.csv"
 performance = load_performance(mtime(perf_path) if perf_path.exists() else 0)
+real_results = load_results(mtime(DATA / "results_2026.csv"))
 squads = load_squads(mtime(DATA / "raw" / "squads_2026" / "squads_2026.csv"))
 poisson_params, current_elo = load_poisson(mtime(DATA / "processed" / "poisson_params.json"))
 
@@ -137,15 +145,30 @@ with tab_pred:
     )
 
     dates = sorted(pred["date"].dt.date.unique())
-    selected_date = st.selectbox("Pick a date", dates)
+
+    # Default to the first date that still has unplayed matches
+    def date_has_pending(d):
+        day = pred[pred["date"].dt.date == d]
+        return any((m["home_team"], m["away_team"]) not in real_results for _, m in day.iterrows())
+
+    default_idx = next((i for i, d in enumerate(dates) if date_has_pending(d)), 0)
+    selected_date = st.selectbox("Pick a date", dates, index=default_idx)
     day_matches = pred[pred["date"].dt.date == selected_date].sort_values("kickoff_spain")
 
     for _, m in day_matches.iterrows():
+        key = (m["home_team"], m["away_team"])
         with st.container(border=True):
             left, right = st.columns([2, 3])
             left.markdown(f"### {m['home_team']} 🆚 {m['away_team']}")
             left.caption(f"Group {m['group'][-1]} · {m['kickoff_spain'].strftime('%d %b · %H:%M')} 🇪🇸")
-            right.markdown(f"**Model pick: {m['prediction']}**")
+            if key in real_results:
+                hs, as_ = real_results[key]
+                actual = "Home win" if hs > as_ else ("Away win" if as_ > hs else "Draw")
+                verdict = "✅ Model was right" if actual == m["prediction"] else "❌ Model was wrong"
+                left.markdown(f"## ⚽ FINAL: {hs} - {as_}")
+                right.markdown(f"**Model pick (frozen pre-match): {m['prediction']}** → {verdict}")
+            else:
+                right.markdown(f"**Model pick: {m['prediction']}**")
             right.markdown(probability_bar(m["p_home_win"], m["p_draw"], m["p_away_win"]),
                            unsafe_allow_html=True)
 
