@@ -1,3 +1,13 @@
 date,group,home_team,away_team,home_score,away_score,actual,v0_pick,v0_p_home,v0_p_draw,v0_p_away,v1_pick,v0_correct,v1_correct
 2026-06-11,Group A,Mexico,South Africa,2.0,0.0,Home win,Home win,56.1,22.5,21.4,Home win,True,True
 2026-06-11,Group A,South Korea,Czech Republic,2.0,1.0,Home win,Away win,33.4,27.0,39.6,Away win,False,False
+2026-06-12,Group B,Canada,Bosnia and Herzegovina,1.0,1.0,Draw,Home win,38.9,29.9,31.2,Home win,False,False
+2026-06-12,Group D,United States,Paraguay,4.0,1.0,Home win,Away win,36.1,26.1,37.8,Away win,False,False
+2026-06-13,Group B,Qatar,Switzerland,1.0,1.0,Draw,Away win,16.8,21.3,61.9,Away win,False,False
+2026-06-13,Group D,Australia,Turkey,2.0,0.0,Home win,Home win,43.4,31.7,24.9,Away win,True,False
+2026-06-13,Group C,Brazil,Morocco,1.0,1.0,Draw,Home win,68.3,20.2,11.5,Home win,False,False
+2026-06-13,Group C,Haiti,Scotland,0.0,1.0,Away win,Away win,30.3,27.7,42.0,Away win,True,True
+2026-06-14,Group F,Sweden,Tunisia,5.0,1.0,Home win,Home win,63.1,22.3,14.6,Home win,True,True
+2026-06-14,Group F,Netherlands,Japan,2.0,2.0,Draw,Home win,56.1,30.2,13.6,Home win,False,False
+2026-06-14,Group E,Ivory Coast,Ecuador,1.0,0.0,Home win,Home win,47.9,28.2,23.9,Away win,True,False
+2026-06-14,Group E,Germany,Curaçao,7.0,1.0,Home win,Home win,73.8,18.4,7.8,Home win,True,True
