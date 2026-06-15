@@ -40,14 +40,18 @@ def main():
     # Bring in each model's pick and probabilities
     v0 = pd.read_csv(PRED_V0)[["home_team", "away_team", "prediction", "p_home_win", "p_draw", "p_away_win"]]
     v0.columns = ["home_team", "away_team", "v0_pick", "v0_p_home", "v0_p_draw", "v0_p_away"]
-    v1 = pd.read_csv(PRED_V1)[["home_team", "away_team", "prediction"]]
-    v1.columns = ["home_team", "away_team", "v1_pick"]
+    v1 = pd.read_csv(PRED_V1)[["home_team", "away_team", "prediction",
+                               "pred_home_goals", "pred_away_goals"]]
+    v1.columns = ["home_team", "away_team", "v1_pick", "pred_home_goals", "pred_away_goals"]
 
     df = played.merge(v0, on=["home_team", "away_team"], how="left")
     df = df.merge(v1, on=["home_team", "away_team"], how="left")
 
     df["v0_correct"] = df["v0_pick"] == df["actual"]
     df["v1_correct"] = df["v1_pick"] == df["actual"]
+    # Exact-score hit: predicted goals match the real goals
+    df["exact_correct"] = (df["pred_home_goals"] == df["home_score"]) & \
+                          (df["pred_away_goals"] == df["away_score"])
 
     # ── Per-match report ──────────────────────────────────────────────
     print(f"{'='*72}")
@@ -55,10 +59,11 @@ def main():
     print(f"{'='*72}")
     for _, m in df.iterrows():
         score = f"{int(m['home_score'])}-{int(m['away_score'])}"
-        v0_mark = "✅" if m["v0_correct"] else "❌"
         v1_mark = "✅" if m["v1_correct"] else "❌"
+        ex = f"{int(m['pred_home_goals'])}-{int(m['pred_away_goals'])}"
+        ex_mark = "🎯" if m["exact_correct"] else "  "
         print(f"{m['home_team']} {score} {m['away_team']:<18} | real: {m['actual']:<8} "
-              f"| v0: {m['v0_pick']:<8} {v0_mark} | v1: {m['v1_pick']:<8} {v1_mark}")
+              f"| v1: {m['v1_pick']:<8} {v1_mark} | exact pred: {ex} {ex_mark}")
 
     # ── Summary ───────────────────────────────────────────────────────
     print(f"\n{'='*72}")
@@ -66,14 +71,17 @@ def main():
           f"({df['v0_correct'].mean()*100:.1f}%)")
     print(f"v1 (Elo):           {df['v1_correct'].sum()}/{len(df)} correct "
           f"({df['v1_correct'].mean()*100:.1f}%)")
+    print(f"🎯 Exact scores:     {df['exact_correct'].sum()}/{len(df)} correct "
+          f"({df['exact_correct'].mean()*100:.1f}%)")
     print(f"{'='*72}")
 
     # ── Markdown table for the README ─────────────────────────────────
     print("\nREADME table (copy-paste):\n")
-    print("| Matches played | v0 correct | v0 accuracy | v1 correct | v1 accuracy |")
-    print("|---|---|---|---|---|")
-    print(f"| {len(df)} | {df['v0_correct'].sum()} | {df['v0_correct'].mean()*100:.1f}% "
-          f"| {df['v1_correct'].sum()} | {df['v1_correct'].mean()*100:.1f}% |")
+    print("| Matches | v0 (outcome) | v1 (outcome) | 🎯 Exact scores |")
+    print("|---|---|---|---|")
+    print(f"| {len(df)} | {df['v0_correct'].sum()}/{len(df)} ({df['v0_correct'].mean()*100:.0f}%) "
+          f"| {df['v1_correct'].sum()}/{len(df)} ({df['v1_correct'].mean()*100:.0f}%) "
+          f"| {df['exact_correct'].sum()}/{len(df)} ({df['exact_correct'].mean()*100:.0f}%) |")
 
     df.to_csv(OUTPUT, index=False)
     print(f"\nSaved -> {OUTPUT}")

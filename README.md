@@ -57,12 +57,13 @@ Beyond match predictions, the project will include a **player performance module
 
 Updated after every matchday — hits and misses alike.
 
-| Matches played | v0 correct | v0 accuracy | v1 correct | v1 accuracy |
-|---|---|---|---|---|
-| 2 | 1 | 50.0% | 1 | 50.0% |
+| Matches | v0 (outcome) | v1 (outcome) | 🎯 Exact scores |
+|---|---|---|---|
+| 12 | 6/12 (50%) | 4/12 (33%) | 3/12 (25%) |
 
-🎯 **Highlight:** the Poisson model's most likely exact score for the opening match
-(Mexico vs South Africa) was **2-0 — the actual final score.**
+🎯 **Exact scores nailed:** Mexico 2-0, Brazil 1-1, Haiti 0-1 Scotland.
+The Poisson model is hitting exact scores at **25%** — world-class exact-score models
+land around 11%. (Small sample; expect regression, but a strong start.)
 
 ## 👤 Author
 

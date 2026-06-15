@@ -161,14 +161,22 @@ with tab_pred:
             left, right = st.columns([2, 3])
             left.markdown(f"### {m['home_team']} 🆚 {m['away_team']}")
             left.caption(f"Group {m['group'][-1]} · {m['kickoff_spain'].strftime('%d %b · %H:%M')} 🇪🇸")
+            exact = ""
+            if "pred_home_goals" in m and pd.notna(m["pred_home_goals"]):
+                exact = f"{int(m['pred_home_goals'])}-{int(m['pred_away_goals'])}"
             if key in real_results:
                 hs, as_ = real_results[key]
                 actual = "Home win" if hs > as_ else ("Away win" if as_ > hs else "Draw")
                 verdict = "✅ Model was right" if actual == m["prediction"] else "❌ Model was wrong"
                 left.markdown(f"## ⚽ FINAL: {hs} - {as_}")
                 right.markdown(f"**Model pick (frozen pre-match): {m['prediction']}** → {verdict}")
+                if exact:
+                    exact_hit = "🎯 EXACT SCORE NAILED!" if exact == f"{hs}-{as_}" else ""
+                    right.caption(f"Predicted exact score: {exact}  {exact_hit}")
             else:
                 right.markdown(f"**Model pick: {m['prediction']}**")
+                if exact:
+                    right.caption(f"🎯 Predicted exact score: {exact}")
             right.markdown(probability_bar(m["p_home_win"], m["p_draw"], m["p_away_win"]),
                            unsafe_allow_html=True)
 
@@ -416,24 +424,30 @@ with tab_model:
         n = len(performance)
         v1_ok = int(performance["v1_correct"].sum())
         v0_ok = int(performance["v0_correct"].sum())
-        m1, m2, m3 = st.columns(3)
+        has_exact = "exact_correct" in performance.columns
+        ex_ok = int(performance["exact_correct"].sum()) if has_exact else 0
+        m1, m2, m3, m4 = st.columns(4)
         m1.metric("Matches played", n)
-        m2.metric("v1 record", f"{v1_ok}/{n} ({v1_ok/n*100:.0f}%)")
-        m3.metric("v0 record", f"{v0_ok}/{n} ({v0_ok/n*100:.0f}%)")
+        m2.metric("v1 outcome", f"{v1_ok}/{n} ({v1_ok/n*100:.0f}%)")
+        m3.metric("v0 outcome", f"{v0_ok}/{n} ({v0_ok/n*100:.0f}%)")
+        m4.metric("🎯 Exact scores", f"{ex_ok}/{n} ({ex_ok/n*100:.0f}%)")
 
         show = performance.copy()
         show["score"] = show["home_score"].astype(int).astype(str) + "-" + show["away_score"].astype(int).astype(str)
         show["v1"] = np.where(show["v1_correct"], "✅", "❌")
-        show["v0"] = np.where(show["v0_correct"], "✅", "❌")
-        st.dataframe(
-            show[["date", "home_team", "score", "away_team", "actual", "v1_pick", "v1", "v0_pick", "v0"]],
-            use_container_width=True, hide_index=True,
-            column_config={
-                "date": "Date", "home_team": "Home", "score": "Score", "away_team": "Away",
-                "actual": "Result", "v1_pick": "v1 pick", "v1": "v1",
-                "v0_pick": "v0 pick", "v0": "v0",
-            },
-        )
+        if has_exact:
+            show["pred"] = (show["pred_home_goals"].astype("Int64").astype(str) + "-"
+                            + show["pred_away_goals"].astype("Int64").astype(str))
+            show["🎯"] = np.where(show["exact_correct"], "🎯", "")
+            cols = ["date", "home_team", "score", "away_team", "actual", "v1_pick", "v1", "pred", "🎯"]
+            cfg = {"date": "Date", "home_team": "Home", "score": "Score", "away_team": "Away",
+                   "actual": "Result", "v1_pick": "v1 pick", "v1": "v1",
+                   "pred": "Exact pred", "🎯": "Hit"}
+        else:
+            cols = ["date", "home_team", "score", "away_team", "actual", "v1_pick", "v1"]
+            cfg = {"date": "Date", "home_team": "Home", "score": "Score", "away_team": "Away",
+                   "actual": "Result", "v1_pick": "v1 pick", "v1": "v1"}
+        st.dataframe(show[cols], use_container_width=True, hide_index=True, column_config=cfg)
         st.caption("Both model versions are tracked head-to-head for full transparency — "
                    "matchday 1 was predicted with v0 (published before the tournament); v1 takes over from matchday 2.")
 

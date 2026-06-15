@@ -126,12 +126,46 @@ def team_features(team_matches, team, prefix):
     }
 
 
+def _poisson_pmf(k, lam):
+    return lam ** k * math.exp(-lam) / math.factorial(k)
+
+
+def most_likely_score(home, away, elo, params, ground_map, max_goals=7):
+    """Most likely exact score from the Poisson model (venue-aware home advantage)."""
+    ground = ground_map.get((home, away), "")
+    country = VENUE_COUNTRY.get(ground, "United States")
+    e1, e2 = elo.get(home, 1500), elo.get(away, 1500)
+    if home == country and away != country:
+        p = params["home_advantage"]; d = (e1 - e2) / 400
+        lh = math.exp(p["home_intercept"] + p["home_coef"] * d)
+        la = math.exp(p["away_intercept"] + p["away_coef"] * d)
+    elif away == country and home != country:
+        p = params["home_advantage"]; d = (e2 - e1) / 400
+        la = math.exp(p["home_intercept"] + p["home_coef"] * d)
+        lh = math.exp(p["away_intercept"] + p["away_coef"] * d)
+    else:
+        p = params["neutral"]; d = (e1 - e2) / 400
+        lh = math.exp(p["home_intercept"] + p["home_coef"] * d)
+        la = math.exp(p["away_intercept"] + p["away_coef"] * d)
+    M = np.outer([_poisson_pmf(i, lh) for i in range(max_goals + 1)],
+                 [_poisson_pmf(j, la) for j in range(max_goals + 1)])
+    i, j = np.unravel_index(M.argmax(), M.shape)
+    return int(i), int(j)
+
+
 def refresh_predictions(elo, played_keys):
     bundle = joblib.load("models/rf_v1.joblib")
     model, FEATURES = bundle["model"], bundle["features"]
 
     pred = pd.read_csv("data/processed/predictions_2026_group_stage_v1.csv")
     team_matches = build_team_matches()
+
+    with open("data/processed/poisson_params.json") as f:
+        poisson_params = json.load(f)
+    fix = pd.read_csv("data/raw/fixture_2026/fixture_2026.csv")
+    fix["team1"] = fix["team1"].replace(NAME_MAP)
+    fix["team2"] = fix["team2"].replace(NAME_MAP)
+    ground_map = {(r.team1, r.team2): r.ground for r in fix.itertuples(index=False)}
 
     updated = 0
     for idx, m in pred.iterrows():
@@ -155,6 +189,10 @@ def refresh_predictions(elo, played_keys):
         pred.loc[idx, "prediction"] = ["Home win", "Draw", "Away win"][probs.argmax()]
         pred.loc[idx, "elo_home"] = row["elo_home"]
         pred.loc[idx, "elo_away"] = row["elo_away"]
+        # Frozen exact-score prediction (Poisson most likely score)
+        ph, pa = most_likely_score(m["home_team"], m["away_team"], elo, poisson_params, ground_map)
+        pred.loc[idx, "pred_home_goals"] = ph
+        pred.loc[idx, "pred_away_goals"] = pa
         updated += 1
 
     pred.to_csv("data/processed/predictions_2026_group_stage_v1.csv", index=False)
