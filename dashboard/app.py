@@ -426,11 +426,23 @@ with tab_model:
         v0_ok = int(performance["v0_correct"].sum())
         has_exact = "exact_correct" in performance.columns
         ex_ok = int(performance["exact_correct"].sum()) if has_exact else 0
-        m1, m2, m3, m4 = st.columns(4)
+        has_rps = "v1_rps" in performance.columns
+        m1, m2, m3, m4, m5 = st.columns(5)
         m1.metric("Matches played", n)
         m2.metric("v1 outcome", f"{v1_ok}/{n} ({v1_ok/n*100:.0f}%)")
         m3.metric("v0 outcome", f"{v0_ok}/{n} ({v0_ok/n*100:.0f}%)")
         m4.metric("🎯 Exact scores", f"{ex_ok}/{n} ({ex_ok/n*100:.0f}%)")
+        if has_rps:
+            m5.metric("📐 RPS (v1)", f"{performance['v1_rps'].mean():.3f}",
+                      help="Ranked Probability Score — the proper metric for ordered probabilistic "
+                           "forecasts (lower is better). Historical model ≈ 0.20. Accuracy alone is "
+                           "misleading for a probabilistic model.")
+
+    if performance is not None and len(performance) > 0:
+        st.caption("📐 **Why RPS?** Accuracy only checks if the single most-likely pick happened. "
+                   "The Ranked Probability Score scores the whole probability distribution — rewarding "
+                   "the model for putting honest weight on draws even when they aren't the top pick. "
+                   "By RPS the model performs close to its historical level, despite a noisy accuracy in a small sample.")
 
         show = performance.copy()
         show["score"] = show["home_score"].astype(int).astype(str) + "-" + show["away_score"].astype(int).astype(str)

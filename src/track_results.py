@@ -9,6 +9,7 @@ Workflow during the tournament:
 
 import sys
 
+import numpy as np
 import pandas as pd
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -41,8 +42,10 @@ def main():
     v0 = pd.read_csv(PRED_V0)[["home_team", "away_team", "prediction", "p_home_win", "p_draw", "p_away_win"]]
     v0.columns = ["home_team", "away_team", "v0_pick", "v0_p_home", "v0_p_draw", "v0_p_away"]
     v1 = pd.read_csv(PRED_V1)[["home_team", "away_team", "prediction",
+                               "p_home_win", "p_draw", "p_away_win",
                                "pred_home_goals", "pred_away_goals"]]
-    v1.columns = ["home_team", "away_team", "v1_pick", "pred_home_goals", "pred_away_goals"]
+    v1.columns = ["home_team", "away_team", "v1_pick", "v1_p_home", "v1_p_draw", "v1_p_away",
+                  "pred_home_goals", "pred_away_goals"]
 
     df = played.merge(v0, on=["home_team", "away_team"], how="left")
     df = df.merge(v1, on=["home_team", "away_team"], how="left")
@@ -52,6 +55,17 @@ def main():
     # Exact-score hit: predicted goals match the real goals
     df["exact_correct"] = (df["pred_home_goals"] == df["home_score"]) & \
                           (df["pred_away_goals"] == df["away_score"])
+
+    # Ranked Probability Score — the proper metric for ordered probabilistic forecasts
+    outcome_idx = {"Home win": 0, "Draw": 1, "Away win": 2}
+
+    def rps_row(r):
+        p = np.array([r["v1_p_home"], r["v1_p_draw"], r["v1_p_away"]]) / 100
+        o = np.zeros(3); o[outcome_idx[r["actual"]]] = 1
+        cp, co = np.cumsum(p), np.cumsum(o)
+        return np.sum((cp[:-1] - co[:-1]) ** 2) / 2
+
+    df["v1_rps"] = df.apply(rps_row, axis=1)
 
     # ── Per-match report ──────────────────────────────────────────────
     print(f"{'='*72}")
@@ -73,6 +87,8 @@ def main():
           f"({df['v1_correct'].mean()*100:.1f}%)")
     print(f"🎯 Exact scores:     {df['exact_correct'].sum()}/{len(df)} correct "
           f"({df['exact_correct'].mean()*100:.1f}%)")
+    print(f"📐 v1 mean RPS:      {df['v1_rps'].mean():.4f}  (lower=better; "
+          f"a coin-flip hedge ≈ 0.22, historical model ≈ 0.20)")
     print(f"{'='*72}")
 
     # ── Markdown table for the README ─────────────────────────────────

@@ -57,13 +57,20 @@ Beyond match predictions, the project will include a **player performance module
 
 Updated after every matchday — hits and misses alike.
 
-| Matches | v0 (outcome) | v1 (outcome) | 🎯 Exact scores |
-|---|---|---|---|
-| 12 | 6/12 (50%) | 4/12 (33%) | 3/12 (25%) |
+| Matches | v0 (outcome) | v1 (outcome) | 🎯 Exact scores | 📐 RPS (v1) |
+|---|---|---|---|---|
+| 12 | 6/12 (50%) | 4/12 (33%) | 3/12 (25%) | 0.223 |
 
 🎯 **Exact scores nailed:** Mexico 2-0, Brazil 1-1, Haiti 0-1 Scotland.
 The Poisson model is hitting exact scores at **25%** — world-class exact-score models
 land around 11%. (Small sample; expect regression, but a strong start.)
+
+📐 **On metrics:** accuracy is the wrong yardstick for a probabilistic forecaster. By the
+**Ranked Probability Score** (the standard metric for ordered football outcomes), the model
+sits at 0.223 live — right next to its historical 0.20 — so it is performing roughly as
+expected despite a noisy 33% accuracy over a tiny sample. See
+[notebook 06](notebooks/06_probabilistic_eval_ensemble.ipynb) for the full analysis and the
+RF+Poisson ensemble that wins on RPS.
 
 ## 👤 Author
 
