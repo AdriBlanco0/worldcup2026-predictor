@@ -45,9 +45,9 @@
    "match_no": 77,
    "round": "Round of 32",
    "team1": "France",
-   "team2": "Sweden",
+   "team2": "Iran",
    "winner": "France",
-   "win_prob": 88.0,
+   "win_prob": 80.7,
    "ph1": "1I",
    "ph2": "3C/D/F/G/H"
   },
@@ -65,9 +65,9 @@
    "match_no": 79,
    "round": "Round of 32",
    "team1": "Mexico",
-   "team2": "Senegal",
+   "team2": "Ecuador",
    "winner": "Mexico",
-   "win_prob": 72.6,
+   "win_prob": 69.1,
    "ph1": "1A",
    "ph2": "3C/E/F/H/I"
   },
@@ -85,9 +85,9 @@
    "match_no": 81,
    "round": "Round of 32",
    "team1": "United States",
-   "team2": "Ecuador",
+   "team2": "Senegal",
    "winner": "United States",
-   "win_prob": 61.4,
+   "win_prob": 65.3,
    "ph1": "1D",
    "ph2": "3B/E/F/I/J"
   },
@@ -97,7 +97,7 @@
    "team1": "Belgium",
    "team2": "Austria",
    "winner": "Belgium",
-   "win_prob": 59.1,
+   "win_prob": 57.9,
    "ph1": "1G",
    "ph2": "3A/E/H/I/J"
   },
@@ -117,7 +117,7 @@
    "team1": "Spain",
    "team2": "Algeria",
    "winner": "Spain",
-   "win_prob": 89.3,
+   "win_prob": 87.0,
    "ph1": "1H",
    "ph2": "2J"
   },
@@ -125,9 +125,9 @@
    "match_no": 85,
    "round": "Round of 32",
    "team1": "Canada",
-   "team2": "Egypt",
+   "team2": "Sweden",
    "winner": "Canada",
-   "win_prob": 67.9,
+   "win_prob": 70.5,
    "ph1": "1B",
    "ph2": "3E/F/G/I/J"
   },
@@ -137,7 +137,7 @@
    "team1": "Argentina",
    "team2": "Uruguay",
    "winner": "Argentina",
-   "win_prob": 80.8,
+   "win_prob": 82.5,
    "ph1": "1J",
    "ph2": "2H"
   },
@@ -155,9 +155,9 @@
    "match_no": 88,
    "round": "Round of 32",
    "team1": "Australia",
-   "team2": "Iran",
+   "team2": "Egypt",
    "winner": "Australia",
-   "win_prob": 56.5,
+   "win_prob": 65.9,
    "ph1": "2D",
    "ph2": "2G"
   },
@@ -207,7 +207,7 @@
    "team1": "Colombia",
    "team2": "Spain",
    "winner": "Spain",
-   "win_prob": 73.1,
+   "win_prob": 69.2,
    "ph1": "W83",
    "ph2": "W84"
   },
@@ -217,7 +217,7 @@
    "team1": "United States",
    "team2": "Belgium",
    "winner": "United States",
-   "win_prob": 63.8,
+   "win_prob": 64.7,
    "ph1": "W81",
    "ph2": "W82"
   },
@@ -257,7 +257,7 @@
    "team1": "Spain",
    "team2": "United States",
    "winner": "Spain",
-   "win_prob": 68.6,
+   "win_prob": 65.2,
    "ph1": "W93",
    "ph2": "W94"
   },
@@ -287,7 +287,7 @@
    "team1": "France",
    "team2": "Spain",
    "winner": "Spain",
-   "win_prob": 61.3,
+   "win_prob": 56.8,
    "ph1": "W97",
    "ph2": "W98"
   },
@@ -307,7 +307,7 @@
    "team1": "Spain",
    "team2": "Argentina",
    "winner": "Spain",
-   "win_prob": 58.1,
+   "win_prob": 53.6,
    "ph1": "W101",
    "ph2": "W102"
   }
