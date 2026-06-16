@@ -102,6 +102,38 @@ def main():
     df.to_csv(OUTPUT, index=False)
     print(f"\nSaved -> {OUTPUT}")
 
+    update_readme(df)
+
+
+def update_readme(df, path="README.md"):
+    """Rewrite the performance table in README.md between the marker comments."""
+    n = len(df)
+    nailed = df[df["exact_correct"]]
+    nailed_str = ", ".join(f"{r['home_team']} {int(r['home_score'])}-{int(r['away_score'])} {r['away_team']}"
+                           for _, r in nailed.iterrows()) or "—"
+    block = (
+        "<!-- PERFORMANCE_START -->\n"
+        "| Matches | v0 (outcome) | v1 (outcome) | 🎯 Exact scores | 📐 RPS (v1) |\n"
+        "|---|---|---|---|---|\n"
+        f"| {n} | {df['v0_correct'].sum()}/{n} ({df['v0_correct'].mean()*100:.0f}%) "
+        f"| {df['v1_correct'].sum()}/{n} ({df['v1_correct'].mean()*100:.0f}%) "
+        f"| {df['exact_correct'].sum()}/{n} ({df['exact_correct'].mean()*100:.0f}%) "
+        f"| {df['v1_rps'].mean():.3f} |\n\n"
+        f"🎯 **Exact scores nailed:** {nailed_str}.\n"
+        "<!-- PERFORMANCE_END -->"
+    )
+    try:
+        with open(path, encoding="utf-8") as f:
+            content = f.read()
+        import re
+        new = re.sub(r"<!-- PERFORMANCE_START -->.*?<!-- PERFORMANCE_END -->",
+                     block, content, flags=re.DOTALL)
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(new)
+        print("Updated README performance table.")
+    except FileNotFoundError:
+        pass
+
 
 if __name__ == "__main__":
     main()

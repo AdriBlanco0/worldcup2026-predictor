@@ -34,12 +34,14 @@ End-to-end Data Science pipeline:
 - [x] Research and validation of data sources
 - [x] Historical data and squads collection
 - [x] Historical EDA (1930-2022) — see [notebook 01](notebooks/01_eda_historical.ipynb)
-- [ ] Feature engineering and model v0
-- [ ] MySQL database
-- [ ] Model v1 (Elo ratings + squad features) and comparison
-- [x] Streamlit dashboard
-- [x] Deploy on Streamlit Cloud — [live app](https://predictor-worldcup2026.streamlit.app)
-- [ ] Live predictions during the tournament
+- [x] Feature engineering and model v0 (Random Forest)
+- [x] Model v1 (self-computed Elo ratings) + leave-one-tournament-out validation
+- [x] Poisson exact-score model + Monte Carlo tournament simulator
+- [x] Probabilistic evaluation (RPS/Brier) + RF·Poisson ensemble
+- [x] Streamlit dashboard — [live app](https://predictor-worldcup2026.streamlit.app)
+- [x] Live predictions + daily auto-update pipeline during the tournament
+- [ ] MySQL relational database (next)
+- [ ] Player Performance Tracker
 
 ## 🧭 Roadmap — Player Performance Tracker
 
@@ -57,20 +59,23 @@ Beyond match predictions, the project will include a **player performance module
 
 Updated after every matchday — hits and misses alike.
 
+<!-- PERFORMANCE_START -->
 | Matches | v0 (outcome) | v1 (outcome) | 🎯 Exact scores | 📐 RPS (v1) |
 |---|---|---|---|---|
-| 12 | 6/12 (50%) | 4/12 (33%) | 3/12 (25%) | 0.223 |
+| 16 | 6/16 (38%) | 4/16 (25%) | 4/16 (25%) | 0.224 |
 
-🎯 **Exact scores nailed:** Mexico 2-0, Brazil 1-1, Haiti 0-1 Scotland.
+🎯 **Exact scores nailed:** Mexico 2-0 South Africa, Brazil 1-1 Morocco, Haiti 0-1 Scotland, Belgium 1-1 Egypt.
+<!-- PERFORMANCE_END -->
+
 The Poisson model is hitting exact scores at **25%** — world-class exact-score models
 land around 11%. (Small sample; expect regression, but a strong start.)
 
 📐 **On metrics:** accuracy is the wrong yardstick for a probabilistic forecaster. By the
-**Ranked Probability Score** (the standard metric for ordered football outcomes), the model
-sits at 0.223 live — right next to its historical 0.20 — so it is performing roughly as
-expected despite a noisy 33% accuracy over a tiny sample. See
-[notebook 06](notebooks/06_probabilistic_eval_ensemble.ipynb) for the full analysis and the
-RF+Poisson ensemble that wins on RPS.
+**Ranked Probability Score** (the standard metric for ordered football outcomes, ~0.20 for this
+model historically), the model performs close to expectations even when raw accuracy looks noisy
+over a small sample — because it assigns honest probability to draws even when they aren't the top
+pick. See [notebook 06](notebooks/06_probabilistic_eval_ensemble.ipynb) for the full analysis and the
+RF·Poisson ensemble that wins on RPS.
 
 ## 👤 Author
 
