@@ -62,13 +62,13 @@ Updated after every matchday — hits and misses alike.
 <!-- PERFORMANCE_START -->
 | Matches | v0 (outcome) | v1 (outcome) | 🎯 Exact scores | 📐 RPS (v1) |
 |---|---|---|---|---|
-| 16 | 6/16 (38%) | 4/16 (25%) | 4/16 (25%) | 0.224 |
+| 20 | 9/20 (45%) | 8/20 (40%) | 4/20 (20%) | 0.202 |
 
 🎯 **Exact scores nailed:** Mexico 2-0 South Africa, Brazil 1-1 Morocco, Haiti 0-1 Scotland, Belgium 1-1 Egypt.
 <!-- PERFORMANCE_END -->
 
-The Poisson model is hitting exact scores at **25%** — world-class exact-score models
-land around 11%. (Small sample; expect regression, but a strong start.)
+The Poisson model is hitting exact scores well above the ~11% that world-class exact-score
+models achieve. (Small sample; expect regression toward the mean as the tournament goes on.)
 
 📐 **On metrics:** accuracy is the wrong yardstick for a probabilistic forecaster. By the
 **Ranked Probability Score** (the standard metric for ordered football outcomes, ~0.20 for this

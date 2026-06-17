@@ -15,10 +15,10 @@ date,group,home_team,away_team,home_score,away_score
 2026-06-15,Group H,Spain,Cape Verde,0.0,0.0
 2026-06-15,Group G,Iran,New Zealand,2.0,2.0
 2026-06-15,Group G,Belgium,Egypt,1.0,1.0
-2026-06-16,Group I,Iraq,Norway,,
-2026-06-16,Group J,Austria,Jordan,,
-2026-06-16,Group I,France,Senegal,,
-2026-06-16,Group J,Argentina,Algeria,,
+2026-06-16,Group I,Iraq,Norway,1.0,4.0
+2026-06-16,Group J,Austria,Jordan,3.0,1.0
+2026-06-16,Group I,France,Senegal,3.0,1.0
+2026-06-16,Group J,Argentina,Algeria,3.0,0.0
 2026-06-17,Group K,Portugal,DR Congo,,
 2026-06-17,Group K,Uzbekistan,Colombia,,
 2026-06-17,Group L,England,Croatia,,
