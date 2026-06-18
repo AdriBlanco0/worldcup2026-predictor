@@ -17,7 +17,7 @@ End-to-end Data Science pipeline:
 | Phase | What happens | Tools |
 |-------|--------------|-------|
 | **1. Data** | World Cup history (1930-2022), squads of all 48 teams, real-time results | `requests`, `BeautifulSoup`, APIs |
-| **2. Database** | Relational model with matches, teams, players and stats | `MySQL`, `mysql-connector` |
+| **2. Database** | Normalized MySQL schema (teams, matches, predictions, odds, players) loaded from the CSVs; analytical SQL (JOINs, CTEs, subqueries, views) | `MySQL`, `mysql-connector` |
 | **3. EDA** | Exploratory analysis: historical trends, patterns, visualizations | `pandas`, `matplotlib`, `seaborn` |
 | **4. ML Model** | Multiclass classification (home win / draw / away win) comparing several algorithms | `scikit-learn`, `XGBoost` |
 | **5. Dashboard** | Interactive web app with predictions, stats and tournament simulator | `Streamlit`, `Plotly`, `Folium` |
@@ -40,7 +40,7 @@ End-to-end Data Science pipeline:
 - [x] Probabilistic evaluation (RPS/Brier) + RF·Poisson ensemble
 - [x] Streamlit dashboard — [live app](https://predictor-worldcup2026.streamlit.app)
 - [x] Live predictions + daily auto-update pipeline during the tournament
-- [ ] MySQL relational database (next)
+- [x] MySQL relational database (5 tables, normalized) + analytical SQL — see [notebook 07](notebooks/07_sql_analysis.ipynb)
 - [ ] Player Performance Tracker
 
 ## 🧭 Roadmap — Player Performance Tracker
