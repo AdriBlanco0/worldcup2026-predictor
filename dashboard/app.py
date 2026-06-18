@@ -58,6 +58,11 @@ def load_odds(data_version):
     return pd.read_csv(DATA / "processed" / "tournament_odds.csv")
 
 @st.cache_data
+def load_confederations(data_version):
+    path = DATA / "processed" / "confederation_stats.csv"
+    return pd.read_csv(path) if path.exists() else None
+
+@st.cache_data
 def load_bracket(data_version):
     with open(DATA / "processed" / "projected_bracket.json", encoding="utf-8") as f:
         return json.load(f)
@@ -131,8 +136,8 @@ else:
     live = "0/0"
 c4.metric("🔴 Live record (tournament)", live)
 
-tab_pred, tab_scores, tab_odds, tab_teams, tab_model = st.tabs(
-    ["🔮 Predictions", "🎯 Exact Scores", "🏆 Tournament Odds", "🌍 Teams", "🤖 The Model"]
+tab_pred, tab_scores, tab_odds, tab_conf, tab_teams, tab_model = st.tabs(
+    ["🔮 Predictions", "🎯 Exact Scores", "🏆 Tournament Odds", "🌍 Continents", "👕 Teams", "🤖 The Model"]
 )
 
 
@@ -352,6 +357,60 @@ with tab_odds:
         f"<b>{final['winner']} ({final['win_prob']}%)</b></div>",
         unsafe_allow_html=True,
     )
+
+
+# ───────────────────────── TAB: CONTINENTS ─────────────────────────
+with tab_conf:
+    st.subheader("🌍 Which continent is winning the World Cup?")
+    st.caption("Performance by confederation, computed with SQL on the project's MySQL database. "
+               "Points = 3 win / 1 draw / 0 loss, averaged per team-appearance.")
+
+    conf = load_confederations(mtime(DATA / "processed" / "confederation_stats.csv")
+                               if (DATA / "processed" / "confederation_stats.csv").exists() else 0)
+    if conf is None or len(conf) == 0:
+        st.info("Confederation stats will appear once matches have been played.")
+    else:
+        names = {"UEFA": "🇪🇺 UEFA (Europe)", "CONMEBOL": "🌎 CONMEBOL (S. America)",
+                 "CAF": "🌍 CAF (Africa)", "AFC": "🌏 AFC (Asia)",
+                 "CONCACAF": "🌎 CONCACAF (N. America)", "OFC": "🇳🇿 OFC (Oceania)"}
+        conf = conf.copy()
+        conf["region"] = conf["confederation"].map(names).fillna(conf["confederation"])
+
+        c1, c2 = st.columns(2)
+        with c1:
+            st.markdown("**Average points per match**")
+            fig, ax = plt.subplots(figsize=(6, 4))
+            d = conf.sort_values("avg_points")
+            ax.barh(d["confederation"], d["avg_points"], color="#1565C0")
+            for i, v in enumerate(d["avg_points"]):
+                ax.text(v + 0.02, i, f"{v:.2f}", va="center", fontsize=9)
+            ax.set_xlabel("Avg points (3=win, 1=draw)")
+            ax.spines[["top", "right"]].set_visible(False)
+            st.pyplot(fig); plt.close(fig)
+        with c2:
+            st.markdown("**Combined title probability**")
+            fig, ax = plt.subplots(figsize=(6, 4))
+            d = conf.sort_values("champion_pct")
+            ax.barh(d["confederation"], d["champion_pct"], color="#2E7D32")
+            for i, v in enumerate(d["champion_pct"]):
+                ax.text(v + 0.5, i, f"{v:.1f}%", va="center", fontsize=9)
+            ax.set_xlabel("Sum of champion probability (%)")
+            ax.spines[["top", "right"]].set_visible(False)
+            st.pyplot(fig); plt.close(fig)
+
+        st.markdown("**Full breakdown**")
+        st.dataframe(
+            conf[["region", "matches_played", "wins", "draws", "losses",
+                  "avg_points", "avg_goals_for", "avg_goals_against", "champion_pct"]],
+            use_container_width=True, hide_index=True,
+            column_config={
+                "region": "Confederation", "matches_played": "Played",
+                "wins": "W", "draws": "D", "losses": "L",
+                "avg_points": "Avg pts", "avg_goals_for": "Avg GF",
+                "avg_goals_against": "Avg GA",
+                "champion_pct": st.column_config.ProgressColumn("🏆 Title %", min_value=0, max_value=100, format="%.1f%%"),
+            },
+        )
 
 
 # ───────────────────────── TAB 4: TEAMS ─────────────────────────

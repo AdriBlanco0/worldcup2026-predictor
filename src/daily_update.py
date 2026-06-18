@@ -488,11 +488,63 @@ def main():
     draw_bracket(bracket, champion)
     print(f"   Projected champion: {champion}")
 
-    print("\n5️⃣ Live performance:")
+    print("\n5️⃣ Confederation stats...")
+    compute_confederation_stats(played, odds)
+    print("   Saved confederation_stats.csv")
+
+    print("\n6️⃣ Live performance:")
     import track_results
     track_results.main()
 
     print("\n✅ ALL DONE. Now: git add . && git commit -m \"Daily update\" && git push")
+
+
+CONFEDERATION = {
+    "Austria": "UEFA", "Belgium": "UEFA", "Bosnia and Herzegovina": "UEFA", "Croatia": "UEFA",
+    "Czech Republic": "UEFA", "England": "UEFA", "France": "UEFA", "Germany": "UEFA",
+    "Netherlands": "UEFA", "Norway": "UEFA", "Portugal": "UEFA", "Scotland": "UEFA",
+    "Spain": "UEFA", "Sweden": "UEFA", "Switzerland": "UEFA", "Turkey": "UEFA",
+    "Argentina": "CONMEBOL", "Brazil": "CONMEBOL", "Colombia": "CONMEBOL", "Ecuador": "CONMEBOL",
+    "Paraguay": "CONMEBOL", "Uruguay": "CONMEBOL",
+    "Algeria": "CAF", "Cape Verde": "CAF", "DR Congo": "CAF", "Egypt": "CAF", "Ghana": "CAF",
+    "Ivory Coast": "CAF", "Morocco": "CAF", "Senegal": "CAF", "South Africa": "CAF", "Tunisia": "CAF",
+    "Australia": "AFC", "Iran": "AFC", "Iraq": "AFC", "Japan": "AFC", "Jordan": "AFC",
+    "Qatar": "AFC", "Saudi Arabia": "AFC", "South Korea": "AFC", "Uzbekistan": "AFC",
+    "Canada": "CONCACAF", "Curaçao": "CONCACAF", "Haiti": "CONCACAF", "Mexico": "CONCACAF",
+    "Panama": "CONCACAF", "United States": "CONCACAF",
+    "New Zealand": "OFC",
+}
+
+
+def compute_confederation_stats(played, odds):
+    """Per-confederation performance (one row per team-appearance), saved as a CSV artifact."""
+    rows = []
+    for r in played.itertuples(index=False):
+        rows.append({"conf": CONFEDERATION.get(r.home_team), "gf": r.home_score, "ga": r.away_score,
+                     "pts": 3 if r.home_score > r.away_score else (1 if r.home_score == r.away_score else 0)})
+        rows.append({"conf": CONFEDERATION.get(r.away_team), "gf": r.away_score, "ga": r.home_score,
+                     "pts": 3 if r.away_score > r.home_score else (1 if r.home_score == r.away_score else 0)})
+    tp = pd.DataFrame(rows)
+    if tp.empty:
+        return
+    g = tp.groupby("conf")
+    stats = pd.DataFrame({
+        "matches_played": g.size(),
+        "total_points": g["pts"].sum(),
+        "avg_points": g["pts"].mean().round(2),
+        "avg_goals_for": g["gf"].mean().round(2),
+        "avg_goals_against": g["ga"].mean().round(2),
+        "wins": g["pts"].apply(lambda s: (s == 3).sum()),
+        "draws": g["pts"].apply(lambda s: (s == 1).sum()),
+        "losses": g["pts"].apply(lambda s: (s == 0).sum()),
+    }).reset_index().rename(columns={"conf": "confederation"})
+
+    odds_team = odds.reset_index().rename(columns={"index": "team"})
+    odds_team["conf"] = odds_team["team"].map(CONFEDERATION)
+    champ = odds_team.groupby("conf")["Champion"].sum().round(1).rename("champion_pct")
+    stats = stats.merge(champ, left_on="confederation", right_index=True, how="left")
+    stats = stats.sort_values("avg_points", ascending=False)
+    stats.to_csv("data/processed/confederation_stats.csv", index=False)
 
 
 if __name__ == "__main__":
