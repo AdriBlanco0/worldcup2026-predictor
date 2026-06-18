@@ -476,6 +476,23 @@ with tab_model:
     and the Player Performance Tracker.
     """)
 
+    st.subheader("📏 Is the model well calibrated?")
+    cal_path = DATA / "processed" / "calibration.png"
+    if cal_path.exists():
+        cc1, cc2 = st.columns([3, 2])
+        cc1.image(str(cal_path), use_column_width=True)
+        cc2.markdown("""
+        A **reliability diagram**: when the model says *X%*, does it actually happen *X%* of the time?
+        Points on the diagonal = honest probabilities.
+
+        **Expected Calibration Error (ECE) = 0.031** — well below the 0.05 "well-calibrated" threshold.
+
+        This means the percentages here aren't just rankings: a **70% really means ~7 times out of 10**.
+        That trustworthiness is what makes the Monte Carlo title odds meaningful. See
+        [notebook 08](https://github.com/AdriBlanco0/worldcup2026-predictor/blob/main/notebooks/08_calibration.ipynb).
+        """)
+    st.divider()
+
     st.subheader("📈 Live performance during the tournament")
     if performance is None or len(performance) == 0:
         st.info("After every matchday, real results and model accuracy are published here — hits and misses alike.")
