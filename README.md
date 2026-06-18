@@ -62,7 +62,7 @@ Updated after every matchday — hits and misses alike.
 <!-- PERFORMANCE_START -->
 | Matches | v0 (outcome) | v1 (outcome) | 🎯 Exact scores | 📐 RPS (v1) |
 |---|---|---|---|---|
-| 20 | 9/20 (45%) | 8/20 (40%) | 4/20 (20%) | 0.202 |
+| 24 | 11/24 (46%) | 9/24 (38%) | 4/24 (17%) | 0.211 |
 
 🎯 **Exact scores nailed:** Mexico 2-0 South Africa, Brazil 1-1 Morocco, Haiti 0-1 Scotland, Belgium 1-1 Egypt.
 <!-- PERFORMANCE_END -->

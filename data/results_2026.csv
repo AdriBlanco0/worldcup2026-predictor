@@ -19,10 +19,10 @@ date,group,home_team,away_team,home_score,away_score
 2026-06-16,Group J,Austria,Jordan,3.0,1.0
 2026-06-16,Group I,France,Senegal,3.0,1.0
 2026-06-16,Group J,Argentina,Algeria,3.0,0.0
-2026-06-17,Group K,Portugal,DR Congo,,
-2026-06-17,Group K,Uzbekistan,Colombia,,
-2026-06-17,Group L,England,Croatia,,
-2026-06-17,Group L,Ghana,Panama,,
+2026-06-17,Group K,Portugal,DR Congo,1.0,1.0
+2026-06-17,Group K,Uzbekistan,Colombia,1.0,3.0
+2026-06-17,Group L,England,Croatia,4.0,2.0
+2026-06-17,Group L,Ghana,Panama,1.0,0.0
 2026-06-18,Group B,Canada,Qatar,,
 2026-06-18,Group A,Czech Republic,South Africa,,
 2026-06-18,Group A,Mexico,South Korea,,
