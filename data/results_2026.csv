@@ -23,18 +23,18 @@ date,group,home_team,away_team,home_score,away_score
 2026-06-17,Group K,Uzbekistan,Colombia,1.0,3.0
 2026-06-17,Group L,England,Croatia,4.0,2.0
 2026-06-17,Group L,Ghana,Panama,1.0,0.0
-2026-06-18,Group B,Canada,Qatar,,
-2026-06-18,Group A,Czech Republic,South Africa,,
-2026-06-18,Group A,Mexico,South Korea,,
-2026-06-18,Group B,Switzerland,Bosnia and Herzegovina,,
-2026-06-19,Group D,United States,Australia,,
-2026-06-19,Group C,Scotland,Morocco,,
-2026-06-19,Group D,Turkey,Paraguay,,
-2026-06-19,Group C,Brazil,Haiti,,
-2026-06-20,Group E,Ecuador,Curaçao,,
-2026-06-20,Group E,Germany,Ivory Coast,,
-2026-06-20,Group F,Netherlands,Sweden,,
-2026-06-20,Group F,Tunisia,Japan,,
+2026-06-18,Group B,Canada,Qatar,6.0,0.0
+2026-06-18,Group A,Czech Republic,South Africa,1.0,1.0
+2026-06-18,Group A,Mexico,South Korea,1.0,0.0
+2026-06-18,Group B,Switzerland,Bosnia and Herzegovina,4.0,1.0
+2026-06-19,Group D,United States,Australia,2.0,0.0
+2026-06-19,Group C,Scotland,Morocco,0.0,1.0
+2026-06-19,Group D,Turkey,Paraguay,0.0,1.0
+2026-06-19,Group C,Brazil,Haiti,3.0,0.0
+2026-06-20,Group E,Ecuador,Curaçao,0.0,0.0
+2026-06-20,Group E,Germany,Ivory Coast,2.0,1.0
+2026-06-20,Group F,Netherlands,Sweden,5.0,1.0
+2026-06-20,Group F,Tunisia,Japan,0.0,4.0
 2026-06-21,Group G,Belgium,Iran,,
 2026-06-21,Group G,New Zealand,Egypt,,
 2026-06-21,Group H,Spain,Saudi Arabia,,
