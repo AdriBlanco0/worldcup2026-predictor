@@ -35,10 +35,10 @@ date,group,home_team,away_team,home_score,away_score
 2026-06-20,Group E,Germany,Ivory Coast,2.0,1.0
 2026-06-20,Group F,Netherlands,Sweden,5.0,1.0
 2026-06-20,Group F,Tunisia,Japan,0.0,4.0
-2026-06-21,Group G,Belgium,Iran,,
-2026-06-21,Group G,New Zealand,Egypt,,
-2026-06-21,Group H,Spain,Saudi Arabia,,
-2026-06-21,Group H,Uruguay,Cape Verde,,
+2026-06-21,Group G,Belgium,Iran,0.0,0.0
+2026-06-21,Group G,New Zealand,Egypt,1.0,3.0
+2026-06-21,Group H,Spain,Saudi Arabia,4.0,0.0
+2026-06-21,Group H,Uruguay,Cape Verde,2.0,2.0
 2026-06-22,Group I,Norway,Senegal,,
 2026-06-22,Group I,France,Iraq,,
 2026-06-22,Group J,Argentina,Austria,,

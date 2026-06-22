@@ -35,3 +35,7 @@ date,group,home_team,away_team,home_score,away_score,actual,v0_pick,v0_p_home,v0
 2026-06-20,Group E,Germany,Ivory Coast,2.0,1.0,Home win,Home win,69.4,19.4,11.2,Home win,69.4,17.2,13.4,1.0,0.0,True,True,False,0.05579599999999997
 2026-06-20,Group F,Netherlands,Sweden,5.0,1.0,Home win,Draw,28.4,42.1,29.5,Home win,40.6,35.8,23.5,2.0,0.0,False,True,False,0.204266
 2026-06-20,Group F,Tunisia,Japan,0.0,4.0,Away win,Home win,39.5,29.0,31.5,Away win,16.6,20.1,63.3,0.0,2.0,False,True,False,0.0811225
+2026-06-21,Group G,Belgium,Iran,0.0,0.0,Draw,Home win,57.7,28.2,14.1,Home win,52.8,30.3,16.9,1.0,1.0,False,False,False,0.15367250000000002
+2026-06-21,Group G,New Zealand,Egypt,1.0,3.0,Away win,Home win,36.4,31.4,32.2,Away win,27.7,24.3,48.0,1.0,1.0,False,True,False,0.1735645
+2026-06-21,Group H,Spain,Saudi Arabia,4.0,0.0,Home win,Home win,57.6,22.9,19.6,Home win,53.7,23.0,23.3,3.0,0.0,True,True,False,0.13432899999999998
+2026-06-21,Group H,Uruguay,Cape Verde,2.0,2.0,Draw,Home win,79.1,13.7,7.2,Home win,76.5,15.5,8.0,2.0,0.0,False,False,False,0.2958125
