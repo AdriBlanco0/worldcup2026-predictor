@@ -68,6 +68,11 @@ def load_groups(data_version):
     return pd.read_csv(path) if path.exists() else None
 
 @st.cache_data
+def load_thirds(data_version):
+    path = DATA / "processed" / "third_place_table.csv"
+    return pd.read_csv(path) if path.exists() else None
+
+@st.cache_data
 def load_bracket(data_version):
     with open(DATA / "processed" / "projected_bracket.json", encoding="utf-8") as f:
         return json.load(f)
@@ -249,6 +254,24 @@ with tab_groups:
                    "❌ Eliminated = advances in none of them · 🪙 = only a best-third path left · ⚪ Alive. "
                    "Standings & qualification use the **2026 head-to-head-first tiebreaker** (a rule change "
                    "from previous World Cups, where goal difference came first).")
+
+        st.divider()
+        st.subheader("🪙 Best third-placed teams")
+        st.caption("The 8 best third-placed teams (across the 12 groups) also reach the Round of 32. "
+                   "Ranked by points → goal difference → goals scored.")
+        thirds = load_thirds(mtime(DATA / "processed" / "third_place_table.csv")
+                             if (DATA / "processed" / "third_place_table.csv").exists() else 0)
+        if thirds is not None and len(thirds) > 0:
+            tshow = thirds.copy()
+            tshow["zone"] = np.where(tshow["qualifies"], "✅ In", "❌ Out")
+            st.dataframe(
+                tshow[["rank", "team", "group", "points", "gd", "gf", "zone"]],
+                use_container_width=True, hide_index=True,
+                column_config={
+                    "rank": "#", "team": "Team", "group": "Group",
+                    "points": "Pts", "gd": "GD", "gf": "GF", "zone": "Top 8?",
+                },
+            )
 
 
 # ───────────────────────── TAB 2: EXACT SCORES ─────────────────────────

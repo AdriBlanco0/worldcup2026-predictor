@@ -605,6 +605,10 @@ def compute_group_table(tournament, played, n_sims):
             stand[h]["drawn"] += 1; stand[a]["drawn"] += 1
             stand[h]["points"] += 1; stand[a]["points"] += 1
 
+    by_group = {}
+    for t, gname in team_group.items():
+        by_group.setdefault(gname, []).append(t)
+
     def status_of(t):
         """Derived from the simulation (which now uses the correct 2026 head-to-head tiebreaker):
         a team is eliminated only if it qualifies in NONE of the 10,000 scenarios."""
@@ -631,6 +635,26 @@ def compute_group_table(tournament, played, n_sims):
         })
     df = pd.DataFrame(rows).sort_values(["group", "points", "gd", "gf"], ascending=[True, False, False, False])
     df.to_csv("data/processed/group_table.csv", index=False)
+
+    # ── Best-third ranking (current 3rd of each group, ranked across groups) ──
+    # Within-group order uses the 2026 head-to-head tiebreaker; the cross-group third ranking
+    # uses overall points → goal difference → goals scored (head-to-head doesn't apply across groups).
+    thirds = []
+    for g, teams in by_group.items():
+        results = [(r.team1, r.team2, int(played_keys[(r.team1, r.team2)][0]), int(played_keys[(r.team1, r.team2)][1]))
+                   for r in gf[gf["group"] == g].itertuples(index=False)
+                   if (r.team1, r.team2) in played_keys]
+        if not results:
+            continue
+        standings = rank_group(teams, results)
+        if len(standings) >= 3:
+            team, (pts, gdiff, gfor) = standings[2]
+            thirds.append({"team": team, "group": g, "points": pts, "gd": gdiff, "gf": gfor})
+    if thirds:
+        tdf = pd.DataFrame(thirds).sort_values(["points", "gd", "gf"], ascending=False).reset_index(drop=True)
+        tdf.insert(0, "rank", tdf.index + 1)
+        tdf["qualifies"] = tdf["rank"] <= 8
+        tdf.to_csv("data/processed/third_place_table.csv", index=False)
 
 
 def compute_confederation_stats(played, odds):
