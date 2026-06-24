@@ -207,6 +207,53 @@ def poisson_pmf(k, lam):
     return lam ** k * math.exp(-lam) / math.factorial(k)
 
 
+def rank_group(teams, results):
+    """Rank a group by the FIFA World Cup 2026 tiebreakers.
+
+    Order: points → HEAD-TO-HEAD among tied teams (points, GD, goals) → overall GD →
+    overall goals → lots. Head-to-head FIRST is the 2026 rule change (was goal difference before).
+    `results` is a list of (home, away, home_goals, away_goals). Returns [(team, [pts, gd, gf]), ...].
+    """
+    pts = {t: 0 for t in teams}
+    gd = {t: 0 for t in teams}
+    gf = {t: 0 for t in teams}
+    for h, a, hg, ag in results:
+        gf[h] += hg; gf[a] += ag
+        gd[h] += hg - ag; gd[a] += ag - hg
+        if hg > ag:
+            pts[h] += 3
+        elif ag > hg:
+            pts[a] += 3
+        else:
+            pts[h] += 1; pts[a] += 1
+
+    def head_to_head(tied):
+        s = set(tied)
+        hp = {t: 0 for t in tied}; hgd = {t: 0 for t in tied}; hgf = {t: 0 for t in tied}
+        for h, a, hg, ag in results:
+            if h in s and a in s:
+                hgf[h] += hg; hgf[a] += ag
+                hgd[h] += hg - ag; hgd[a] += ag - hg
+                if hg > ag:
+                    hp[h] += 3
+                elif ag > hg:
+                    hp[a] += 3
+                else:
+                    hp[h] += 1; hp[a] += 1
+        return hp, hgd, hgf
+
+    order = []
+    for p in sorted(set(pts.values()), reverse=True):
+        tied = [t for t in teams if pts[t] == p]
+        if len(tied) == 1:
+            order.append(tied[0])
+        else:
+            hp, hgd, hgf = head_to_head(tied)
+            tied.sort(key=lambda t: (hp[t], hgd[t], hgf[t], gd[t], gf[t], rng.random()), reverse=True)
+            order.extend(tied)
+    return [(t, [pts[t], gd[t], gf[t]]) for t in order]
+
+
 class Tournament:
     def __init__(self, elo, results):
         with open("data/processed/poisson_params.json") as f:
@@ -269,20 +316,15 @@ class Tournament:
         return t1 if rng.random() < p1 else t2
 
     def sim_group(self, g):
-        stats = {}
+        results = []
+        teams = []
         for t1, t2, ground in self.groups[g]:
             for t in (t1, t2):
-                stats.setdefault(t, [0, 0, 0])
+                if t not in teams:
+                    teams.append(t)
             g1, g2 = self.sim_match(t1, t2, ground)
-            stats[t1][1] += g1 - g2; stats[t1][2] += g1
-            stats[t2][1] += g2 - g1; stats[t2][2] += g2
-            if g1 > g2:
-                stats[t1][0] += 3
-            elif g2 > g1:
-                stats[t2][0] += 3
-            else:
-                stats[t1][0] += 1; stats[t2][0] += 1
-        return sorted(stats.items(), key=lambda kv: (kv[1][0], kv[1][1], kv[1][2], rng.random()), reverse=True)
+            results.append((t1, t2, g1, g2))
+        return rank_group(teams, results)
 
     def assign_thirds(self, qualified):
         slot_ids = list(self.third_slots.keys())
@@ -563,17 +605,18 @@ def compute_group_table(tournament, played, n_sims):
             stand[h]["drawn"] += 1; stand[a]["drawn"] += 1
             stand[h]["points"] += 1; stand[a]["points"] += 1
 
-    by_group = {}
-    for t, gname in team_group.items():
-        by_group.setdefault(gname, []).append(t)
-
-    # Unplayed group matches per group (remaining fixtures)
-    unplayed = {}
-    for r in gf.itertuples(index=False):
-        if (r.team1, r.team2) not in played_keys:
-            unplayed.setdefault(r.group, []).append((r.team1, r.team2))
-
-    status = mathematical_status(stand, by_group, unplayed)
+    def status_of(t):
+        """Derived from the simulation (which now uses the correct 2026 head-to-head tiebreaker):
+        a team is eliminated only if it qualifies in NONE of the 10,000 scenarios."""
+        adv = tournament.grp_advance.get(t, 0)
+        top2 = tournament.grp_top2.get(t, 0)
+        if adv == n_sims:
+            return "✅ Qualified"
+        if adv == 0:
+            return "❌ Eliminated"
+        if top2 == 0:
+            return "🪙 3rd-place chance only"
+        return "⚪ Alive"
 
     rows = []
     for t, s in stand.items():
@@ -584,61 +627,10 @@ def compute_group_table(tournament, played, n_sims):
             "p_first": round(tournament.grp_first.get(t, 0) / n_sims * 100, 1),
             "p_top2": round(tournament.grp_top2.get(t, 0) / n_sims * 100, 1),
             "p_advance": round(tournament.grp_advance.get(t, 0) / n_sims * 100, 1),
-            "status": status[t],
+            "status": status_of(t),
         })
     df = pd.DataFrame(rows).sort_values(["group", "points", "gd", "gf"], ascending=[True, False, False, False])
     df.to_csv("data/processed/group_table.csv", index=False)
-
-
-def mathematical_status(stand, by_group, unplayed):
-    """Deterministic qualification status by enumerating every remaining group result jointly.
-
-    Key subtlety: rivals that play EACH OTHER in the last round can't all drop points, so top-2
-    must be checked over joint group scenarios, not rival-by-rival.
-    A team is ELIMINATED only if no scenario gives it a top-2 finish AND it can't make the
-    best-third cut (4 points in the 48-team format).
-    """
-    from itertools import product
-
-    BEST_THIRD_FLOOR = 4  # structural cutoff: the 8th-best third in a 48-team WC has ~4 points
-
-    status = {}
-    for g, teams in by_group.items():
-        base = {t: stand[t]["points"] for t in teams}
-        matches = unplayed.get(g, [])
-        can_top2 = {t: False for t in teams}      # top-2 possible in SOME scenario (GD benefit)
-        sure_top2 = {t: True for t in teams}      # top-2 in EVERY scenario (GD against)
-        max_pts = {t: base[t] for t in teams}
-
-        combos = list(product([0, 1, 2], repeat=len(matches))) or [()]
-        for combo in combos:
-            pts = dict(base)
-            for (a, b), out in zip(matches, combo):
-                if out == 0:
-                    pts[a] += 3
-                elif out == 1:
-                    pts[a] += 1; pts[b] += 1
-                else:
-                    pts[b] += 3
-            for t in teams:
-                max_pts[t] = max(max_pts[t], pts[t])
-                above = sum(1 for r in teams if r != t and pts[r] > pts[t])   # strictly above
-                level = sum(1 for r in teams if r != t and pts[r] == pts[t])  # tied
-                if above <= 1:               # best case (win all ties) → top 2
-                    can_top2[t] = True
-                if above + level > 1:         # worst case (lose all ties) → not safely top 2
-                    sure_top2[t] = False
-
-        for t in teams:
-            if sure_top2[t]:
-                status[t] = "✅ Qualified"
-            elif not can_top2[t] and max_pts[t] < BEST_THIRD_FLOOR:
-                status[t] = "❌ Eliminated"
-            elif not can_top2[t]:
-                status[t] = "🪙 3rd-place chance only"
-            else:
-                status[t] = "⚪ Alive"
-    return status
 
 
 def compute_confederation_stats(played, odds):
