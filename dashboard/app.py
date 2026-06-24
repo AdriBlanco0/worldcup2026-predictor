@@ -146,8 +146,8 @@ else:
     live = "0/0"
 c4.metric("🔴 Live record (tournament)", live)
 
-tab_pred, tab_groups, tab_scores, tab_odds, tab_conf, tab_teams, tab_model = st.tabs(
-    ["🔮 Predictions", "📋 Groups", "🎯 Exact Scores", "🏆 Tournament Odds",
+tab_pred, tab_groups, tab_bracket, tab_scores, tab_odds, tab_conf, tab_teams, tab_model = st.tabs(
+    ["🔮 Predictions", "📋 Groups", "🗺️ Bracket", "🎯 Exact Scores", "🏆 Tournament Odds",
      "🌍 Continents", "👕 Teams", "🤖 The Model"]
 )
 
@@ -274,6 +274,48 @@ with tab_groups:
             )
 
 
+# ───────────────────────── TAB: BRACKET ─────────────────────────
+with tab_bracket:
+    st.subheader("🗺️ Projected knockout bracket")
+    st.caption(
+        "The single most likely path to the trophy: group standings by expected points (with the "
+        "2026 head-to-head tiebreaker), then in every knockout tie the team with the higher win "
+        "probability advances. **Updates automatically as real results come in** — placeholders turn "
+        "into real teams as the groups finish."
+    )
+
+    bracket_data = load_bracket(mtime(DATA / "processed" / "projected_bracket.json"))
+    bracket = pd.DataFrame(bracket_data["bracket"])
+
+    st.success(f"🏆 PROJECTED CHAMPION: {bracket_data['champion'].upper()}", icon="🏆")
+
+    img = DATA / "processed" / "projected_bracket.png"
+    if img.exists():
+        st.image(str(img), use_column_width=True)
+
+    with st.expander("📋 See the bracket round by round"):
+        round_cols = st.columns(4)
+        for col, rnd in zip(round_cols, ["Round of 32", "Round of 16", "Quarter-final", "Semi-final"]):
+            with col:
+                st.markdown(f"**{rnd}**")
+                for _, b in bracket[bracket["round"] == rnd].iterrows():
+                    t1 = f"**{b['team1']}**" if b["winner"] == b["team1"] else b["team1"]
+                    t2 = f"**{b['team2']}**" if b["winner"] == b["team2"] else b["team2"]
+                    st.markdown(
+                        f"<div style='border:1px solid #444; border-radius:6px; padding:5px 8px; "
+                        f"margin-bottom:6px; font-size:13px;'>{t1}<br>{t2}"
+                        f"<br><span style='color:#2E7D32; font-size:11px;'>→ {b['winner']} ({b['win_prob']}%)</span></div>",
+                        unsafe_allow_html=True,
+                    )
+        final = bracket[bracket["round"] == "Final"].iloc[0]
+        st.markdown(
+            f"<div style='border:2px solid #2E7D32; border-radius:8px; padding:12px; text-align:center; "
+            f"font-size:16px; margin-top:8px;'>🏆 <b>FINAL:</b> {final['team1']} 🆚 {final['team2']} → "
+            f"<b>{final['winner']} ({final['win_prob']}%)</b></div>",
+            unsafe_allow_html=True,
+        )
+
+
 # ───────────────────────── TAB 2: EXACT SCORES ─────────────────────────
 with tab_scores:
     st.subheader("Exact score probabilities — Poisson model")
@@ -385,42 +427,6 @@ with tab_odds:
         "(its Poisson slope is steep and knockout shootouts are Elo-weighted). The ranking "
         "matches the consensus; the magnitudes are the model's own opinion.",
         icon="📊",
-    )
-
-    st.divider()
-    st.subheader("🗺️ Projected bracket — the most likely World Cup")
-    st.caption(
-        "The tournament run deterministically: group standings by expected points, and in every "
-        "knockout tie the team with the higher win probability advances. One of thousands of "
-        "possible worlds — the one the model finds most likely."
-    )
-
-    bracket_data = load_bracket(mtime(DATA / "processed" / "projected_bracket.json"))
-    bracket = pd.DataFrame(bracket_data["bracket"])
-
-    st.success(f"🏆 **PROJECTED CHAMPION: {bracket_data['champion'].upper()}**", icon="🏆")
-
-    round_cols = st.columns(4)
-    rounds = ["Round of 32", "Round of 16", "Quarter-final", "Semi-final"]
-    for col, rnd in zip(round_cols, rounds):
-        with col:
-            st.markdown(f"**{rnd}**")
-            for _, b in bracket[bracket["round"] == rnd].iterrows():
-                t1 = f"**{b['team1']}**" if b["winner"] == b["team1"] else b["team1"]
-                t2 = f"**{b['team2']}**" if b["winner"] == b["team2"] else b["team2"]
-                st.markdown(
-                    f"<div style='border:1px solid #444; border-radius:6px; padding:5px 8px; "
-                    f"margin-bottom:6px; font-size:13px;'>{t1}<br>{t2}"
-                    f"<br><span style='color:#2E7D32; font-size:11px;'>→ {b['winner']} ({b['win_prob']}%)</span></div>",
-                    unsafe_allow_html=True,
-                )
-
-    final = bracket[bracket["round"] == "Final"].iloc[0]
-    st.markdown(
-        f"<div style='border:2px solid #2E7D32; border-radius:8px; padding:12px; text-align:center; "
-        f"font-size:16px; margin-top:8px;'>🏆 <b>FINAL:</b> {final['team1']} 🆚 {final['team2']} → "
-        f"<b>{final['winner']} ({final['win_prob']}%)</b></div>",
-        unsafe_allow_html=True,
     )
 
 
