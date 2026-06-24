@@ -245,9 +245,10 @@ with tab_groups:
                         "status": "Status",
                     },
                 )
-        st.caption("**Status** is a deterministic check (not a simulation): "
-                   "✅ Qualified = through in every remaining scenario · ❌ Eliminated = cannot reach "
-                   "the top 2 nor the 4-point best-third cut · 🪙 = only a best-third chance left · ⚪ Alive.")
+        st.caption("**Status:** ✅ Qualified = advances in every one of the 10,000 simulations · "
+                   "❌ Eliminated = advances in none of them · 🪙 = only a best-third path left · ⚪ Alive. "
+                   "Standings & qualification use the **2026 head-to-head-first tiebreaker** (a rule change "
+                   "from previous World Cups, where goal difference came first).")
 
 
 # ───────────────────────── TAB 2: EXACT SCORES ─────────────────────────
