@@ -63,6 +63,11 @@ def load_confederations(data_version):
     return pd.read_csv(path) if path.exists() else None
 
 @st.cache_data
+def load_groups(data_version):
+    path = DATA / "processed" / "group_table.csv"
+    return pd.read_csv(path) if path.exists() else None
+
+@st.cache_data
 def load_bracket(data_version):
     with open(DATA / "processed" / "projected_bracket.json", encoding="utf-8") as f:
         return json.load(f)
@@ -136,8 +141,9 @@ else:
     live = "0/0"
 c4.metric("🔴 Live record (tournament)", live)
 
-tab_pred, tab_scores, tab_odds, tab_conf, tab_teams, tab_model = st.tabs(
-    ["🔮 Predictions", "🎯 Exact Scores", "🏆 Tournament Odds", "🌍 Continents", "👕 Teams", "🤖 The Model"]
+tab_pred, tab_groups, tab_scores, tab_odds, tab_conf, tab_teams, tab_model = st.tabs(
+    ["🔮 Predictions", "📋 Groups", "🎯 Exact Scores", "🏆 Tournament Odds",
+     "🌍 Continents", "👕 Teams", "🤖 The Model"]
 )
 
 
@@ -207,6 +213,35 @@ with tab_pred:
             "prediction": "Model pick",
         },
     )
+
+
+# ───────────────────────── TAB: GROUPS ─────────────────────────
+with tab_groups:
+    st.subheader("📋 Group standings & qualification odds")
+    st.caption("Live standings from real results + probability of advancing to the Round of 32 "
+               "(top 2 of each group + the 8 best third-placed teams), from 10,000 Monte Carlo simulations.")
+
+    groups = load_groups(mtime(DATA / "processed" / "group_table.csv")
+                         if (DATA / "processed" / "group_table.csv").exists() else 0)
+    if groups is None or len(groups) == 0:
+        st.info("Group tables will appear once matches are played.")
+    else:
+        group_names = sorted(groups["group"].unique())
+        cols = st.columns(2)
+        for i, gname in enumerate(group_names):
+            gdf = groups[groups["group"] == gname].copy()
+            with cols[i % 2]:
+                st.markdown(f"### {gname}")
+                st.dataframe(
+                    gdf[["team", "played", "won", "drawn", "lost", "gd", "points", "p_advance"]],
+                    use_container_width=True, hide_index=True,
+                    column_config={
+                        "team": "Team", "played": "PJ", "won": "W", "drawn": "D", "lost": "L",
+                        "gd": "GD", "points": "Pts",
+                        "p_advance": st.column_config.ProgressColumn(
+                            "✅ Advance %", min_value=0, max_value=100, format="%.0f%%"),
+                    },
+                )
 
 
 # ───────────────────────── TAB 2: EXACT SCORES ─────────────────────────

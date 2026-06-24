@@ -303,6 +303,9 @@ class Tournament:
         return {sid: qualified[grp] for sid, grp in res.items()}
 
     def simulate_once(self):
+        if not hasattr(self, "grp_first"):
+            from collections import Counter
+            self.grp_first, self.grp_top2, self.grp_advance = Counter(), Counter(), Counter()
         self.sim_elo = {t: self.elo.get(t, 1500) + rng.normal(0, ELO_SIGMA) for t in self.teams}
         reached, slots, thirds = {}, {}, {}
         for g in self.groups:
@@ -314,10 +317,17 @@ class Tournament:
             thirds[letter] = (t3, s3[0], s3[1], s3[2])
             reached[standings[0][0]] = "R32"
             reached[standings[1][0]] = "R32"
+            # group-finish tracking
+            self.grp_first[standings[0][0]] += 1
+            self.grp_top2[standings[0][0]] += 1
+            self.grp_top2[standings[1][0]] += 1
+            self.grp_advance[standings[0][0]] += 1
+            self.grp_advance[standings[1][0]] += 1
         ranked = sorted(thirds.items(), key=lambda kv: (kv[1][1], kv[1][2], kv[1][3], rng.random()), reverse=True)
         qualified = {grp: d[0] for grp, d in ranked[:8]}
         for t in qualified.values():
             reached[t] = "R32"
+            self.grp_advance[t] += 1  # qualified as a best third
         slots.update(self.assign_thirds(qualified))
 
         stage_of = {"Round of 32": "R16", "Round of 16": "QF", "Quarter-final": "SF", "Semi-final": "Final"}
@@ -488,11 +498,15 @@ def main():
     draw_bracket(bracket, champion)
     print(f"   Projected champion: {champion}")
 
-    print("\n5️⃣ Confederation stats...")
+    print("\n5️⃣ Group standings & qualification probabilities...")
+    compute_group_table(t, played, N_SIMS)
+    print("   Saved group_table.csv")
+
+    print("\n6️⃣ Confederation stats...")
     compute_confederation_stats(played, odds)
     print("   Saved confederation_stats.csv")
 
-    print("\n6️⃣ Live performance:")
+    print("\n7️⃣ Live performance:")
     import track_results
     track_results.main()
 
@@ -514,6 +528,53 @@ CONFEDERATION = {
     "Panama": "CONCACAF", "United States": "CONCACAF",
     "New Zealand": "OFC",
 }
+
+
+def compute_group_table(tournament, played, n_sims):
+    """Current group standings (from played results) + qualification probabilities (from sims)."""
+    fixture = pd.read_csv("data/raw/fixture_2026/fixture_2026.csv")
+    fixture["team1"] = fixture["team1"].replace(NAME_MAP)
+    fixture["team2"] = fixture["team2"].replace(NAME_MAP)
+    gf = fixture[fixture["group"].notna()]
+
+    # Team -> group, and group -> teams
+    team_group = {}
+    for r in gf.itertuples(index=False):
+        team_group[r.team1] = r.group
+        team_group[r.team2] = r.group
+
+    played_keys = {(r.home_team, r.away_team): (r.home_score, r.away_score)
+                   for r in played.itertuples(index=False)}
+
+    # Current standings from played matches only
+    stand = {t: {"played": 0, "won": 0, "drawn": 0, "lost": 0, "gf": 0, "ga": 0, "points": 0}
+             for t in team_group}
+    for (h, a), (hs, as_) in played_keys.items():
+        if h not in stand or a not in stand:
+            continue
+        for t, gfor, gag in [(h, hs, as_), (a, as_, hs)]:
+            stand[t]["played"] += 1
+            stand[t]["gf"] += int(gfor); stand[t]["ga"] += int(gag)
+        if hs > as_:
+            stand[h]["won"] += 1; stand[h]["points"] += 3; stand[a]["lost"] += 1
+        elif hs < as_:
+            stand[a]["won"] += 1; stand[a]["points"] += 3; stand[h]["lost"] += 1
+        else:
+            stand[h]["drawn"] += 1; stand[a]["drawn"] += 1
+            stand[h]["points"] += 1; stand[a]["points"] += 1
+
+    rows = []
+    for t, s in stand.items():
+        rows.append({
+            "group": team_group[t], "team": t, "played": s["played"],
+            "won": s["won"], "drawn": s["drawn"], "lost": s["lost"],
+            "gf": s["gf"], "ga": s["ga"], "gd": s["gf"] - s["ga"], "points": s["points"],
+            "p_first": round(tournament.grp_first.get(t, 0) / n_sims * 100, 1),
+            "p_top2": round(tournament.grp_top2.get(t, 0) / n_sims * 100, 1),
+            "p_advance": round(tournament.grp_advance.get(t, 0) / n_sims * 100, 1),
+        })
+    df = pd.DataFrame(rows).sort_values(["group", "points", "gd", "gf"], ascending=[True, False, False, False])
+    df.to_csv("data/processed/group_table.csv", index=False)
 
 
 def compute_confederation_stats(played, odds):
