@@ -563,6 +563,18 @@ def compute_group_table(tournament, played, n_sims):
             stand[h]["drawn"] += 1; stand[a]["drawn"] += 1
             stand[h]["points"] += 1; stand[a]["points"] += 1
 
+    by_group = {}
+    for t, gname in team_group.items():
+        by_group.setdefault(gname, []).append(t)
+
+    # Unplayed group matches per group (remaining fixtures)
+    unplayed = {}
+    for r in gf.itertuples(index=False):
+        if (r.team1, r.team2) not in played_keys:
+            unplayed.setdefault(r.group, []).append((r.team1, r.team2))
+
+    status = mathematical_status(stand, by_group, unplayed)
+
     rows = []
     for t, s in stand.items():
         rows.append({
@@ -572,9 +584,61 @@ def compute_group_table(tournament, played, n_sims):
             "p_first": round(tournament.grp_first.get(t, 0) / n_sims * 100, 1),
             "p_top2": round(tournament.grp_top2.get(t, 0) / n_sims * 100, 1),
             "p_advance": round(tournament.grp_advance.get(t, 0) / n_sims * 100, 1),
+            "status": status[t],
         })
     df = pd.DataFrame(rows).sort_values(["group", "points", "gd", "gf"], ascending=[True, False, False, False])
     df.to_csv("data/processed/group_table.csv", index=False)
+
+
+def mathematical_status(stand, by_group, unplayed):
+    """Deterministic qualification status by enumerating every remaining group result jointly.
+
+    Key subtlety: rivals that play EACH OTHER in the last round can't all drop points, so top-2
+    must be checked over joint group scenarios, not rival-by-rival.
+    A team is ELIMINATED only if no scenario gives it a top-2 finish AND it can't make the
+    best-third cut (4 points in the 48-team format).
+    """
+    from itertools import product
+
+    BEST_THIRD_FLOOR = 4  # structural cutoff: the 8th-best third in a 48-team WC has ~4 points
+
+    status = {}
+    for g, teams in by_group.items():
+        base = {t: stand[t]["points"] for t in teams}
+        matches = unplayed.get(g, [])
+        can_top2 = {t: False for t in teams}      # top-2 possible in SOME scenario (GD benefit)
+        sure_top2 = {t: True for t in teams}      # top-2 in EVERY scenario (GD against)
+        max_pts = {t: base[t] for t in teams}
+
+        combos = list(product([0, 1, 2], repeat=len(matches))) or [()]
+        for combo in combos:
+            pts = dict(base)
+            for (a, b), out in zip(matches, combo):
+                if out == 0:
+                    pts[a] += 3
+                elif out == 1:
+                    pts[a] += 1; pts[b] += 1
+                else:
+                    pts[b] += 3
+            for t in teams:
+                max_pts[t] = max(max_pts[t], pts[t])
+                above = sum(1 for r in teams if r != t and pts[r] > pts[t])   # strictly above
+                level = sum(1 for r in teams if r != t and pts[r] == pts[t])  # tied
+                if above <= 1:               # best case (win all ties) → top 2
+                    can_top2[t] = True
+                if above + level > 1:         # worst case (lose all ties) → not safely top 2
+                    sure_top2[t] = False
+
+        for t in teams:
+            if sure_top2[t]:
+                status[t] = "✅ Qualified"
+            elif not can_top2[t] and max_pts[t] < BEST_THIRD_FLOOR:
+                status[t] = "❌ Eliminated"
+            elif not can_top2[t]:
+                status[t] = "🪙 3rd-place chance only"
+            else:
+                status[t] = "⚪ Alive"
+    return status
 
 
 def compute_confederation_stats(played, odds):

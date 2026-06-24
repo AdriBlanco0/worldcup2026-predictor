@@ -232,16 +232,22 @@ with tab_groups:
             gdf = groups[groups["group"] == gname].copy()
             with cols[i % 2]:
                 st.markdown(f"### {gname}")
+                show_cols = ["team", "played", "gd", "points", "p_advance"]
+                if "status" in gdf.columns:
+                    show_cols.append("status")
                 st.dataframe(
-                    gdf[["team", "played", "won", "drawn", "lost", "gd", "points", "p_advance"]],
+                    gdf[show_cols],
                     use_container_width=True, hide_index=True,
                     column_config={
-                        "team": "Team", "played": "PJ", "won": "W", "drawn": "D", "lost": "L",
-                        "gd": "GD", "points": "Pts",
+                        "team": "Team", "played": "PJ", "gd": "GD", "points": "Pts",
                         "p_advance": st.column_config.ProgressColumn(
-                            "✅ Advance %", min_value=0, max_value=100, format="%.0f%%"),
+                            "Advance %", min_value=0, max_value=100, format="%.0f%%"),
+                        "status": "Status",
                     },
                 )
+        st.caption("**Status** is a deterministic check (not a simulation): "
+                   "✅ Qualified = through in every remaining scenario · ❌ Eliminated = cannot reach "
+                   "the top 2 nor the 4-point best-third cut · 🪙 = only a best-third chance left · ⚪ Alive.")
 
 
 # ───────────────────────── TAB 2: EXACT SCORES ─────────────────────────
