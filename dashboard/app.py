@@ -146,9 +146,9 @@ else:
     live = "0/0"
 c4.metric("🔴 Live record (tournament)", live)
 
-tab_pred, tab_groups, tab_bracket, tab_scores, tab_odds, tab_conf, tab_teams, tab_model = st.tabs(
+tab_pred, tab_groups, tab_bracket, tab_scores, tab_odds, tab_conf, tab_teams, tab_players, tab_model = st.tabs(
     ["🔮 Predictions", "📋 Groups", "🗺️ Bracket", "🎯 Exact Scores", "🏆 Tournament Odds",
-     "🌍 Continents", "👕 Teams", "🤖 The Model"]
+     "🌍 Continents", "👕 Teams", "⭐ Players", "🤖 The Model"]
 )
 
 
@@ -521,6 +521,57 @@ with tab_teams:
             "age": "Age", "caps": "Caps", "goals": "Goals", "club": "Club",
         },
     )
+
+
+# ───────────────────────── TAB: PLAYERS ─────────────────────────
+with tab_players:
+    st.subheader("⭐ The stars of the World Cup")
+    st.caption("Player profiles from the official squads (caps & international goals before the "
+               "tournament). The foundation for the upcoming live Performance Tracker — "
+               "expected vs actual output during the tournament.")
+
+    sq = squads.copy()
+    sq["goals_per_cap"] = (sq["goals"] / sq["caps"]).round(2)
+
+    c1, c2 = st.columns(2)
+    with c1:
+        st.markdown("**🥅 Top international scorers**")
+        st.dataframe(
+            sq.nlargest(15, "goals")[["player", "team", "goals", "caps", "age"]],
+            use_container_width=True, hide_index=True,
+            column_config={"player": "Player", "team": "Team", "goals": "Goals",
+                           "caps": "Caps", "age": "Age"},
+        )
+    with c2:
+        st.markdown("**🎯 Most lethal (goals per cap, min. 40 caps)**")
+        st.dataframe(
+            sq[sq["caps"] >= 40].nlargest(15, "goals_per_cap")[["player", "team", "goals_per_cap", "goals", "caps"]],
+            use_container_width=True, hide_index=True,
+            column_config={"player": "Player", "team": "Team", "goals_per_cap": "G/cap",
+                           "goals": "Goals", "caps": "Caps"},
+        )
+
+    c3, c4 = st.columns(2)
+    with c3:
+        st.markdown("**🎖️ Most experienced (caps)**")
+        st.dataframe(
+            sq.nlargest(15, "caps")[["player", "team", "caps", "goals", "age"]],
+            use_container_width=True, hide_index=True,
+            column_config={"player": "Player", "team": "Team", "caps": "Caps",
+                           "goals": "Goals", "age": "Age"},
+        )
+    with c4:
+        st.markdown("**🌱 Rising stars (21 or younger, by caps)**")
+        st.dataframe(
+            sq[sq["age"] <= 21].nlargest(15, "caps")[["player", "team", "age", "caps", "goals"]],
+            use_container_width=True, hide_index=True,
+            column_config={"player": "Player", "team": "Team", "age": "Age",
+                           "caps": "Caps", "goals": "Goals"},
+        )
+
+    st.info("🔜 **Coming next:** the live Performance Tracker — once tournament goals are logged, this "
+            "tab will show who is over- and under-performing their expected output (the revelations "
+            "and disappointments of the World Cup).")
 
 
 # ───────────────────────── TAB 3: THE MODEL ─────────────────────────
