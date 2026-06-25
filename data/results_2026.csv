@@ -48,11 +48,11 @@ date,group,home_team,away_team,home_score,away_score
 2026-06-23,Group L,England,Ghana,0.0,0.0
 2026-06-23,Group K,Portugal,Uzbekistan,5.0,0.0
 2026-06-24,Group B,Switzerland,Canada,2.0,1.0
-2026-06-24,Group C,Scotland,Brazil,,
+2026-06-24,Group C,Scotland,Brazil,0.0,3.0
 2026-06-24,Group B,Bosnia and Herzegovina,Qatar,3.0,1.0
-2026-06-24,Group C,Morocco,Haiti,,
-2026-06-24,Group A,South Africa,South Korea,,
-2026-06-24,Group A,Czech Republic,Mexico,,
+2026-06-24,Group C,Morocco,Haiti,4.0,2.0
+2026-06-24,Group A,South Africa,South Korea,1.0,0.0
+2026-06-24,Group A,Czech Republic,Mexico,0.0,3.0
 2026-06-25,Group F,Tunisia,Netherlands,,
 2026-06-25,Group F,Japan,Sweden,,
 2026-06-25,Group D,Turkey,United States,,
