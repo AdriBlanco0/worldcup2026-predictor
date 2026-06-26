@@ -1,13 +1,13 @@
 rank,team,group,points,gd,gf,qualifies
-1,Bosnia and Herzegovina,Group B,4,-1,5,True
-2,Sweden,Group F,3,0,6,True
-3,Croatia,Group L,3,-1,3,True
-4,South Korea,Group A,3,-1,2,True
-5,Paraguay,Group D,3,-2,2,True
-6,Algeria,Group J,3,-2,2,True
-7,Scotland,Group C,3,-3,1,True
-8,Cape Verde,Group H,2,0,2,True
-9,Belgium,Group G,2,0,1,False
-10,DR Congo,Group K,1,-1,1,False
-11,Ecuador,Group E,1,-1,0,False
+1,Sweden,Group F,4,0,7,True
+2,Ecuador,Group E,4,0,2,True
+3,Bosnia and Herzegovina,Group B,4,-1,5,True
+4,Paraguay,Group D,4,-2,2,True
+5,Croatia,Group L,3,-1,3,True
+6,South Korea,Group A,3,-1,2,True
+7,Algeria,Group J,3,-2,2,True
+8,Scotland,Group C,3,-3,1,True
+9,Cape Verde,Group H,2,0,2,False
+10,Belgium,Group G,2,0,1,False
+11,DR Congo,Group K,1,-1,1,False
 12,Senegal,Group I,0,-3,3,False

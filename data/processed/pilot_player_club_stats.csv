@@ -1,0 +1,518 @@
+group,team,number,player,position,date_of_birth,age,caps,goals,club,is_captain,norm,club_data,Gls,Gls,Ast,Ast,Min,MP
+Group A,Czech Republic,4,Robin Hranáč,DF,2000-01-29,26.0,14,1,TSG Hoffenheim,False,robin hranac,True,1,0.04,0,0.0,2251,29
+Group A,Czech Republic,5,Vladimír Coufal,DF,1992-08-22,33.0,62,2,TSG Hoffenheim,False,vladimir coufal,True,1,0.03,8,0.24,3012,34
+Group A,Czech Republic,7,Ladislav Krejčí,DF,1999-04-20,27.0,27,5,Wolverhampton Wanderers,True,ladislav krejci,True,2,0.08,1,0.04,2356,28
+Group A,Czech Republic,7,Ladislav Krejčí,DF,1999-04-20,27.0,27,5,Wolverhampton Wanderers,True,ladislav krejci,True,0,0.0,0,0.0,180,2
+Group A,Czech Republic,9,Adam Hložek,FW,2002-07-25,23.0,43,5,TSG Hoffenheim,False,adam hlozek,True,0,0.0,0,0.0,41,5
+Group A,Czech Republic,10,Patrik Schick,FW,1996-01-24,30.0,53,26,Bayer Leverkusen,False,patrik schick,True,16,0.72,3,0.14,1988,28
+Group A,Czech Republic,15,Pavel Šulc,FW,2000-12-29,25.0,21,5,Lyon,False,pavel sulc,True,11,0.63,3,0.17,1566,27
+Group A,Czech Republic,22,Tomáš Souček,MF,1995-02-27,31.0,90,17,West Ham United,False,tomas soucek,True,5,0.2,0,0.0,2200,35
+Group A,Mexico,5,Johan Vásquez,DF,1998-10-22,27.0,46,3,Genoa,False,johan vasquez,True,1,0.03,0,0.0,3215,36
+Group A,Mexico,8,Álvaro Fidalgo,MF,1997-04-09,29.0,4,0,Real Betis,False,alvaro fidalgo,True,1,0.17,0,0.0,542,9
+Group A,Mexico,9,Raúl Jiménez,FW,1991-05-05,35.0,124,45,Fulham,False,raul jimenez,True,9,0.37,3,0.12,2189,36
+Group A,Mexico,11,Santiago Giménez,FW,2001-04-18,25.0,47,6,Milan,False,santiago gimenez,True,0,0.0,1,0.1,892,16
+Group A,Mexico,18,Obed Vargas,MF,2005-08-05,20.0,6,0,Atlético Madrid,False,obed vargas,True,0,0.0,1,0.12,740,12
+Group A,South Africa,9,Lyle Foster,FW,2000-09-03,25.0,26,10,Burnley,False,lyle foster,True,3,0.2,2,0.13,1371,26
+Group A,South Korea,4,Kim Min-jae,DF,1996-11-15,29.0,79,4,Bayern Munich,False,kim min-jae,True,1,0.06,1,0.06,1602,25
+Group A,South Korea,10,Lee Jae-sung,MF,1992-08-10,33.0,105,15,Mainz 05,False,lee jae-sung,True,4,0.16,2,0.08,2185,28
+Group A,South Korea,11,Hwang Hee-chan,MF,1996-01-26,30.0,79,17,Wolverhampton Wanderers,False,hwang hee-chan,True,2,0.12,2,0.12,1446,26
+Group A,South Korea,19,Lee Kang-in,MF,2001-02-19,25.0,47,11,Paris Saint-Germain,False,lee kang-in,True,3,0.18,4,0.24,1519,27
+Group A,South Korea,23,Jens Castrop,DF,2003-07-29,22.0,7,0,Borussia Mönchengladbach,False,jens castrop,True,3,0.17,1,0.06,1584,26
+Group B,Bosnia and Herzegovina,1,Nikola Vasilj,GK,1995-12-02,30.0,26,0,FC St. Pauli,False,nikola vasilj,True,0,0.0,0,0.0,3060,34
+Group B,Bosnia and Herzegovina,4,Tarik Muharemović,DF,2003-02-28,23.0,14,1,Sassuolo,False,tarik muharemovic,True,2,0.06,2,0.06,2835,32
+Group B,Bosnia and Herzegovina,5,Sead Kolašinac,DF,1993-06-20,32.0,65,0,Atalanta,False,sead kolasinac,True,0,0.0,0,0.0,1212,19
+Group B,Bosnia and Herzegovina,10,Ermedin Demirović,FW,1998-03-25,28.0,40,4,VfB Stuttgart,False,ermedin demirovic,True,12,0.72,3,0.18,1497,25
+Group B,Bosnia and Herzegovina,11,Edin Džeko,FW,1986-03-17,40.0,148,73,Schalke 04,True,edin dzeko,True,0,0.0,0,0.0,244,11
+Group B,Bosnia and Herzegovina,23,Haris Tabaković,FW,1994-06-20,31.0,10,4,Borussia Mönchengladbach,False,haris tabakovic,True,13,0.49,3,0.11,2382,32
+Group B,Bosnia and Herzegovina,24,Nidal Čelik,DF,2006-07-17,19.0,2,0,Lens,False,nidal celik,True,0,0.0,0,0.0,616,8
+Group B,Canada,8,Ismaël Koné,MF,2002-06-16,23.0,40,4,Sassuolo,False,ismael kone,True,6,0.2,0,0.0,2737,35
+Group B,Canada,10,Jonathan David,FW,2000-01-14,26.0,77,39,Juventus,False,jonathan david,True,6,0.3,4,0.2,1781,35
+Group B,Canada,12,Tani Oluwaseyi,FW,2000-05-15,26.0,24,2,Villarreal,False,tani oluwaseyi,True,2,0.2,2,0.2,901,27
+Group B,Canada,13,Derek Cornelius,DF,1997-11-25,28.0,44,1,Rangers,False,derek cornelius,True,0,0.0,0,0.0,58,2
+Group B,Canada,15,Moïse Bombito,DF,2000-03-30,26.0,20,0,Nice,False,moise bombito,True,0,0.0,0,0.0,145,2
+Group B,Canada,17,Tajon Buchanan,FW,1999-02-08,27.0,60,8,Villarreal,False,tajon buchanan,True,7,0.35,1,0.05,1819,34
+Group B,Canada,19,Alphonso Davies,DF,2000-11-02,25.0,58,15,Bayern Munich,True,alphonso davies,True,1,0.17,3,0.51,525,13
+Group B,Switzerland,1,Gregor Kobel,GK,1997-12-06,28.0,21,0,Borussia Dortmund,False,gregor kobel,True,0,0.0,0,0.0,3060,34
+Group B,Switzerland,2,Miro Muheim,DF,1998-03-24,28.0,10,0,Hamburger SV,False,miro muheim,True,0,0.0,4,0.15,2435,29
+Group B,Switzerland,3,Silvan Widmer,DF,1993-03-05,33.0,60,5,Mainz 05,False,silvan widmer,True,2,0.1,1,0.05,1810,27
+Group B,Switzerland,4,Nico Elvedi,DF,1996-09-30,29.0,67,3,Borussia Mönchengladbach,False,nico elvedi,True,0,0.0,2,0.06,2966,33
+Group B,Switzerland,5,Manuel Akanji,DF,1995-07-19,30.0,81,4,Inter Milan,False,manuel akanji,True,2,0.06,0,0.0,2821,33
+Group B,Switzerland,6,Denis Zakaria,MF,1996-11-20,29.0,65,3,Monaco,False,denis zakaria,True,2,0.09,1,0.04,2031,24
+Group B,Switzerland,7,Breel Embolo,FW,1997-02-14,29.0,86,24,Rennes,False,breel embolo,True,8,0.38,3,0.14,1872,31
+Group B,Switzerland,8,Remo Freuler,MF,1992-04-15,34.0,88,11,Bologna,False,remo freuler,True,1,0.04,2,0.08,2213,29
+Group B,Switzerland,9,Johan Manzambi,MF,2005-10-14,20.0,12,3,SC Freiburg,False,johan manzambi,True,5,0.22,4,0.17,2077,27
+Group B,Switzerland,10,Granit Xhaka,MF,1992-09-27,33.0,146,17,Sunderland,True,granit xhaka,True,1,0.03,6,0.19,2904,34
+Group B,Switzerland,11,Dan Ndoye,FW,2000-10-25,25.0,31,8,Nottingham Forest,False,dan ndoye,True,1,0.08,1,0.08,1173,24
+Group B,Switzerland,12,Yvon Mvogo,GK,1994-06-06,32.0,13,0,Lorient,False,yvon mvogo,True,0,0.0,0,0.0,2790,31
+Group B,Switzerland,13,Ricardo Rodriguez,DF,1992-08-25,33.0,138,9,Real Betis,False,ricardo rodriguez,True,0,0.0,1,0.06,1547,23
+Group B,Switzerland,14,Ardon Jashari,MF,2002-07-30,23.0,8,0,Milan,False,ardon jashari,True,0,0.0,1,0.13,701,14
+Group B,Switzerland,15,Djibril Sow,MF,1997-02-06,29.0,52,0,Sevilla,False,djibril sow,True,5,0.21,4,0.16,2187,33
+Group B,Switzerland,17,Rubén Vargas,FW,1998-08-05,27.0,61,11,Sevilla,False,ruben vargas,True,3,0.17,6,0.34,1594,24
+Group B,Switzerland,18,Eray Cömert,DF,1998-02-04,28.0,22,0,Valencia,False,eray comert,True,2,0.13,1,0.07,1337,17
+Group B,Switzerland,19,Noah Okafor,FW,2000-05-24,26.0,25,2,Leeds United,False,noah okafor,True,8,0.46,1,0.06,1561,28
+Group B,Switzerland,20,Michel Aebischer,MF,1997-01-06,29.0,40,2,Pisa,False,michel aebischer,True,1,0.03,2,0.06,2892,35
+Group B,Switzerland,22,Fabian Rieder,MF,2002-02-16,24.0,28,1,FC Augsburg,False,fabian rieder,True,0,0.0,0,0.0,133,3
+Group B,Switzerland,22,Fabian Rieder,MF,2002-02-16,24.0,28,1,FC Augsburg,False,fabian rieder,True,6,0.23,3,0.12,2343,32
+Group B,Switzerland,23,Zeki Amdouni,FW,2000-12-04,25.0,29,11,Burnley,False,zeki amdouni,True,0,0.0,0,0.0,73,4
+Group B,Switzerland,24,Aurèle Amenda,DF,2003-07-31,22.0,7,0,Eintracht Frankfurt,False,aurele amenda,True,0,0.0,0,0.0,1678,24
+Group B,Switzerland,25,Luca Jaquez,DF,2003-06-02,23.0,3,0,VfB Stuttgart,False,luca jaquez,True,0,0.0,1,0.1,898,14
+Group C,Brazil,1,Alisson,GK,1992-10-02,33.0,78,0,Liverpool,False,alisson,True,0,0.0,0,0.0,2340,26
+Group C,Brazil,2,Éderson Silva,MF,1999-07-07,26.0,3,0,Atalanta,False,ederson silva,True,2,0.08,1,0.04,2230,30
+Group C,Brazil,3,Gabriel Magalhães,DF,1997-12-19,28.0,17,1,Arsenal,False,gabriel magalhaes,True,3,0.1,4,0.13,2751,32
+Group C,Brazil,4,Marquinhos,DF,1994-05-14,32.0,105,7,Paris Saint-Germain,True,marquinhos,True,0,0.0,0,0.0,1052,14
+Group C,Brazil,5,Casemiro,MF,1992-02-23,34.0,86,9,Manchester United,False,casemiro,True,9,0.32,2,0.07,2571,34
+Group C,Brazil,7,Vinícius Júnior,FW,2000-07-12,25.0,49,9,Real Madrid,False,vinicius junior,True,16,0.51,5,0.16,2815,36
+Group C,Brazil,8,Bruno Guimarães,MF,1997-11-16,28.0,43,3,Newcastle United,False,bruno guimaraes,True,9,0.33,5,0.18,2453,29
+Group C,Brazil,9,Matheus Cunha,FW,1999-05-27,27.0,23,1,Manchester United,False,matheus cunha,True,10,0.36,2,0.07,2494,33
+Group C,Brazil,11,Raphinha,FW,1996-12-14,29.0,39,11,Barcelona,False,raphinha,True,13,0.85,3,0.2,1380,22
+Group C,Brazil,19,Endrick,FW,2006-07-21,19.0,17,4,Lyon,False,endrick,True,0,0.0,0,0.0,12,1
+Group C,Brazil,19,Endrick,FW,2006-07-21,19.0,17,4,Lyon,False,endrick,True,5,0.37,7,0.52,1215,16
+Group C,Brazil,20,Lucas Paquetá,MF,1997-08-27,28.0,63,13,Flamengo,False,lucas paqueta,True,4,0.24,1,0.06,1511,18
+Group C,Brazil,22,Gabriel Martinelli,FW,2001-06-18,24.0,23,4,Arsenal,False,gabriel martinelli,True,1,0.08,4,0.33,1081,30
+Group C,Brazil,25,Igor Thiago,FW,2001-06-26,24.0,4,2,Brentford,False,igor thiago,True,22,0.6,1,0.03,3282,38
+Group C,Brazil,26,Rayan,FW,2006-08-03,19.0,2,1,Bournemouth,False,rayan,True,5,0.41,2,0.16,1111,15
+Group C,Haiti,2,Carlens Arcus,DF,1996-06-28,29.0,53,1,Angers,False,carlens arcus,True,0,0.0,3,0.13,2040,26
+Group C,Haiti,10,Jean-Ricner Bellegarde,MF,1998-06-27,27.0,10,0,Wolverhampton Wanderers,False,jean-ricner bellegarde,True,1,0.07,1,0.07,1248,26
+Group C,Haiti,18,Wilson Isidor,FW,2000-08-27,25.0,4,2,Sunderland,False,wilson isidor,True,6,0.46,0,0.0,1165,32
+Group C,Haiti,21,Josué Casimir,FW,2001-09-24,24.0,7,0,Auxerre,False,josue casimir,True,1,0.06,0,0.0,1522,31
+Group C,Morocco,2,Achraf Hakimi,DF,1998-11-04,27.0,96,11,Paris Saint-Germain,True,achraf hakimi,True,2,0.13,2,0.13,1375,18
+Group C,Morocco,3,Noussair Mazraoui,DF,1997-11-14,28.0,45,2,Manchester United,False,noussair mazraoui,True,0,0.0,0,0.0,985,20
+Group C,Morocco,4,Sofyan Amrabat,MF,1996-08-21,29.0,75,0,Real Betis,False,sofyan amrabat,True,0,0.0,0,0.0,1295,17
+Group C,Morocco,5,Nayef Aguerd,DF,1996-03-30,30.0,64,2,Marseille,False,nayef aguerd,True,0,0.0,0,0.0,180,2
+Group C,Morocco,5,Nayef Aguerd,DF,1996-03-30,30.0,64,2,Marseille,False,nayef aguerd,True,1,0.06,0,0.0,1396,16
+Group C,Morocco,6,Ayyoub Bouaddi,MF,2007-10-02,18.0,3,0,Lille,False,ayyoub bouaddi,True,0,0.0,1,0.04,2321,30
+Group C,Morocco,7,Chemsdine Talbi,MF,2005-05-09,21.0,5,0,Sunderland,False,chemsdine talbi,True,4,0.23,1,0.06,1561,28
+Group C,Morocco,8,Azzedine Ounahi,MF,2000-04-19,26.0,49,9,Girona,False,azzedine ounahi,True,5,0.26,2,0.1,1760,24
+Group C,Morocco,10,Brahim Díaz,FW,1999-08-03,26.0,26,14,Real Madrid,False,brahim diaz,True,1,0.07,6,0.43,1257,30
+Group C,Morocco,14,Issa Diop,DF,1997-01-09,29.0,4,0,Fulham,False,issa diop,True,1,0.11,0,0.0,816,13
+Group C,Morocco,15,Samir El Mourabet,MF,2005-10-06,20.0,4,0,Strasbourg,False,samir el mourabet,True,1,0.04,2,0.08,2128,33
+Group C,Morocco,16,Gessime Yassine,MF,2005-11-22,20.0,5,0,Strasbourg,False,gessime yassine,True,0,0.0,1,0.18,510,12
+Group C,Morocco,17,Abde Ezzalzouli,FW,2001-12-17,24.0,37,2,Real Betis,False,abde ezzalzouli,True,10,0.4,8,0.32,2247,29
+Group C,Morocco,18,Chadi Riad,DF,2003-06-17,22.0,6,1,Crystal Palace,False,chadi riad,True,0,0.0,1,0.16,552,9
+Group C,Morocco,21,Ayoube Amaimouni,FW,2004-11-30,21.0,2,0,Eintracht Frankfurt,False,ayoube amaimouni,True,2,0.31,3,0.46,586,17
+Group C,Morocco,23,Bilal El Khannouss,MF,2004-05-10,22.0,37,3,VfB Stuttgart,False,bilal el khannouss,True,4,0.22,5,0.28,1630,25
+Group C,Morocco,24,Neil El Aynaoui,MF,2001-07-02,24.0,16,2,Roma,False,neil el aynaoui,True,1,0.09,2,0.18,999,25
+Group C,Scotland,1,Angus Gunn,GK,1996-01-22,30.0,22,0,Nottingham Forest,False,angus gunn,True,0,0.0,0,0.0,45,1
+Group C,Scotland,2,Aaron Hickey,DF,2002-06-10,24.0,21,0,Brentford,False,aaron hickey,True,0,0.0,0,0.0,691,21
+Group C,Scotland,3,Andy Robertson,DF,1994-03-11,32.0,94,4,Liverpool,True,andy robertson,True,1,0.08,0,0.0,1176,24
+Group C,Scotland,4,Scott McTominay,MF,1996-12-08,29.0,70,15,Napoli,False,scott mctominay,True,10,0.32,3,0.1,2791,33
+Group C,Scotland,7,John McGinn,MF,1994-10-18,31.0,86,20,Aston Villa,False,john mcginn,True,5,0.21,4,0.17,2137,30
+Group C,Scotland,8,Tyler Fletcher,MF,2007-03-19,19.0,2,0,Manchester United,False,tyler fletcher,True,0,0.0,0,0.0,18,2
+Group C,Scotland,10,Ché Adams,FW,1996-07-13,29.0,47,13,Torino,False,che adams,True,6,0.29,2,0.1,1893,33
+Group C,Scotland,11,Ryan Christie,MF,1995-02-22,31.0,68,10,Bournemouth,False,ryan christie,True,2,0.18,0,0.0,994,26
+Group C,Scotland,17,Ben Gannon-Doak,FW,2005-11-11,20.0,14,1,Bournemouth,False,ben gannon-doak,True,0,0.0,1,0.8,113,8
+Group C,Scotland,19,Lewis Ferguson,MF,1999-08-24,26.0,24,1,Bologna,False,lewis ferguson,True,1,0.06,0,0.0,1601,27
+Group C,Scotland,22,Nathan Patterson,DF,2001-10-16,24.0,26,1,Everton,False,nathan patterson,True,0,0.0,0,0.0,241,7
+Group D,Australia,1,Mathew Ryan,GK,1992-04-08,34.0,104,0,Levante,True,mathew ryan,True,0,0.0,0,0.0,3240,36
+Group D,Australia,3,Alessandro Circati,DF,2003-10-10,22.0,13,1,Parma,False,alessandro circati,True,1,0.03,0,0.0,2664,31
+Group D,Australia,8,Connor Metcalfe,MF,1999-11-05,26.0,36,1,FC St. Pauli,False,connor metcalfe,True,0,0.0,2,0.3,592,25
+Group D,Australia,20,Cristian Volpato,FW,2003-11-15,22.0,1,0,Sassuolo,False,cristian volpato,True,2,0.17,4,0.34,1064,24
+Group D,Australia,22,Jackson Irvine,MF,1993-03-07,33.0,82,14,FC St. Pauli,False,jackson irvine,True,0,0.0,1,0.06,1624,24
+Group D,Paraguay,3,Omar Alderete,DF,1996-12-26,29.0,36,3,Sunderland,False,omar alderete,True,1,0.03,1,0.03,2798,33
+Group D,Paraguay,8,Diego Gómez,MF,2003-03-27,23.0,24,3,Brighton & Hove Albion,False,diego gomez,True,5,0.21,1,0.04,2120,32
+Group D,Paraguay,9,Antonio Sanabria,FW,1996-03-04,30.0,48,7,Cremonese,False,antonio sanabria,True,1,0.1,1,0.1,945,25
+Group D,Paraguay,19,Julio Enciso,FW,2004-01-23,22.0,32,4,Strasbourg,False,julio enciso,True,3,0.14,6,0.29,1883,27
+Group D,Turkey,2,Zeki Çelik,DF,1997-02-17,29.0,61,3,Roma,False,zeki celik,True,1,0.03,2,0.07,2723,34
+Group D,Turkey,5,Salih Özcan,MF,1998-01-11,28.0,30,1,Borussia Dortmund,False,salih ozcan,True,0,0.0,0,0.0,81,11
+Group D,Turkey,8,Arda Güler,FW,2005-02-25,21.0,29,6,Real Madrid,False,arda guler,True,4,0.18,9,0.4,2014,33
+Group D,Turkey,10,Hakan Çalhanoğlu,MF,1994-02-08,32.0,105,22,Inter Milan,True,hakan calhanoglu,True,9,0.49,4,0.22,1639,22
+Group D,Turkey,11,Kenan Yıldız,FW,2005-05-04,21.0,28,5,Juventus,False,kenan yldz,True,10,0.32,6,0.19,2825,36
+Group D,Turkey,12,Altay Bayındır,GK,1998-04-14,28.0,12,0,Manchester United,False,altay bayndr,True,0,0.0,0,0.0,540,6
+Group D,Turkey,15,Ozan Kabak,DF,2000-03-25,26.0,30,2,TSG Hoffenheim,False,ozan kabak,True,4,0.21,0,0.0,1751,25
+Group D,Turkey,26,Can Uzun,FW,2005-11-11,20.0,6,1,Eintracht Frankfurt,False,can uzun,True,8,0.62,4,0.31,1156,21
+Group D,United States,3,Chris Richards,DF,2000-03-28,26.0,36,3,Crystal Palace,False,chris richards,True,1,0.03,0,0.0,2827,33
+Group D,United States,4,Tyler Adams,MF,1999-02-14,27.0,54,2,Bournemouth,False,tyler adams,True,2,0.1,2,0.1,1772,25
+Group D,United States,5,Antonee Robinson,DF,1997-08-08,28.0,54,5,Fulham,False,antonee robinson,True,1,0.06,0,0.0,1492,22
+Group D,United States,8,Weston McKennie,MF,1998-08-28,27.0,66,12,Juventus,False,weston mckennie,True,5,0.16,5,0.16,2835,36
+Group D,United States,10,Christian Pulisic,FW,1998-09-18,27.0,86,33,Milan,False,christian pulisic,True,8,0.45,4,0.22,1609,30
+Group D,United States,11,Brenden Aaronson,FW,2000-10-22,25.0,58,9,Leeds United,False,brenden aaronson,True,4,0.15,5,0.18,2449,37
+Group D,United States,16,Alex Freeman,DF,2004-08-09,21.0,17,2,Villarreal,False,alex freeman,True,0,0.0,0,0.0,346,9
+Group D,United States,17,Malik Tillman,MF,2002-05-28,24.0,30,3,Bayer Leverkusen,False,malik tillman,True,6,0.32,1,0.05,1674,29
+Group D,United States,20,Folarin Balogun,FW,2001-07-03,24.0,27,9,Monaco,False,folarin balogun,True,13,0.52,4,0.16,2230,30
+Group D,United States,21,Timothy Weah,FW,2000-02-22,26.0,51,7,Marseille,False,timothy weah,True,2,0.08,2,0.08,2253,29
+Group D,United States,22,Mark McKenzie,DF,1999-02-25,27.0,29,0,Toulouse,False,mark mckenzie,True,0,0.0,2,0.07,2404,29
+Group D,United States,23,Joe Scally,DF,2002-12-31,23.0,26,0,Borussia Mönchengladbach,False,joe scally,True,2,0.07,3,0.1,2608,32
+Group E,Ecuador,3,Piero Hincapié,DF,2002-01-09,24.0,52,3,Arsenal,False,piero hincapie,True,1,0.05,2,0.1,1792,25
+Group E,Ecuador,3,Piero Hincapié,DF,2002-01-09,24.0,52,3,Arsenal,False,piero hincapie,True,0,0.0,0,0.0,90,1
+Group E,Ecuador,6,Willian Pacho,DF,2001-10-16,24.0,34,2,Paris Saint-Germain,False,willian pacho,True,0,0.0,0,0.0,1914,23
+Group E,Ecuador,7,Pervis Estupiñán,DF,1998-01-21,28.0,54,5,Milan,False,pervis estupinan,True,1,0.09,1,0.09,1034,19
+Group E,Ecuador,10,Kendry Páez,MF,2007-05-04,19.0,26,2,River Plate,False,kendry paez,True,1,0.21,0,0.0,424,15
+Group E,Ecuador,20,Nilson Angulo,FW,2003-06-19,22.0,14,2,Sunderland,False,nilson angulo,True,0,0.0,0,0.0,404,8
+Group E,Ecuador,23,Moisés Caicedo,MF,2001-11-02,24.0,61,3,Chelsea,False,moises caicedo,True,3,0.1,1,0.03,2795,33
+Group E,Ecuador,24,Jeremy Arévalo,FW,2005-03-19,21.0,4,0,VfB Stuttgart,False,jeremy arevalo,True,0,0.0,0,0.0,38,7
+Group E,Germany,1,Manuel Neuer,GK,1986-03-27,40.0,124,0,Bayern Munich,False,manuel neuer,True,0,0.0,0,0.0,1859,22
+Group E,Germany,2,Antonio Rüdiger,DF,1993-03-03,33.0,82,3,Real Madrid,False,antonio rudiger,True,1,0.06,0,0.0,1490,18
+Group E,Germany,3,Waldemar Anton,DF,1996-07-20,29.0,13,0,Borussia Dortmund,False,waldemar anton,True,2,0.06,0,0.0,2880,32
+Group E,Germany,4,Jonathan Tah,DF,1996-02-11,30.0,47,1,Bayern Munich,False,jonathan tah,True,2,0.09,1,0.04,2018,28
+Group E,Germany,5,Aleksandar Pavlović,MF,2004-05-03,22.0,11,1,Bayern Munich,False,aleksandar pavlovic,True,3,0.18,1,0.06,1462,24
+Group E,Germany,6,Joshua Kimmich,DF,1995-02-08,31.0,110,10,Bayern Munich,True,joshua kimmich,True,2,0.08,8,0.32,2280,29
+Group E,Germany,7,Kai Havertz,FW,1999-06-11,27.0,58,22,Arsenal,False,kai havertz,True,2,0.31,3,0.46,581,12
+Group E,Germany,8,Leon Goretzka,MF,1995-02-06,31.0,70,15,Bayern Munich,False,leon goretzka,True,5,0.23,3,0.14,1947,31
+Group E,Germany,9,Jamie Leweling,MF,2001-02-26,25.0,5,1,VfB Stuttgart,False,jamie leweling,True,7,0.27,9,0.34,2367,32
+Group E,Germany,10,Jamal Musiala,MF,2003-02-26,23.0,42,9,Bayern Munich,False,jamal musiala,True,3,0.4,4,0.53,683,15
+Group E,Germany,11,Nick Woltemade,FW,2002-02-14,24.0,11,4,Newcastle United,False,nick woltemade,True,8,0.38,3,0.14,1902,33
+Group E,Germany,11,Nick Woltemade,FW,2002-02-14,24.0,11,4,Newcastle United,False,nick woltemade,True,0,0.0,0,0.0,90,1
+Group E,Germany,12,Oliver Baumann,GK,1990-06-02,36.0,13,0,TSG Hoffenheim,False,oliver baumann,True,0,0.0,0,0.0,3060,34
+Group E,Germany,13,Pascal Groß,MF,1991-06-15,34.0,18,1,Brighton & Hove Albion,False,pascal gro,True,1,0.06,3,0.17,1636,19
+Group E,Germany,13,Pascal Groß,MF,1991-06-15,34.0,18,1,Brighton & Hove Albion,False,pascal gro,True,0,0.0,1,0.15,613,11
+Group E,Germany,14,Maximilian Beier,FW,2002-10-17,23.0,9,0,Borussia Dortmund,False,maximilian beier,True,9,0.4,6,0.27,2026,32
+Group E,Germany,15,Nico Schlotterbeck,DF,1999-12-01,26.0,27,0,Borussia Dortmund,False,nico schlotterbeck,True,5,0.18,1,0.04,2520,28
+Group E,Germany,16,Angelo Stiller,MF,2001-04-04,25.0,8,0,VfB Stuttgart,False,angelo stiller,True,2,0.07,5,0.16,2743,34
+Group E,Germany,17,Florian Wirtz,MF,2003-05-03,23.0,41,11,Liverpool,False,florian wirtz,True,5,0.19,3,0.11,2378,33
+Group E,Germany,18,Nathaniel Brown,DF,2003-06-16,22.0,5,0,Eintracht Frankfurt,False,nathaniel brown,True,4,0.14,4,0.14,2656,33
+Group E,Germany,20,Nadiem Amiri,MF,1996-10-27,29.0,11,1,Mainz 05,False,nadiem amiri,True,12,0.52,2,0.09,2083,26
+Group E,Germany,21,Alexander Nübel,GK,1996-09-30,29.0,3,0,VfB Stuttgart,False,alexander nubel,True,0,0.0,1,0.03,3060,34
+Group E,Germany,22,David Raum,DF,1998-04-22,28.0,37,1,RB Leipzig,False,david raum,True,3,0.11,7,0.25,2553,30
+Group E,Germany,23,Felix Nmecha,MF,2000-10-10,25.0,8,1,Borussia Dortmund,False,felix nmecha,True,2,0.08,3,0.12,2176,29
+Group E,Germany,24,Malick Thiaw,DF,2001-08-08,24.0,5,0,Newcastle United,False,malick thiaw,True,4,0.12,0,0.0,2965,35
+Group E,Germany,25,Assan Ouédraogo,MF,2006-05-09,20.0,1,1,RB Leipzig,False,assan ouedraogo,True,4,0.38,3,0.28,948,19
+Group E,Germany,26,Deniz Undav,FW,1996-07-19,29.0,9,6,VfB Stuttgart,False,deniz undav,True,19,0.76,7,0.28,2241,29
+Group E,Ivory Coast,6,Seko Fofana,MF,1995-05-07,31.0,32,7,Porto,False,seko fofana,True,1,0.14,0,0.0,655,12
+Group E,Ivory Coast,7,Odilon Kossounou,DF,2001-01-04,25.0,35,0,Atalanta,False,odilon kossounou,True,1,0.09,0,0.0,988,19
+Group E,Ivory Coast,9,Ange-Yoan Bonny,FW,2003-10-25,22.0,1,0,Inter Milan,False,ange-yoan bonny,True,5,0.39,4,0.32,1142,33
+Group E,Ivory Coast,10,Simon Adingra,FW,2002-01-01,24.0,29,5,Monaco,False,simon adingra,True,1,0.14,0,0.0,653,14
+Group E,Ivory Coast,10,Simon Adingra,FW,2002-01-01,24.0,29,5,Monaco,False,simon adingra,True,3,0.32,2,0.21,855,14
+Group E,Ivory Coast,11,Yan Diomande,FW,2006-11-14,19.0,10,3,RB Leipzig,False,yan diomande,True,12,0.44,8,0.29,2472,33
+Group E,Ivory Coast,12,Elye Wahi,FW,2003-01-02,23.0,2,0,Nice,False,elye wahi,True,5,0.49,1,0.1,922,14
+Group E,Ivory Coast,12,Elye Wahi,FW,2003-01-02,23.0,2,0,Nice,False,elye wahi,True,0,0.0,1,0.28,324,10
+Group E,Ivory Coast,15,Amad Diallo,FW,2002-07-11,23.0,19,6,Manchester United,False,amad diallo,True,2,0.08,3,0.12,2341,32
+Group E,Ivory Coast,17,Guéla Doué,DF,2002-10-17,23.0,20,3,Strasbourg,False,guela doue,True,2,0.09,6,0.26,2061,24
+Group E,Ivory Coast,18,Ibrahim Sangaré,MF,1997-12-02,28.0,58,12,Nottingham Forest,False,ibrahim sangare,True,2,0.09,2,0.09,2075,28
+Group E,Ivory Coast,19,Nicolas Pépé,FW,1995-05-29,31.0,55,12,Villarreal,False,nicolas pepe,True,8,0.3,8,0.3,2393,36
+Group E,Ivory Coast,20,Emmanuel Agbadou,DF,1997-06-17,28.0,20,2,Beşiktaş,False,emmanuel agbadou,True,0,0.0,0,0.0,1101,14
+Group E,Ivory Coast,22,Evann Guessand,FW,2001-07-01,24.0,21,4,Crystal Palace,False,evann guessand,True,0,0.0,1,0.15,588,13
+Group E,Ivory Coast,22,Evann Guessand,FW,2001-07-01,24.0,21,4,Crystal Palace,False,evann guessand,True,1,0.27,1,0.27,330,8
+Group E,Ivory Coast,24,Bazoumana Touré,FW,2006-03-02,20.0,6,2,TSG Hoffenheim,False,bazoumana toure,True,5,0.19,9,0.35,2308,30
+Group F,Japan,1,Zion Suzuki,GK,2002-08-21,23.0,24,0,Parma,False,zion suzuki,True,0,0.0,0,0.0,1800,20
+Group F,Japan,2,Yukinari Sugawara,DF,2000-06-28,25.0,21,2,Werder Bremen,False,yukinari sugawara,True,0,0.0,6,0.22,2428,31
+Group F,Japan,6,Wataru Endo,MF,1993-02-09,33.0,73,4,Liverpool,True,wataru endo,True,0,0.0,1,0.51,175,8
+Group F,Japan,7,Ao Tanaka,MF,1998-09-10,27.0,38,8,Leeds United,False,ao tanaka,True,2,0.14,0,0.0,1315,28
+Group F,Japan,8,Takefusa Kubo,MF,2001-06-04,25.0,49,7,Real Sociedad,False,takefusa kubo,True,2,0.12,4,0.24,1503,24
+Group F,Japan,10,Ritsu Dōan,MF,1998-06-16,27.0,65,11,Eintracht Frankfurt,False,ritsu doan,True,5,0.19,5,0.19,2364,31
+Group F,Japan,15,Daichi Kamada,MF,1996-08-05,29.0,49,12,Crystal Palace,False,daichi kamada,True,0,0.0,0,0.0,1902,28
+Group F,Japan,17,Yuito Suzuki,MF,2001-10-25,24.0,6,0,SC Freiburg,False,yuito suzuki,True,4,0.22,2,0.11,1632,25
+Group F,Japan,20,Ayumu Seko,DF,2000-06-07,26.0,14,0,Le Havre,False,ayumu seko,True,0,0.0,0,0.0,2625,30
+Group F,Japan,21,Hiroki Itō,DF,1999-05-12,27.0,24,1,Bayern Munich,False,hiroki ito,True,1,0.1,2,0.2,920,16
+Group F,Japan,24,Kaishū Sano,MF,2000-12-30,25.0,13,0,Mainz 05,False,kaishu sano,True,1,0.03,2,0.06,3059,34
+Group F,Japan,26,Kento Shiogai,FW,2005-03-26,21.0,2,0,VfL Wolfsburg,False,kento shiogai,True,1,0.28,0,0.0,318,12
+Group F,Netherlands,1,Bart Verbruggen,GK,2002-08-18,23.0,29,0,Brighton & Hove Albion,False,bart verbruggen,True,0,0.0,0,0.0,3420,38
+Group F,Netherlands,2,Lutsharel Geertruida,DF,2000-07-18,25.0,21,0,Sunderland,False,lutsharel geertruida,True,0,0.0,0,0.0,1693,28
+Group F,Netherlands,3,Marten de Roon,MF,1991-03-29,35.0,43,1,Atalanta,False,marten de roon,True,1,0.03,2,0.07,2691,34
+Group F,Netherlands,4,Virgil van Dijk,DF,1991-07-08,34.0,92,12,Liverpool,True,virgil van dijk,True,6,0.16,0,0.0,3420,38
+Group F,Netherlands,5,Nathan Aké,DF,1995-02-18,31.0,59,5,Manchester City,False,nathan ake,True,0,0.0,0,0.0,695,18
+Group F,Netherlands,6,Jan Paul van Hecke,DF,2000-06-08,26.0,12,0,Brighton & Hove Albion,False,jan paul van hecke,True,3,0.08,3,0.08,3210,36
+Group F,Netherlands,7,Justin Kluivert,MF,1999-05-05,27.0,12,0,Bournemouth,False,justin kluivert,True,2,0.19,0,0.0,952,20
+Group F,Netherlands,8,Ryan Gravenberch,MF,2002-05-16,24.0,27,1,Liverpool,False,ryan gravenberch,True,5,0.15,3,0.09,2992,36
+Group F,Netherlands,11,Cody Gakpo,FW,1999-05-07,27.0,50,21,Liverpool,False,cody gakpo,True,7,0.23,5,0.16,2737,36
+Group F,Netherlands,12,Mats Wieffer,DF,1999-11-16,26.0,15,1,Brighton & Hove Albion,False,mats wieffer,True,2,0.09,3,0.14,1903,26
+Group F,Netherlands,13,Robin Roefs,GK,2003-01-17,23.0,1,0,Sunderland,False,robin roefs,True,0,0.0,0,0.0,3150,35
+Group F,Netherlands,14,Tijjani Reijnders,MF,1998-07-29,27.0,32,7,Manchester City,False,tijjani reijnders,True,5,0.28,2,0.11,1631,28
+Group F,Netherlands,15,Micky van de Ven,DF,2001-04-19,25.0,21,1,Tottenham Hotspur,False,micky van de ven,True,4,0.12,1,0.03,3041,35
+Group F,Netherlands,17,Noa Lang,FW,1999-06-17,26.0,15,3,Galatasaray,False,noa lang,True,1,0.14,2,0.27,666,18
+Group F,Netherlands,18,Donyell Malen,FW,1999-01-19,27.0,53,13,Roma,False,donyell malen,True,4,0.55,1,0.14,656,21
+Group F,Netherlands,18,Donyell Malen,FW,1999-01-19,27.0,53,13,Roma,False,donyell malen,True,14,0.86,2,0.12,1467,18
+Group F,Netherlands,19,Brian Brobbey,FW,2002-02-01,24.0,12,1,Sunderland,False,brian brobbey,True,7,0.33,1,0.05,1927,31
+Group F,Netherlands,20,Teun Koopmeiners,MF,1998-02-28,28.0,28,3,Juventus,False,teun koopmeiners,True,0,0.0,0,0.0,1827,33
+Group F,Netherlands,21,Frenkie de Jong,MF,1997-05-12,29.0,66,2,Barcelona,False,frenkie de jong,True,1,0.06,5,0.28,1636,25
+Group F,Netherlands,22,Denzel Dumfries,DF,1996-04-18,30.0,72,11,Inter Milan,False,denzel dumfries,True,3,0.2,1,0.07,1325,20
+Group F,Netherlands,23,Mark Flekken,GK,1993-06-13,32.0,12,0,Bayer Leverkusen,False,mark flekken,True,0,0.0,0,0.0,2129,24
+Group F,Netherlands,24,Crysencio Summerville,FW,2001-10-30,24.0,2,0,West Ham United,False,crysencio summerville,True,5,0.18,2,0.07,2470,31
+Group F,Netherlands,25,Jorrel Hato,DF,2006-03-07,20.0,8,0,Chelsea,False,jorrel hato,True,0,0.0,0,0.0,1148,22
+Group F,Netherlands,26,Quinten Timber,MF,2001-06-17,24.0,11,1,Marseille,False,quinten timber,True,0,0.0,0,0.0,1105,15
+Group F,Sweden,3,Victor Lindelöf,DF,1994-07-17,31.0,76,3,Aston Villa,True,victor lindelof,True,0,0.0,1,0.09,948,17
+Group F,Sweden,4,Isak Hien,DF,1999-01-13,27.0,29,0,Atalanta,False,isak hien,True,1,0.05,0,0.0,1970,28
+Group F,Sweden,5,Gabriel Gudmundsson,DF,1999-04-29,27.0,24,0,Leeds United,False,gabriel gudmundsson,True,0,0.0,0,0.0,2631,32
+Group F,Sweden,7,Lucas Bergvall,MF,2006-02-02,20.0,10,0,Tottenham Hotspur,False,lucas bergvall,True,1,0.09,3,0.28,965,23
+Group F,Sweden,8,Daniel Svensson,DF,2002-02-12,24.0,13,0,Borussia Dortmund,False,daniel svensson,True,2,0.07,2,0.07,2454,33
+Group F,Sweden,9,Alexander Isak,FW,1999-09-21,26.0,58,17,Liverpool,False,alexander isak,True,3,0.39,1,0.13,699,14
+Group F,Sweden,11,Anthony Elanga,FW,2002-04-27,24.0,30,6,Newcastle United,False,anthony elanga,True,0,0.0,1,0.07,1319,32
+Group F,Sweden,14,Hjalmar Ekdal,DF,1998-10-21,27.0,13,0,Burnley,False,hjalmar ekdal,True,0,0.0,0,0.0,1539,19
+Group F,Sweden,15,Carl Starfelt,DF,1995-06-01,31.0,18,0,Celta Vigo,False,carl starfelt,True,0,0.0,0,0.0,1491,19
+Group F,Sweden,16,Jesper Karlström,MF,1995-06-21,30.0,25,0,Udinese,False,jesper karlstrom,True,1,0.03,0,0.0,3146,36
+Group F,Sweden,17,Viktor Gyökeres,FW,1998-06-04,28.0,33,20,Arsenal,False,viktor gyokeres,True,14,0.57,1,0.04,2224,36
+Group F,Sweden,18,Yasin Ayari,MF,2003-10-06,22.0,21,3,Brighton & Hove Albion,False,yasin ayari,True,3,0.14,3,0.14,1929,29
+Group F,Sweden,19,Mattias Svanberg,MF,1999-01-05,27.0,41,2,VfL Wolfsburg,False,mattias svanberg,True,3,0.31,1,0.1,861,24
+Group F,Sweden,20,Eric Smith,DF,1997-01-08,29.0,2,0,FC St. Pauli,False,eric smith,True,2,0.08,2,0.08,2311,27
+Group F,Tunisia,2,Ali Abdi,DF,1993-12-20,32.0,46,7,Nice,False,ali abdi,True,3,0.23,0,0.0,1187,22
+Group F,Tunisia,3,Montassar Talbi,DF,1998-05-26,28.0,64,4,Lorient,False,montassar talbi,True,0,0.0,1,0.03,2610,29
+Group F,Tunisia,8,Elias Saad,FW,1999-12-27,26.0,15,4,Hannover 96,False,elias saad,True,0,0.0,0,0.0,497,10
+Group F,Tunisia,10,Hannibal Mejbri,MF,2003-01-21,23.0,45,1,Burnley,False,hannibal mejbri,True,1,0.07,4,0.29,1229,27
+Group F,Tunisia,11,Ismaël Gharbi,MF,2004-04-10,22.0,17,2,FC Augsburg,False,ismael gharbi,True,0,0.0,0,0.0,94,6
+Group F,Tunisia,13,Rani Khedira,MF,1994-01-27,32.0,3,0,Union Berlin,False,rani khedira,True,5,0.16,1,0.03,2830,32
+Group F,Tunisia,17,Ellyes Skhiri,MF,1995-05-10,31.0,83,4,Eintracht Frankfurt,True,ellyes skhiri,True,0,0.0,0,0.0,1444,25
+Group G,Belgium,1,Thibaut Courtois,GK,1992-05-11,34.0,109,0,Real Madrid,False,thibaut courtois,True,0,0.0,0,0.0,2880,32
+Group G,Belgium,3,Arthur Theate,DF,2000-05-25,26.0,33,1,Eintracht Frankfurt,False,arthur theate,True,1,0.04,0,0.0,2141,24
+Group G,Belgium,5,Maxim De Cuyper,DF,2000-12-22,25.0,19,4,Brighton & Hove Albion,False,maxim de cuyper,True,2,0.13,3,0.19,1414,30
+Group G,Belgium,6,Axel Witsel,MF,1989-01-12,37.0,138,12,Girona,False,axel witsel,True,1,0.04,2,0.07,2526,32
+Group G,Belgium,7,Kevin De Bruyne,MF,1991-06-28,34.0,119,37,Napoli,False,kevin de bruyne,True,5,0.39,2,0.15,1165,18
+Group G,Belgium,8,Youri Tielemans,MF,1997-05-07,29.0,85,13,Aston Villa,True,youri tielemans,True,0,0.0,4,0.19,1862,25
+Group G,Belgium,9,Romelu Lukaku,FW,1993-05-13,33.0,126,90,Napoli,False,romelu lukaku,True,1,2.05,0,0.0,44,5
+Group G,Belgium,10,Leandro Trossard,FW,1994-12-04,31.0,51,12,Arsenal,False,leandro trossard,True,6,0.27,6,0.27,2000,31
+Group G,Belgium,11,Jérémy Doku,FW,2002-05-27,24.0,43,7,Manchester City,False,jeremy doku,True,5,0.25,5,0.25,1784,30
+Group G,Belgium,12,Senne Lammens,GK,2002-07-07,23.0,2,0,Manchester United,False,senne lammens,True,0,0.0,0,0.0,2880,32
+Group G,Belgium,13,Mike Penders,GK,2005-07-31,20.0,0,0,Strasbourg,False,mike penders,True,0,0.0,0,0.0,2970,33
+Group G,Belgium,14,Dodi Lukébakio,FW,1997-09-24,28.0,30,6,Benfica,False,dodi lukebakio,True,1,0.5,0,0.0,180,2
+Group G,Belgium,15,Thomas Meunier,DF,1991-09-12,34.0,80,10,Lille,False,thomas meunier,True,2,0.09,2,0.09,1909,25
+Group G,Belgium,16,Koni De Winter,DF,2002-06-12,23.0,8,0,Milan,False,koni de winter,True,1,0.05,1,0.05,1800,26
+Group G,Belgium,17,Charles De Ketelaere,FW,2001-03-10,25.0,30,6,Atalanta,False,charles de ketelaere,True,3,0.12,5,0.21,2177,31
+Group G,Belgium,19,Diego Moreira,MF,2004-08-06,21.0,3,0,Strasbourg,False,diego moreira,True,4,0.18,6,0.27,2034,27
+Group G,Belgium,21,Timothy Castagne,DF,1995-12-05,30.0,63,2,Fulham,False,timothy castagne,True,0,0.0,0,0.0,1845,30
+Group G,Belgium,22,Alexis Saelemaekers,MF,1999-06-27,26.0,24,2,Milan,False,alexis saelemaekers,True,3,0.1,3,0.1,2788,35
+Group G,Belgium,24,Amadou Onana,MF,2001-08-16,24.0,29,1,Aston Villa,False,amadou onana,True,2,0.1,0,0.0,1758,25
+Group G,Belgium,25,Nathan Ngoy,DF,2003-06-10,23.0,4,0,Lille,False,nathan ngoy,True,1,0.04,2,0.07,2405,29
+Group G,Belgium,26,Matias Fernandez-Pardo,FW,2005-02-03,21.0,2,0,Lille,False,matias fernandez-pardo,True,8,0.3,5,0.19,2370,29
+Group G,Egypt,10,Mohamed Salah,FW,1992-06-15,33.0,116,67,Liverpool,True,mohamed salah,True,7,0.29,7,0.29,2146,27
+Group G,Egypt,12,Haissem Hassan,FW,2002-02-08,24.0,4,0,Oviedo,False,haissem hassan,True,0,0.0,3,0.14,1942,37
+Group G,Egypt,22,Omar Marmoush,FW,1999-02-07,27.0,49,11,Manchester City,False,omar marmoush,True,3,0.39,3,0.39,700,21
+Group G,New Zealand,9,Chris Wood,FW,1991-12-07,34.0,90,45,Nottingham Forest,True,chris wood,True,3,0.3,0,0.0,901,15
+Group H,Cape Verde,5,Logan Costa,DF,2001-04-01,25.0,28,0,Villarreal,False,logan costa,True,0,0.0,0,0.0,30,2
+Group H,Saudi Arabia,12,Saud Abdulhamid,DF,1999-07-18,26.0,54,1,Lens,False,saud abdulhamid,True,2,0.13,4,0.27,1352,25
+Group H,Spain,1,David Raya,GK,1995-09-15,30.0,13,0,Arsenal,False,david raya,True,0,0.0,0,0.0,3330,37
+Group H,Spain,2,Marc Pubill,DF,2003-06-20,22.0,2,0,Atlético Madrid,False,marc pubill,True,1,0.07,1,0.07,1381,19
+Group H,Spain,3,Álex Grimaldo,DF,1995-09-20,30.0,14,0,Bayer Leverkusen,False,alex grimaldo,True,8,0.29,7,0.25,2521,29
+Group H,Spain,4,Eric García,DF,2001-01-09,25.0,21,0,Barcelona,False,eric garcia,True,1,0.03,1,0.03,2721,34
+Group H,Spain,5,Marcos Llorente,DF,1995-01-30,31.0,24,0,Atlético Madrid,False,marcos llorente,True,0,0.0,4,0.17,2181,29
+Group H,Spain,6,Mikel Merino,MF,1996-06-22,29.0,43,10,Arsenal,False,mikel merino,True,4,0.35,3,0.26,1036,22
+Group H,Spain,7,Ferran Torres,FW,2000-02-29,26.0,57,24,Barcelona,False,ferran torres,True,16,0.73,2,0.09,1965,33
+Group H,Spain,9,Gavi,MF,2004-08-05,21.0,30,5,Barcelona,False,gavi,True,0,0.0,1,0.16,573,11
+Group H,Spain,10,Dani Olmo,FW,1998-05-07,28.0,50,12,Barcelona,False,dani olmo,True,7,0.3,8,0.35,2067,33
+Group H,Spain,11,Yéremy Pino,FW,2002-10-20,23.0,23,4,Crystal Palace,False,yeremy pino,True,2,0.09,2,0.09,2080,34
+Group H,Spain,11,Yéremy Pino,FW,2002-10-20,23.0,23,4,Crystal Palace,False,yeremy pino,True,0,0.0,1,0.57,159,2
+Group H,Spain,12,Pedro Porro,DF,1999-09-13,26.0,18,0,Tottenham Hotspur,False,pedro porro,True,1,0.03,2,0.06,2796,34
+Group H,Spain,13,Joan Garcia,GK,2001-05-04,25.0,2,0,Barcelona,False,joan garcia,True,0,0.0,0,0.0,2700,30
+Group H,Spain,14,Aymeric Laporte,DF,1994-05-27,32.0,46,2,Athletic Bilbao,False,aymeric laporte,True,0,0.0,1,0.04,2058,25
+Group H,Spain,15,Álex Baena,MF,2001-07-20,24.0,17,2,Atlético Madrid,False,alex baena,True,2,0.12,3,0.17,1560,27
+Group H,Spain,16,Rodri,MF,1996-06-22,29.0,62,4,Manchester City,True,rodri,True,1,0.06,0,0.0,1511,21
+Group H,Spain,17,Nico Williams,FW,2002-07-12,23.0,30,6,Athletic Bilbao,False,nico williams,True,6,0.32,3,0.16,1674,25
+Group H,Spain,18,Martín Zubimendi,MF,1999-02-02,27.0,26,3,Arsenal,False,martin zubimendi,True,5,0.15,1,0.03,2992,38
+Group H,Spain,19,Lamine Yamal,FW,2007-07-13,18.0,25,6,Barcelona,False,lamine yamal,True,16,0.64,11,0.44,2262,28
+Group H,Spain,20,Pedri,MF,2002-11-25,23.0,41,6,Barcelona,False,pedri,True,2,0.09,9,0.38,2104,29
+Group H,Spain,21,Mikel Oyarzabal,FW,1997-04-21,29.0,53,25,Real Sociedad,False,mikel oyarzabal,True,15,0.5,4,0.13,2710,34
+Group H,Spain,22,Pau Cubarsí,DF,2007-01-22,19.0,12,0,Barcelona,False,pau cubarsi,True,1,0.03,0,0.0,2703,31
+Group H,Spain,23,Unai Simón,GK,1997-06-11,29.0,58,0,Athletic Bilbao,False,unai simon,True,0,0.0,0,0.0,3330,37
+Group H,Spain,24,Marc Cucurella,DF,1998-07-22,27.0,24,1,Chelsea,False,marc cucurella,True,1,0.03,4,0.13,2707,34
+Group H,Spain,25,Víctor Muñoz,FW,2003-07-13,22.0,2,1,Osasuna,False,victor munoz,True,6,0.2,2,0.07,2656,34
+Group H,Spain,26,Borja Iglesias,FW,1993-01-17,33.0,8,0,Celta Vigo,False,borja iglesias,True,14,0.66,2,0.09,1900,35
+Group H,Uruguay,4,Ronald Araújo,DF,1999-03-07,27.0,27,1,Barcelona,False,ronald araujo,True,3,0.25,0,0.0,1071,24
+Group H,Uruguay,5,Manuel Ugarte,MF,2001-04-11,25.0,36,1,Manchester United,False,manuel ugarte,True,0,0.0,0,0.0,887,22
+Group H,Uruguay,6,Rodrigo Bentancur,MF,1997-06-25,28.0,74,3,Tottenham Hotspur,False,rodrigo bentancur,True,1,0.05,1,0.05,1883,26
+Group H,Uruguay,8,Federico Valverde,MF,1998-07-22,27.0,73,9,Real Madrid,False,federico valverde,True,5,0.16,8,0.26,2740,33
+Group H,Uruguay,15,Emiliano Martínez,MF,1999-08-17,26.0,10,0,Palmeiras,False,emiliano martinez,True,0,0.0,1,0.03,2835,32
+Group H,Uruguay,16,Mathías Olivera,DF,1997-10-31,28.0,35,2,Napoli,False,mathias olivera,True,0,0.0,0,0.0,1370,25
+Group H,Uruguay,21,Federico Viñas,FW,1998-06-30,27.0,11,2,Oviedo,False,federico vinas,True,9,0.33,1,0.04,2439,33
+Group H,Uruguay,24,Santiago Bueno,DF,1998-11-09,27.0,8,0,Wolverhampton Wanderers,False,santiago bueno,True,3,0.11,1,0.04,2553,29
+Group I,France,1,Brice Samba,GK,1994-04-25,32.0,4,0,Rennes,False,brice samba,True,0,0.0,0,0.0,2880,32
+Group I,France,2,Malo Gusto,DF,2003-05-19,23.0,11,0,Chelsea,False,malo gusto,True,2,0.08,3,0.12,2261,34
+Group I,France,3,Lucas Digne,DF,1993-07-20,32.0,58,0,Aston Villa,False,lucas digne,True,0,0.0,6,0.29,1852,31
+Group I,France,4,Dayot Upamecano,DF,1998-10-27,27.0,38,2,Bayern Munich,False,dayot upamecano,True,1,0.05,1,0.05,1794,24
+Group I,France,5,Jules Koundé,DF,1998-11-12,27.0,48,0,Barcelona,False,jules kounde,True,1,0.04,3,0.12,2261,30
+Group I,France,6,Manu Koné,MF,2001-05-17,25.0,14,0,Roma,False,manu kone,True,2,0.07,3,0.11,2456,29
+Group I,France,7,Ousmane Dembélé,FW,1997-05-15,29.0,59,7,Paris Saint-Germain,False,ousmane dembele,True,10,0.85,7,0.59,1063,22
+Group I,France,8,Aurélien Tchouaméni,MF,2000-01-27,26.0,46,3,Real Madrid,False,aurelien tchouameni,True,1,0.03,0,0.0,2615,33
+Group I,France,9,Marcus Thuram,FW,1997-08-06,28.0,34,3,Inter Milan,False,marcus thuram,True,13,0.62,6,0.28,1900,29
+Group I,France,10,Kylian Mbappé,FW,1998-12-20,27.0,98,56,Real Madrid,True,kylian mbappe,True,25,0.87,5,0.17,2599,31
+Group I,France,11,Michael Olise,FW,2001-12-12,24.0,17,7,Bayern Munich,False,michael olise,True,15,0.58,19,0.74,2316,32
+Group I,France,12,Bradley Barcola,FW,2002-09-02,23.0,20,3,Paris Saint-Germain,False,bradley barcola,True,11,0.57,1,0.05,1743,29
+Group I,France,14,Adrien Rabiot,MF,1995-04-03,31.0,59,7,Milan,False,adrien rabiot,True,0,0.0,0,0.0,90,1
+Group I,France,14,Adrien Rabiot,MF,1995-04-03,31.0,59,7,Milan,False,adrien rabiot,True,6,0.21,4,0.14,2550,29
+Group I,France,15,Ibrahima Konaté,DF,1999-05-25,27.0,28,0,Liverpool,False,ibrahima konate,True,1,0.03,0,0.0,3090,36
+Group I,France,16,Mike Maignan,GK,1995-07-03,30.0,40,0,Milan,False,mike maignan,True,0,0.0,0,0.0,3295,37
+Group I,France,17,William Saliba,DF,2001-03-24,25.0,32,0,Arsenal,False,william saliba,True,1,0.03,0,0.0,2614,31
+Group I,France,18,Warren Zaïre-Emery,MF,2006-03-08,20.0,11,1,Paris Saint-Germain,False,warren zaire-emery,True,3,0.11,4,0.15,2447,32
+Group I,France,20,Désiré Doué,FW,2005-06-03,21.0,7,2,Paris Saint-Germain,False,desire doue,True,7,0.47,4,0.27,1348,23
+Group I,France,21,Lucas Hernandez,DF,1996-02-14,30.0,42,0,Paris Saint-Germain,False,lucas hernandez,True,0,0.0,3,0.15,1747,25
+Group I,France,22,Jean-Philippe Mateta,FW,1997-06-28,28.0,4,2,Crystal Palace,False,jean-philippe mateta,True,12,0.49,0,0.0,2218,32
+Group I,France,23,Robin Risser,GK,2004-12-02,21.0,0,0,Lens,False,robin risser,True,0,0.0,1,0.03,2970,33
+Group I,France,24,Rayan Cherki,MF,2003-08-17,22.0,7,2,Manchester City,False,rayan cherki,True,4,0.2,12,0.6,1786,33
+Group I,France,25,Maghnes Akliouche,MF,2002-02-25,24.0,9,1,Monaco,False,maghnes akliouche,True,6,0.23,6,0.23,2400,31
+Group I,France,26,Maxence Lacroix,DF,2000-04-06,26.0,4,0,Crystal Palace,False,maxence lacroix,True,1,0.03,2,0.06,3085,35
+Group I,Norway,1,Ørjan Nyland,GK,1990-09-10,35.0,71,0,Sevilla,False,rjan nyland,True,0,0.0,0,0.0,450,5
+Group I,Norway,2,Morten Thorsby,MF,1996-05-05,30.0,31,0,Cremonese,False,morten thorsby,True,1,0.14,0,0.0,643,11
+Group I,Norway,2,Morten Thorsby,MF,1996-05-05,30.0,31,0,Cremonese,False,morten thorsby,True,2,0.25,1,0.12,731,13
+Group I,Norway,3,Kristoffer Ajer,DF,1998-04-17,28.0,52,2,Brentford,False,kristoffer ajer,True,0,0.0,1,0.05,1810,27
+Group I,Norway,4,Leo Østigård,DF,1999-11-28,26.0,38,1,Genoa,False,leo stigard,True,5,0.17,1,0.03,2622,30
+Group I,Norway,5,David Møller Wolfe,DF,2002-04-23,24.0,22,1,Wolverhampton Wanderers,False,david mller wolfe,True,0,0.0,2,0.17,1049,22
+Group I,Norway,7,Alexander Sørloth,FW,1995-12-05,30.0,72,26,Atlético Madrid,False,alexander srloth,True,13,0.59,0,0.0,1980,35
+Group I,Norway,8,Sander Berge,MF,1998-02-14,28.0,66,1,Fulham,False,sander berge,True,0,0.0,1,0.03,2905,35
+Group I,Norway,9,Erling Haaland,FW,2000-07-21,25.0,50,55,Manchester City,False,erling haaland,True,27,0.82,8,0.24,2953,35
+Group I,Norway,10,Martin Ødegaard,MF,1998-12-17,27.0,68,5,Arsenal,True,martin degaard,True,1,0.07,6,0.39,1369,24
+Group I,Norway,11,Jørgen Strand Larsen,FW,2000-02-06,26.0,28,6,Crystal Palace,False,jrgen strand larsen,True,3,0.3,0,0.0,903,14
+Group I,Norway,11,Jørgen Strand Larsen,FW,2000-02-06,26.0,28,6,Crystal Palace,False,jrgen strand larsen,True,1,0.06,1,0.06,1404,22
+Group I,Norway,12,Sander Tangvik,GK,2002-11-29,23.0,0,0,Hamburger SV,False,sander tangvik,True,0,0.0,0,0.0,90,1
+Group I,Norway,17,Torbjørn Heggem,DF,1999-01-12,27.0,15,0,Bologna,False,torbjrn heggem,True,0,0.0,0,0.0,2113,27
+Group I,Norway,18,Kristian Thorstvedt,MF,1999-03-13,27.0,37,4,Sassuolo,False,kristian thorstvedt,True,4,0.15,4,0.15,2460,32
+Group I,Norway,20,Antonio Nusa,FW,2005-04-17,21.0,24,8,RB Leipzig,False,antonio nusa,True,4,0.18,3,0.13,2027,31
+Group I,Norway,22,Oscar Bobb,MF,2003-07-12,22.0,20,2,Fulham,False,oscar bobb,True,0,0.0,0,0.0,571,14
+Group I,Norway,22,Oscar Bobb,MF,2003-07-12,22.0,20,2,Fulham,False,oscar bobb,True,0,0.0,1,0.19,468,9
+Group I,Norway,26,Julian Ryerson,FW,1997-11-17,28.0,43,1,Borussia Dortmund,False,julian ryerson,True,0,0.0,15,0.6,2266,31
+Group I,Senegal,1,Yehvann Diouf,GK,1999-11-16,26.0,2,0,Nice,False,yehvann diouf,True,0,0.0,0,0.0,2340,26
+Group I,Senegal,2,Mamadou Sarr,DF,2005-08-29,20.0,7,0,Chelsea,False,mamadou sarr,True,0,0.0,0,0.0,102,3
+Group I,Senegal,2,Mamadou Sarr,DF,2005-08-29,20.0,7,0,Chelsea,False,mamadou sarr,True,0,0.0,0,0.0,1305,15
+Group I,Senegal,5,Idrissa Gueye,MF,1989-09-26,36.0,130,7,Everton,False,idrissa gueye,True,2,0.09,3,0.13,2093,25
+Group I,Senegal,5,Idrissa Gueye,MF,1989-09-26,36.0,130,7,Everton,False,idrissa gueye,True,0,0.0,0,0.0,132,3
+Group I,Senegal,5,Idrissa Gueye,MF,1989-09-26,36.0,130,7,Everton,False,idrissa gueye,True,1,0.21,0,0.0,421,19
+Group I,Senegal,6,Pathé Ciss,MF,1994-03-16,32.0,29,0,Rayo Vallecano,False,pathe ciss,True,2,0.09,1,0.05,1999,29
+Group I,Senegal,7,Assane Diao,FW,2005-09-07,20.0,5,0,Como,False,assane diao,True,2,0.17,1,0.08,1075,17
+Group I,Senegal,8,Lamine Camara,MF,2004-01-01,22.0,32,7,Monaco,False,lamine camara,True,3,0.15,4,0.19,1847,24
+Group I,Senegal,9,Bamba Dieng,FW,2000-03-23,26.0,22,2,Lorient,False,bamba dieng,True,10,0.74,1,0.07,1212,22
+Group I,Senegal,11,Nicolas Jackson,FW,2001-06-20,24.0,32,8,Bayern Munich,False,nicolas jackson,True,8,0.71,1,0.09,1007,23
+Group I,Senegal,13,Iliman Ndiaye,FW,2000-03-06,26.0,39,4,Everton,False,iliman ndiaye,True,6,0.19,3,0.1,2778,32
+Group I,Senegal,15,Krépin Diatta,DF,1999-02-25,27.0,60,2,Monaco,False,krepin diatta,True,0,0.0,1,0.09,1013,18
+Group I,Senegal,17,Pape Matar Sarr,MF,2002-09-14,23.0,39,4,Tottenham Hotspur,False,pape matar sarr,True,2,0.13,4,0.26,1398,26
+Group I,Senegal,18,Ismaïla Sarr,FW,1998-02-25,28.0,82,19,Crystal Palace,False,ismaila sarr,True,9,0.37,1,0.04,2174,28
+Group I,Senegal,19,Moussa Niakhaté,DF,1996-03-08,30.0,30,0,Lyon,False,moussa niakhate,True,0,0.0,2,0.07,2759,32
+Group I,Senegal,20,Ibrahim Mbaye,FW,2008-01-24,18.0,10,3,Paris Saint-Germain,False,ibrahim mbaye,True,3,0.27,2,0.18,1006,24
+Group I,Senegal,21,Habib Diarra,MF,2004-01-03,22.0,20,4,Sunderland,False,habib diarra,True,2,0.13,2,0.13,1405,20
+Group I,Senegal,22,Bara Sapoko Ndiaye,MF,2007-12-31,18.0,1,0,Bayern Munich,False,bara sapoko ndiaye,True,0,0.0,0,0.0,143,4
+Group I,Senegal,23,Mory Diaw,GK,1993-06-22,32.0,5,0,Le Havre,False,mory diaw,True,0,0.0,1,0.03,2655,30
+Group I,Senegal,24,Antoine Mendy,DF,2004-05-27,22.0,6,0,Nice,False,antoine mendy,True,1,0.04,0,0.0,2097,25
+Group I,Senegal,25,El Hadji Malick Diouf,DF,2004-12-29,21.0,19,1,West Ham United,False,el hadji malick diouf,True,0,0.0,5,0.17,2707,32
+Group I,Senegal,26,Pape Gueye,MF,1999-01-24,27.0,41,5,Villarreal,False,pape gueye,True,5,0.21,2,0.08,2131,30
+Group J,Algeria,2,Aïssa Mandi,DF,1991-10-22,34.0,117,7,Lille,False,aissa mandi,True,1,0.04,0,0.0,2424,29
+Group J,Algeria,9,Amine Gouiri,FW,2000-02-16,26.0,22,8,Marseille,False,amine gouiri,True,8,0.54,3,0.2,1326,22
+Group J,Algeria,10,Farès Chaïbi,MF,2002-11-28,23.0,29,3,Eintracht Frankfurt,False,fares chaibi,True,2,0.1,9,0.45,1792,28
+Group J,Algeria,14,Hicham Boudaoui,MF,1999-09-23,26.0,32,0,Nice,False,hicham boudaoui,True,1,0.05,2,0.11,1694,25
+Group J,Algeria,15,Rayan Aït-Nouri,DF,2001-06-06,25.0,28,0,Manchester City,False,rayan ait-nouri,True,0,0.0,2,0.18,974,17
+Group J,Algeria,17,Rafik Belghali,DF,2002-06-07,24.0,12,1,Hellas Verona,False,rafik belghali,True,2,0.09,0,0.0,1920,26
+Group J,Algeria,18,Mohamed Amoura,FW,2000-05-09,26.0,45,19,VfL Wolfsburg,False,mohamed amoura,True,8,0.38,3,0.14,1919,30
+Group J,Algeria,19,Nabil Bentaleb,MF,1994-11-24,31.0,59,6,Lille,False,nabil bentaleb,True,2,0.14,2,0.14,1287,26
+Group J,Algeria,21,Ramy Bensebaini,DF,1995-04-16,31.0,81,7,Borussia Dortmund,False,ramy bensebaini,True,5,0.29,2,0.12,1530,21
+Group J,Algeria,22,Ibrahim Maza,MF,2005-11-24,20.0,16,2,Bayer Leverkusen,False,ibrahim maza,True,3,0.15,4,0.19,1849,28
+Group J,Algeria,26,Samir Chergui,DF,1999-02-06,27.0,4,0,Paris FC,False,samir chergui,True,1,0.08,0,0.0,1154,15
+Group J,Argentina,1,Juan Musso,GK,1994-05-06,32.0,4,0,Atlético Madrid,False,juan musso,True,0,0.0,0,0.0,720,8
+Group J,Argentina,3,Nicolás Tagliafico,DF,1992-08-31,33.0,76,1,Lyon,False,nicolas tagliafico,True,0,0.0,3,0.21,1310,20
+Group J,Argentina,6,Lisandro Martínez,DF,1998-01-18,28.0,27,1,Manchester United,False,lisandro martinez,True,0,0.0,0,0.0,1233,18
+Group J,Argentina,8,Valentín Barco,MF,2004-07-23,21.0,3,1,Strasbourg,False,valentin barco,True,2,0.08,4,0.17,2168,27
+Group J,Argentina,9,Julián Alvarez,FW,2000-01-31,26.0,51,14,Atlético Madrid,False,julian alvarez,True,8,0.38,4,0.19,1895,29
+Group J,Argentina,11,Giovani Lo Celso,MF,1996-04-09,30.0,66,4,Real Betis,False,giovani lo celso,True,2,0.13,3,0.19,1393,24
+Group J,Argentina,12,Gerónimo Rulli,GK,1992-05-20,34.0,7,0,Marseille,False,geronimo rulli,True,0,0.0,0,0.0,2610,29
+Group J,Argentina,13,Cristian Romero,DF,1998-04-27,28.0,50,3,Tottenham Hotspur,False,cristian romero,True,4,0.19,1,0.05,1868,23
+Group J,Argentina,14,Exequiel Palacios,MF,1998-10-05,27.0,39,0,Bayer Leverkusen,False,exequiel palacios,True,0,0.0,1,0.08,1099,18
+Group J,Argentina,15,Nicolás González,MF,1998-04-06,28.0,50,6,Atlético Madrid,False,nicolas gonzalez,True,1,0.06,0,0.0,1569,25
+Group J,Argentina,15,Nicolás González,MF,1998-04-06,28.0,50,6,Atlético Madrid,False,nicolas gonzalez,True,5,0.31,0,0.0,1448,24
+Group J,Argentina,15,Nicolás González,MF,1998-04-06,28.0,50,6,Atlético Madrid,False,nicolas gonzalez,True,0,0.0,0,0.0,19,2
+Group J,Argentina,16,Thiago Almada,FW,2001-04-26,25.0,15,4,Atlético Madrid,False,thiago almada,True,3,0.21,1,0.07,1311,27
+Group J,Argentina,17,Giuliano Simeone,FW,2002-12-18,23.0,12,2,Atlético Madrid,False,giuliano simeone,True,4,0.17,6,0.26,2099,31
+Group J,Argentina,20,Alexis Mac Allister,MF,1998-12-24,27.0,45,6,Liverpool,False,alexis mac allister,True,2,0.07,4,0.14,2658,37
+Group J,Argentina,22,Lautaro Martínez,FW,1997-08-22,28.0,76,37,Inter Milan,False,lautaro martinez,True,17,0.71,6,0.25,2159,30
+Group J,Argentina,23,Emiliano Martínez,GK,1992-09-02,33.0,59,0,Aston Villa,False,emiliano martinez,True,0,0.0,1,0.03,2835,32
+Group J,Argentina,24,Enzo Fernández,MF,2001-01-17,25.0,41,6,Chelsea,False,enzo fernandez,True,10,0.29,4,0.12,3115,36
+Group J,Argentina,25,Facundo Medina,DF,1999-05-28,27.0,8,0,Marseille,False,facundo medina,True,0,0.0,1,0.07,1365,17
+Group J,Argentina,26,Nahuel Molina,DF,1998-04-06,28.0,58,1,Atlético Madrid,False,nahuel molina,True,2,0.14,2,0.14,1331,26
+Group J,Austria,2,David Affengruber,DF,2001-03-19,25.0,1,0,Elche,False,david affengruber,True,1,0.03,1,0.03,2949,36
+Group J,Austria,3,Kevin Danso,DF,1998-09-19,27.0,32,0,Tottenham Hotspur,False,kevin danso,True,0,0.0,0,0.0,1494,24
+Group J,Austria,4,Xaver Schlager,MF,1997-09-28,28.0,51,4,RB Leipzig,False,xaver schlager,True,3,0.15,1,0.05,1837,26
+Group J,Austria,5,Stefan Posch,DF,1997-05-14,29.0,52,5,Mainz 05,False,stefan posch,True,1,0.23,0,0.0,393,14
+Group J,Austria,5,Stefan Posch,DF,1997-05-14,29.0,52,5,Mainz 05,False,stefan posch,True,0,0.0,0,0.0,1395,16
+Group J,Austria,6,Nicolas Seiwald,MF,2001-05-04,25.0,47,1,RB Leipzig,False,nicolas seiwald,True,0,0.0,2,0.07,2694,33
+Group J,Austria,8,David Alaba,DF,1992-06-24,33.0,113,15,Real Madrid,True,david alaba,True,0,0.0,0,0.0,424,11
+Group J,Austria,9,Marcel Sabitzer,MF,1994-03-17,32.0,98,26,Borussia Dortmund,False,marcel sabitzer,True,1,0.05,2,0.1,1817,26
+Group J,Austria,11,Michael Gregoritsch,FW,1994-04-18,32.0,75,24,FC Augsburg,False,michael gregoritsch,True,6,0.59,2,0.2,913,17
+Group J,Austria,14,Saša Kalajdžić,FW,1997-07-07,28.0,22,4,LASK,False,sasa kalajdzic,True,0,0.0,0,0.0,15,1
+Group J,Austria,15,Philipp Lienhart,DF,1996-07-11,29.0,41,3,SC Freiburg,False,philipp lienhart,True,1,0.07,0,0.0,1302,20
+Group J,Austria,16,Phillipp Mwene,DF,1994-01-29,32.0,30,0,Mainz 05,False,phillipp mwene,True,1,0.04,2,0.09,2069,29
+Group J,Austria,17,Carney Chukwuemeka,MF,2003-10-20,22.0,3,1,Borussia Dortmund,False,carney chukwuemeka,True,2,0.2,0,0.0,919,28
+Group J,Austria,18,Romano Schmid,MF,2000-01-27,26.0,34,3,Werder Bremen,False,romano schmid,True,4,0.12,8,0.24,2982,34
+Group J,Austria,20,Konrad Laimer,MF,1997-05-27,29.0,57,7,Bayern Munich,False,konrad laimer,True,3,0.14,9,0.41,1994,29
+Group J,Austria,21,Patrick Wimmer,FW,2001-05-30,25.0,30,1,VfL Wolfsburg,False,patrick wimmer,True,4,0.22,3,0.17,1621,25
+Group J,Austria,22,Alexander Prass,MF,2001-05-26,25.0,19,0,TSG Hoffenheim,False,alexander prass,True,3,0.21,2,0.14,1308,32
+Group J,Austria,23,Marco Friedl,DF,1998-03-16,28.0,11,0,Werder Bremen,False,marco friedl,True,1,0.04,0,0.0,2546,30
+Group J,Jordan,10,Musa Al-Taamari,FW,1997-06-10,29.0,92,24,Rennes,False,musa al-taamari,True,6,0.24,6,0.24,2212,33
+Group K,Colombia,2,Daniel Muñoz,DF,1996-05-26,30.0,46,3,Crystal Palace,False,daniel munoz,True,4,0.15,3,0.11,2399,29
+Group K,Colombia,3,Jhon Lucumí,DF,1998-06-26,27.0,37,1,Bologna,False,jhon lucumi,True,1,0.04,0,0.0,2287,29
+Group K,Colombia,7,Luis Díaz,FW,1997-01-13,29.0,74,22,Bayern Munich,False,luis diaz,True,15,0.55,14,0.51,2447,32
+Group K,Colombia,11,Jhon Arias,MF,1997-09-21,28.0,38,6,Palmeiras,False,jhon arias,True,1,0.08,0,0.0,1124,23
+Group K,Colombia,13,Yerry Mina,DF,1994-09-23,31.0,54,8,Cagliari,False,yerry mina,True,2,0.08,0,0.0,2150,26
+Group K,Colombia,16,Jefferson Lerma,MF,1994-10-25,31.0,65,5,Crystal Palace,False,jefferson lerma,True,0,0.0,2,0.1,1733,31
+Group K,Colombia,17,Johan Mojica,DF,1992-08-21,33.0,45,1,Mallorca,False,johan mojica,True,0,0.0,4,0.13,2724,35
+Group K,Colombia,22,Deiver Machado,DF,1993-09-02,32.0,15,0,Nantes,False,deiver machado,True,0,0.0,0,0.0,273,5
+Group K,Colombia,22,Deiver Machado,DF,1993-09-02,32.0,15,0,Nantes,False,deiver machado,True,0,0.0,1,0.1,907,14
+Group K,DR Congo,1,Lionel Mpasi,GK,1994-08-01,31.0,28,0,Le Havre,False,lionel mpasi,True,0,0.0,0,0.0,315,4
+Group K,DR Congo,2,Aaron Wan-Bissaka,DF,1997-11-26,28.0,11,0,West Ham United,False,aaron wan-bissaka,True,0,0.0,2,0.09,2081,25
+Group K,DR Congo,4,Axel Tuanzebe,DF,1997-11-14,28.0,13,1,Burnley,False,axel tuanzebe,True,1,0.07,0,0.0,1201,14
+Group K,DR Congo,6,Ngal'ayel Mukau,MF,2004-11-03,21.0,13,0,Lille,False,ngal'ayel mukau,True,1,0.06,0,0.0,1534,30
+Group K,DR Congo,14,Noah Sadiki,MF,2004-12-17,21.0,19,0,Sunderland,False,noah sadiki,True,0,0.0,1,0.03,2889,33
+Group K,DR Congo,17,Cédric Bakambu,FW,1991-04-11,35.0,69,21,Real Betis,False,cedric bakambu,True,3,0.47,1,0.16,569,18
+Group K,DR Congo,18,Charles Pickel,MF,1997-05-15,29.0,34,1,Espanyol,False,charles pickel,True,1,0.13,0,0.0,707,24
+Group K,DR Congo,20,Yoane Wissa,FW,1996-09-03,29.0,37,9,Newcastle United,False,yoane wissa,True,1,0.17,1,0.17,531,19
+Group K,DR Congo,22,Chancel Mbemba,DF,1994-08-08,31.0,108,7,Lille,True,chancel mbemba,True,0,0.0,0,0.0,954,13
+Group K,DR Congo,26,Arthur Masuaku,DF,1993-11-07,32.0,45,4,Lens,False,arthur masuaku,True,0,0.0,0,0.0,126,3
+Group K,DR Congo,26,Arthur Masuaku,DF,1993-11-07,32.0,45,4,Lens,False,arthur masuaku,True,0,0.0,0,0.0,227,4
+Group K,Portugal,3,Rúben Dias,DF,1997-05-14,29.0,75,3,Manchester City,False,ruben dias,True,2,0.08,0,0.0,2141,26
+Group K,Portugal,5,Diogo Dalot,DF,1999-03-18,27.0,34,3,Manchester United,False,diogo dalot,True,1,0.03,3,0.1,2614,34
+Group K,Portugal,6,Matheus Nunes,MF,1998-08-27,27.0,19,2,Manchester City,False,matheus nunes,True,1,0.03,5,0.16,2862,34
+Group K,Portugal,8,Bruno Fernandes,MF,1994-09-08,31.0,88,29,Manchester United,False,bruno fernandes,True,9,0.26,21,0.62,3063,35
+Group K,Portugal,9,Gonçalo Ramos,FW,2001-06-20,24.0,24,10,Paris Saint-Germain,False,goncalo ramos,True,6,0.41,1,0.07,1318,30
+Group K,Portugal,10,Bernardo Silva,MF,1994-08-10,31.0,108,14,Manchester City,False,bernardo silva,True,2,0.06,4,0.13,2872,38
+Group K,Portugal,12,José Sá,GK,1993-01-17,33.0,5,0,Wolverhampton Wanderers,False,jose sa,True,0,0.0,0,0.0,2070,23
+Group K,Portugal,13,Renato Veiga,DF,2003-07-29,22.0,12,1,Villarreal,False,renato veiga,True,0,0.0,0,0.0,2481,32
+Group K,Portugal,15,João Neves,MF,2004-09-27,21.0,21,3,Paris Saint-Germain,False,joao neves,True,5,0.35,1,0.07,1287,21
+Group K,Portugal,17,Rafael Leão,FW,1999-06-10,27.0,44,5,Milan,False,rafael leao,True,9,0.44,3,0.15,1851,29
+Group K,Portugal,18,Pedro Neto,FW,2000-03-09,26.0,24,2,Chelsea,False,pedro neto,True,5,0.17,6,0.21,2631,34
+Group K,Portugal,19,Gonçalo Guedes,FW,1996-11-29,29.0,34,8,Real Sociedad,False,goncalo guedes,True,8,0.39,4,0.2,1823,32
+Group K,Portugal,20,João Cancelo,DF,1994-05-27,32.0,67,12,Barcelona,False,joao cancelo,True,2,0.19,2,0.19,954,16
+Group K,Portugal,23,Vitinha,MF,2000-02-13,26.0,37,0,Paris Saint-Germain,False,vitinha,True,1,0.04,7,0.3,2119,29
+Group K,Portugal,23,Vitinha,MF,2000-02-13,26.0,37,0,Paris Saint-Germain,False,vitinha,True,5,0.2,1,0.04,2226,35
+Group K,Portugal,24,Samú Costa,DF,2000-11-27,25.0,5,0,Mallorca,False,samu costa,True,7,0.23,2,0.07,2697,34
+Group K,Portugal,25,Nuno Mendes,DF,2002-06-19,23.0,43,1,Paris Saint-Germain,False,nuno mendes,True,4,0.29,5,0.36,1256,20
+Group K,Portugal,26,Francisco Conceição,FW,2002-12-14,23.0,16,3,Juventus,False,francisco conceicao,True,3,0.13,5,0.22,2078,31
+Group K,Uzbekistan,2,Abdukodir Khusanov,DF,2004-02-29,22.0,27,0,Manchester City,False,abdukodir khusanov,True,0,0.0,0,0.0,1432,21
+Group L,Croatia,2,Josip Stanišić,DF,2000-04-02,26.0,31,0,Bayern Munich,False,josip stanisic,True,2,0.1,3,0.15,1857,26
+Group L,Croatia,3,Marin Pongračić,DF,1997-09-11,28.0,20,0,Fiorentina,False,marin pongracic,True,0,0.0,0,0.0,2918,35
+Group L,Croatia,4,Joško Gvardiol,DF,2002-01-23,24.0,48,4,Manchester City,False,josko gvardiol,True,2,0.13,2,0.13,1372,18
+Group L,Croatia,5,Duje Ćaleta-Car,DF,1996-09-17,29.0,38,1,Real Sociedad,False,duje caleta-car,True,1,0.04,0,0.0,2150,27
+Group L,Croatia,7,Nikola Moro,MF,1998-03-12,28.0,10,0,Bologna,False,nikola moro,True,2,0.1,0,0.0,1799,30
+Group L,Croatia,8,Mateo Kovačić,MF,1994-05-06,32.0,113,5,Manchester City,False,mateo kovacic,True,0,0.0,1,0.69,130,6
+Group L,Croatia,9,Andrej Kramarić,FW,1991-06-19,34.0,116,36,TSG Hoffenheim,False,andrej kramaric,True,14,0.57,6,0.24,2207,34
+Group L,Croatia,10,Luka Modrić,MF,1985-09-09,40.0,198,29,Milan,True,luka modric,True,2,0.06,3,0.1,2811,34
+Group L,Croatia,11,Ante Budimir,FW,1991-07-22,34.0,38,6,Osasuna,False,ante budimir,True,17,0.52,0,0.0,2938,37
+Group L,Croatia,13,Nikola Vlašić,MF,1997-10-04,28.0,63,10,Torino,False,nikola vlasic,True,8,0.24,3,0.09,3043,37
+Group L,Croatia,15,Mario Pašalić,MF,1995-02-09,31.0,85,12,Atalanta,False,mario pasalic,True,3,0.14,4,0.19,1936,33
+Group L,Croatia,16,Martin Baturina,MF,2003-02-16,23.0,19,1,Como,False,martin baturina,True,6,0.34,3,0.17,1569,29
+Group L,Croatia,17,Petar Sučić,MF,2003-10-25,22.0,17,1,Inter Milan,False,petar sucic,True,2,0.1,2,0.1,1765,34
+Group L,Croatia,18,Kristijan Jakić,DF,1997-05-14,29.0,17,2,FC Augsburg,False,kristijan jakic,True,2,0.11,1,0.05,1653,26
+Group L,Croatia,20,Igor Matanović,FW,2003-03-31,23.0,9,2,SC Freiburg,False,igor matanovic,True,11,0.63,2,0.11,1571,31
+Group L,Croatia,21,Luka Sučić,MF,2002-09-08,23.0,21,1,Real Sociedad,False,luka sucic,True,3,0.26,1,0.09,1022,22
+Group L,Croatia,22,Luka Vušković,DF,2007-02-24,19.0,5,1,Hamburger SV,False,luka vuskovic,True,6,0.22,0,0.0,2442,28
+Group L,England,1,Jordan Pickford,GK,1994-03-07,32.0,83,0,Everton,False,jordan pickford,True,0,0.0,0,0.0,3420,38
+Group L,England,2,Ezri Konsa,DF,1997-10-23,28.0,19,1,Aston Villa,False,ezri konsa,True,0,0.0,0,0.0,3035,34
+Group L,England,3,Nico O'Reilly,DF,2005-03-21,21.0,4,0,Manchester City,False,nico o'reilly,True,5,0.17,3,0.1,2646,34
+Group L,England,4,Declan Rice,MF,1999-01-14,27.0,72,6,Arsenal,False,declan rice,True,4,0.12,5,0.15,3094,36
+Group L,England,5,John Stones,DF,1994-05-28,32.0,88,3,Manchester City,False,john stones,True,0,0.0,0,0.0,439,9
+Group L,England,6,Marc Guéhi,DF,2000-07-13,25.0,28,1,Manchester City,False,marc guehi,True,2,0.1,2,0.1,1800,20
+Group L,England,6,Marc Guéhi,DF,2000-07-13,25.0,28,1,Manchester City,False,marc guehi,True,1,0.07,1,0.07,1350,15
+Group L,England,7,Bukayo Saka,FW,2001-09-05,24.0,48,14,Arsenal,False,bukayo saka,True,7,0.28,5,0.2,2222,31
+Group L,England,8,Elliot Anderson,MF,2002-11-06,23.0,8,0,Nottingham Forest,False,elliot anderson,True,4,0.11,4,0.11,3331,38
+Group L,England,9,Harry Kane,FW,1993-07-28,32.0,113,79,Bayern Munich,True,harry kane,True,36,1.36,5,0.19,2377,31
+Group L,England,10,Jude Bellingham,MF,2003-06-29,22.0,47,6,Real Madrid,False,jude bellingham,True,6,0.28,4,0.19,1916,28
+Group L,England,11,Marcus Rashford,FW,1997-10-31,28.0,71,18,Barcelona,False,marcus rashford,True,8,0.41,7,0.36,1763,32
+Group L,England,12,Tino Livramento,DF,2002-11-12,23.0,6,0,Newcastle United,False,tino livramento,True,0,0.0,1,0.07,1328,17
+Group L,England,13,Dean Henderson,GK,1997-03-12,29.0,4,0,Crystal Palace,False,dean henderson,True,0,0.0,0,0.0,3330,37
+Group L,England,14,Jordan Henderson,MF,1990-06-17,35.0,90,3,Brentford,False,jordan henderson,True,1,0.05,3,0.14,1919,32
+Group L,England,15,Dan Burn,DF,1992-05-09,34.0,7,0,Newcastle United,False,dan burn,True,1,0.04,2,0.08,2199,29
+Group L,England,16,Kobbie Mainoo,MF,2005-04-19,21.0,13,0,Manchester United,False,kobbie mainoo,True,1,0.05,2,0.11,1662,28
+Group L,England,17,Morgan Rogers,MF,2002-07-26,23.0,14,1,Aston Villa,False,morgan rogers,True,10,0.27,6,0.16,3280,37
+Group L,England,18,Anthony Gordon,FW,2001-02-24,25.0,18,2,Newcastle United,False,anthony gordon,True,6,0.3,2,0.1,1795,26
+Group L,England,19,Ollie Watkins,FW,1995-12-30,30.0,21,6,Aston Villa,False,ollie watkins,True,16,0.51,3,0.1,2839,37
+Group L,England,20,Noni Madueke,FW,2002-03-10,24.0,10,1,Arsenal,False,noni madueke,True,3,0.22,1,0.07,1211,26
+Group L,England,21,Eberechi Eze,MF,1998-06-29,27.0,16,3,Arsenal,False,eberechi eze,True,7,0.35,2,0.1,1812,32
+Group L,England,21,Eberechi Eze,MF,1998-06-29,27.0,16,3,Arsenal,False,eberechi eze,True,0,0.0,0,0.0,83,1
+Group L,England,23,James Trafford,GK,2002-10-10,23.0,2,0,Manchester City,False,james trafford,True,0,0.0,0,0.0,360,4
+Group L,England,24,Reece James,DF,1999-12-08,26.0,23,1,Chelsea,False,reece james,True,2,0.09,4,0.18,1963,29
+Group L,England,25,Djed Spence,DF,2000-08-09,25.0,5,0,Tottenham Hotspur,False,djed spence,True,0,0.0,0,0.0,2056,30
+Group L,England,26,Jarell Quansah,DF,2003-01-29,23.0,2,0,Bayer Leverkusen,False,jarell quansah,True,4,0.16,0,0.0,2299,28
+Group L,Ghana,2,Alidu Seidu,DF,2000-06-04,26.0,24,1,Rennes,False,alidu seidu,True,0,0.0,1,0.08,1186,21
+Group L,Ghana,4,Jonas Adjetey,DF,2003-12-13,22.0,10,0,VfL Wolfsburg,False,jonas adjetey,True,0,0.0,0,0.0,137,4
+Group L,Ghana,5,Thomas Partey,MF,1993-06-13,32.0,57,15,Villarreal,False,thomas partey,True,0,0.0,0,0.0,934,25
+Group L,Ghana,6,Abdul Mumin,DF,1998-06-06,28.0,5,0,Rayo Vallecano,False,abdul mumin,True,0,0.0,0,0.0,79,3
+Group L,Ghana,8,Kwasi Sibo,MF,1998-06-24,27.0,8,0,Oviedo,False,kwasi sibo,True,0,0.0,0,0.0,1681,26
+Group L,Ghana,11,Antoine Semenyo,MF,2000-01-07,26.0,34,3,Manchester City,False,antoine semenyo,True,10,0.5,3,0.15,1798,20
+Group L,Ghana,11,Antoine Semenyo,MF,2000-01-07,26.0,34,3,Manchester City,False,antoine semenyo,True,7,0.45,1,0.06,1397,17
+Group L,Ghana,14,Gideon Mensah,DF,1998-07-18,27.0,40,0,Auxerre,False,gideon mensah,True,0,0.0,2,0.08,2327,30
+Group L,Ghana,15,Elisha Owusu,MF,1997-11-07,28.0,20,0,Auxerre,False,elisha owusu,True,0,0.0,0,0.0,2344,29
+Group L,Ghana,19,Iñaki Williams,FW,1994-06-15,31.0,26,2,Athletic Bilbao,False,inaki williams,True,3,0.13,6,0.25,2157,30
+Group L,Ghana,21,Kojo Peprah Oppong,DF,2004-06-04,22.0,4,0,Nice,False,kojo peprah oppong,True,1,0.04,0,0.0,2425,29
+Group L,Ghana,22,Kamaldeen Sulemana,FW,2002-02-15,24.0,28,1,Atalanta,False,kamaldeen sulemana,True,2,0.18,1,0.09,1011,25
+Group L,Ghana,24,Ernest Nuamah,FW,2003-11-01,22.0,18,4,Lyon,False,ernest nuamah,True,0,0.0,0,0.0,35,3
+Group L,Ghana,26,Marvin Senaya,DF,2001-01-28,25.0,2,0,Auxerre,False,marvin senaya,True,1,0.05,0,0.0,1780,25
+Group L,Panama,23,Michael Amir Murillo,DF,1996-02-11,30.0,94,9,Beşiktaş,False,michael amir murillo,True,2,0.18,1,0.09,989,16
