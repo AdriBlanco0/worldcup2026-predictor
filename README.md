@@ -62,9 +62,9 @@ Updated after every matchday — hits and misses alike.
 <!-- PERFORMANCE_START -->
 | Matches | v0 (outcome) | v1 (outcome) | 🎯 Exact scores | 📐 RPS (v1) |
 |---|---|---|---|---|
-| 72 | 38/72 (53%) | 39/72 (54%) | 17/72 (24%) | 0.188 |
+| 72 | 38/72 (53%) | 37/72 (51%) | 14/72 (19%) | 0.188 |
 
-🎯 **Exact scores nailed:** Mexico 2-0 South Africa, Brazil 1-1 Morocco, Haiti 0-1 Scotland, Belgium 1-1 Egypt, Czech Republic 1-1 South Africa, Mexico 1-0 South Korea, Scotland 0-1 Morocco, Brazil 3-0 Haiti, France 3-0 Iraq, Argentina 2-0 Austria, Panama 0-1 Croatia, Curaçao 0-2 Ivory Coast, New Zealand 0-2 Belgium, Egypt 1-1 Iran, DR Congo 1-1 Uzbekistan, Jordan 0-3 Argentina, Algeria 1-1 Austria.
+🎯 **Exact scores nailed:** Mexico 2-0 South Africa, Brazil 1-1 Morocco, Haiti 0-1 Scotland, Belgium 1-1 Egypt, Czech Republic 1-1 South Africa, Mexico 1-0 South Korea, Scotland 0-1 Morocco, Brazil 3-0 Haiti, France 3-0 Iraq, Argentina 2-0 Austria, Panama 0-1 Croatia, Curaçao 0-2 Ivory Coast, Egypt 1-1 Iran, Panama 0-2 England.
 <!-- PERFORMANCE_END -->
 
 The Poisson model is hitting exact scores well above the ~11% that world-class exact-score

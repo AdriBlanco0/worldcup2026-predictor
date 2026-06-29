@@ -59,15 +59,15 @@ date,group,home_team,away_team,home_score,away_score,actual,v0_pick,v0_p_home,v0
 2026-06-25,Group D,Paraguay,Australia,0.0,0.0,Draw,Home win,49.3,30.8,19.9,Home win,37.7,26.5,35.9,1.0,1.0,False,False,False,0.1351465
 2026-06-25,Group E,Curaçao,Ivory Coast,0.0,2.0,Away win,Home win,38.6,26.1,35.3,Away win,16.6,13.0,70.4,0.0,2.0,False,True,True,0.05758600000000001
 2026-06-25,Group E,Ecuador,Germany,2.0,1.0,Home win,Away win,15.2,24.5,60.3,Away win,16.2,20.8,63.0,1.0,1.0,False,False,False,0.549572
-2026-06-26,Group I,Senegal,Iraq,2.0,0.0,Home win,Home win,52.3,36.2,11.5,Home win,64.7,22.8,12.6,1.0,0.0,True,True,False,0.07011699999999998
-2026-06-26,Group I,Norway,France,1.0,2.0,Away win,Away win,6.9,16.5,76.6,Away win,14.2,15.1,70.7,0.0,1.0,True,True,False,0.0530065
-2026-06-26,Group G,New Zealand,Belgium,0.0,2.0,Away win,Away win,10.3,16.7,73.0,Away win,12.4,14.0,73.7,0.0,2.0,True,True,True,0.042536000000000004
-2026-06-26,Group H,Cape Verde,Saudi Arabia,1.0,2.0,Away win,Home win,41.4,18.5,40.1,Away win,34.1,19.3,46.6,1.0,1.0,False,True,False,0.20071850000000002
-2026-06-26,Group H,Uruguay,Spain,1.0,2.0,Away win,Away win,34.0,27.8,38.1,Away win,30.3,26.8,42.9,0.0,2.0,True,True,False,0.20892499999999997
+2026-06-26,Group I,Senegal,Iraq,5.0,0.0,Home win,Home win,52.3,36.2,11.5,Home win,64.7,22.8,12.6,1.0,0.0,True,True,False,0.07011699999999998
+2026-06-26,Group I,Norway,France,1.0,4.0,Away win,Away win,6.9,16.5,76.6,Away win,14.2,15.1,70.7,0.0,1.0,True,True,False,0.0530065
+2026-06-26,Group G,New Zealand,Belgium,1.0,5.0,Away win,Away win,10.3,16.7,73.0,Away win,12.4,14.0,73.7,0.0,2.0,True,True,False,0.042536000000000004
+2026-06-26,Group H,Cape Verde,Saudi Arabia,0.0,0.0,Draw,Home win,41.4,18.5,40.1,Away win,34.1,19.3,46.6,1.0,1.0,False,False,False,0.1667185
+2026-06-26,Group H,Uruguay,Spain,0.0,1.0,Away win,Away win,34.0,27.8,38.1,Away win,30.3,26.8,42.9,0.0,2.0,True,True,False,0.20892499999999997
 2026-06-26,Group G,Egypt,Iran,1.0,1.0,Draw,Home win,35.3,32.4,32.2,Away win,28.9,25.1,46.0,1.0,1.0,False,False,True,0.14756049999999998
-2026-06-27,Group L,Panama,England,0.0,3.0,Away win,Away win,10.5,16.6,72.9,Away win,21.0,9.1,69.9,0.0,2.0,True,True,False,0.0673505
-2026-06-27,Group K,Colombia,Portugal,1.0,2.0,Away win,Home win,34.6,33.5,31.9,Away win,30.8,31.2,38.0,1.0,1.0,False,True,False,0.239632
-2026-06-27,Group K,DR Congo,Uzbekistan,1.0,1.0,Draw,Away win,33.4,31.4,35.2,Away win,33.6,27.2,39.2,1.0,1.0,False,False,True,0.13327999999999995
-2026-06-27,Group J,Jordan,Argentina,0.0,3.0,Away win,Away win,41.1,11.4,47.6,Away win,46.3,6.0,47.7,0.0,3.0,True,True,True,0.24394899999999994
-2026-06-27,Group J,Algeria,Austria,1.0,1.0,Draw,Away win,35.9,27.6,36.5,Away win,27.1,27.1,45.9,1.0,1.0,False,False,True,0.1416025
+2026-06-27,Group L,Panama,England,0.0,2.0,Away win,Away win,10.5,16.6,72.9,Away win,21.0,9.1,69.9,0.0,2.0,True,True,True,0.0673505
+2026-06-27,Group K,Colombia,Portugal,0.0,0.0,Draw,Home win,34.6,33.5,31.9,Away win,30.8,31.2,38.0,1.0,1.0,False,False,False,0.119632
+2026-06-27,Group K,DR Congo,Uzbekistan,3.0,1.0,Home win,Away win,33.4,31.4,35.2,Away win,33.6,27.2,39.2,1.0,1.0,False,False,False,0.2972799999999999
+2026-06-27,Group J,Jordan,Argentina,1.0,3.0,Away win,Away win,41.1,11.4,47.6,Away win,46.3,6.0,47.7,0.0,3.0,True,True,False,0.24394899999999994
+2026-06-27,Group J,Algeria,Austria,3.0,3.0,Draw,Away win,35.9,27.6,36.5,Away win,27.1,27.1,45.9,1.0,1.0,False,False,False,0.1416025
 2026-06-27,Group L,Croatia,Ghana,2.0,1.0,Home win,Home win,50.6,31.8,17.6,Home win,57.1,28.3,14.6,2.0,0.0,True,True,False,0.10267849999999996
