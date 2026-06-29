@@ -315,13 +315,17 @@ with tab_groups:
 
 # ───────────────────────── TAB: BRACKET ─────────────────────────
 with tab_bracket:
-    st.subheader("🗺️ Projected knockout bracket")
+    st.subheader("🗺️ Knockout bracket")
     st.caption(
-        "The single most likely path to the trophy: group standings by expected points (with the "
-        "2026 head-to-head tiebreaker), then in every knockout tie the team with the higher win "
-        "probability advances. **Updates automatically as real results come in** — placeholders turn "
-        "into real teams as the groups finish."
+        "The real Round-of-32 matchups and, per tie, the model's probability of each team advancing "
+        "(extra time & penalties included). The bracket image shows the single most likely path to the trophy."
     )
+
+    bimg = DATA / "processed" / "knockout_bracket.png"
+    if bimg.exists():
+        st.image(str(bimg), use_column_width=True)
+        st.caption("Bold/green = team the model projects to advance. Real results override projections as ties are played.")
+        st.divider()
 
     # Real knockout ties with predictions (once the knockout stage has started)
     ko_path = DATA / "processed" / "knockout_predictions.csv"

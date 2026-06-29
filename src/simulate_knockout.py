@@ -138,6 +138,85 @@ def main():
     plt.close(fig)
     print("Saved knockout_champion_odds.png")
 
+    # ── Bracket image (real matchups, winners of the most-likely path highlighted) ──
+    draw_bracket_image(path, champion, played)
+    print("Saved knockout_bracket.png")
+
+
+def draw_bracket_image(path, champion, played):
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    rounds = ["R32", "R16", "QF", "SF", "Final"]
+    GREEN, GRAY = "#1B5E20", "#555555"
+    fig, ax = plt.subplots(figsize=(15, 13))
+    ax.axis("off")
+    ax.set_xlim(-0.3, len(rounds) + 0.8)
+
+    n32 = len(path["R32"])
+    ax.set_ylim(-1, n32 * 1.05)
+    BOX_W, BOX_H, GAP = 0.92, 0.78, 1.05
+
+    def winner_of(tie):
+        a, b = tie
+        if (a, b) in played:
+            hs, as_ = played[(a, b)]
+            if hs != as_:
+                return a if hs > as_ else b
+        return None  # decided downstream; we highlight via next-round membership
+
+    # y-position of each tie per round (centered over its feeders)
+    ypos = {}
+    for ri, rnd in enumerate(rounds):
+        ties = path[rnd]
+        for i, tie in enumerate(ties):
+            if ri == 0:
+                y = i * GAP
+            else:
+                y = (ypos[(ri - 1, 2 * i)] + ypos[(ri - 1, 2 * i + 1)]) / 2
+            ypos[(ri, i)] = y
+
+    # advancing teams per round (those that appear in the next round's ties) → highlight
+    advancing = {}
+    for ri in range(len(rounds)):
+        nxt = set()
+        if ri + 1 < len(rounds):
+            for tie in path[rounds[ri + 1]]:
+                nxt.update(tie)
+        else:
+            nxt = {champion}
+        advancing[ri] = nxt
+
+    for ri, rnd in enumerate(rounds):
+        for i, tie in enumerate(path[rnd]):
+            x, y = ri, ypos[(ri, i)]
+            ax.add_patch(plt.Rectangle((x - BOX_W / 2, y - BOX_H / 2), BOX_W, BOX_H,
+                                       facecolor="white", edgecolor="#999", linewidth=0.7, zorder=3))
+            for k, t in enumerate(tie):
+                won = t in advancing[ri]
+                label = t if len(t) <= 13 else t[:12] + "."
+                ax.text(x, y + 0.18 - k * 0.36, label, ha="center", va="center", fontsize=7.5,
+                        fontweight="bold" if won else "normal", color=GREEN if won else GRAY, zorder=4)
+            # connector to next round
+            if ri + 1 < len(rounds):
+                nx, ny = ri + 1, ypos[(ri + 1, i // 2)]
+                xm = (x + nx) / 2
+                ax.plot([x + BOX_W / 2, xm, xm, nx - BOX_W / 2], [y, y, ny, ny],
+                        color="#CCC", linewidth=0.8, zorder=1)
+
+    fy = ypos[(len(rounds) - 1, 0)]
+    ax.text(len(rounds) + 0.1, fy + 0.6, "CHAMPION", ha="center", fontsize=11, color="#666", fontweight="bold")
+    ax.text(len(rounds) + 0.1, fy, champion.upper(), ha="center", fontsize=15, color=GREEN, fontweight="bold")
+    for ri, rnd in enumerate(["Round of 32", "Round of 16", "Quarter-final", "Semi-final", "Final"]):
+        ax.text(ri, n32 * 1.02, rnd, ha="center", fontsize=9, fontweight="bold", color="#444")
+
+    ax.set_title("World Cup 2026 — Projected knockout bracket (model's most likely path)",
+                 fontsize=13, fontweight="bold")
+    plt.tight_layout()
+    plt.savefig("data/processed/knockout_bracket.png", dpi=170, bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+
 
 if __name__ == "__main__":
     main()
