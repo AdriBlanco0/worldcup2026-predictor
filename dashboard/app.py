@@ -310,7 +310,10 @@ with tab_bracket:
                 with st.container(border=True):
                     left, right = st.columns([3, 2])
                     left.markdown(f"**{m['team1']} 🆚 {m['team2']}**")
-                    left.caption(f"Model: {m['favorite']} advances ({fav_p:.0f}%) · predicted {m['pred_score']}")
+                    ko_time = ""
+                    if "kickoff_spain" in m and pd.notna(m.get("kickoff_spain")):
+                        ko_time = pd.to_datetime(m["kickoff_spain"]).strftime("%d %b · %H:%M 🇪🇸 · ")
+                    left.caption(f"{ko_time}Model: {m['favorite']} advances ({fav_p:.0f}%) · predicted {m['pred_score']}")
                     if played:
                         hs, as_ = int(m["home_score"]), int(m["away_score"])
                         winner = m["team1"] if hs > as_ else (m["team2"] if as_ > hs else "draw/pens")

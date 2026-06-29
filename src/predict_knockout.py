@@ -56,6 +56,7 @@ def main():
         played = pd.notna(m.home_score)
         rows.append({
             "match_id": m.match_id, "round": m.round, "team1": t1, "team2": t2,
+            "kickoff_spain": m.kickoff_spain,
             "p_team1_adv": round(p1_adv * 100, 1), "p_team2_adv": round((1 - p1_adv) * 100, 1),
             "pred_score": f"{i}-{j}",
             "favorite": t1 if p1_adv >= 0.5 else t2,
@@ -64,6 +65,7 @@ def main():
         })
 
     df = pd.DataFrame(rows)
+    df = df.sort_values("kickoff_spain")
     df.to_csv(OUT, index=False)
     print(f"Saved {len(df)} knockout predictions -> {OUT}\n")
     for r in df.itertuples(index=False):
