@@ -167,13 +167,19 @@ with tab_pred:
 
     dates = sorted(pred["date"].dt.date.unique())
 
-    # Default to the first date that still has unplayed matches
+    # Default to the first date that still has unplayed matches; if none (group stage over),
+    # show the last matchday rather than day 1.
     def date_has_pending(d):
         day = pred[pred["date"].dt.date == d]
         return any((m["home_team"], m["away_team"]) not in real_results for _, m in day.iterrows())
 
-    default_idx = next((i for i, d in enumerate(dates) if date_has_pending(d)), 0)
-    selected_date = st.selectbox("Pick a date", dates, index=default_idx)
+    pending_idx = next((i for i, d in enumerate(dates) if date_has_pending(d)), None)
+    if pending_idx is None:
+        st.success("✅ Group stage complete — knockout predictions are in the **🗺️ Bracket** tab.", icon="🏆")
+        default_idx = len(dates) - 1
+    else:
+        default_idx = pending_idx
+    selected_date = st.selectbox("Pick a group-stage date", dates, index=default_idx)
     day_matches = pred[pred["date"].dt.date == selected_date].sort_values("kickoff_spain")
 
     for _, m in day_matches.iterrows():
@@ -313,41 +319,8 @@ with tab_bracket:
                     else:
                         right.markdown(probability_bar(round(m["p_team1_adv"], 0), 0, round(m["p_team2_adv"], 0)),
                                        unsafe_allow_html=True)
-        st.divider()
-
-    st.subheader("🔮 Most likely full bracket (simulation)")
-    st.caption("How the whole knockout could play out if every favourite advances — the model's single "
-               "most likely path. The real ties above are updated with actual results.")
-    bracket_data = load_bracket(mtime(DATA / "processed" / "projected_bracket.json"))
-    bracket = pd.DataFrame(bracket_data["bracket"])
-
-    st.success(f"🏆 PROJECTED CHAMPION: {bracket_data['champion'].upper()}", icon="🏆")
-
-    img = DATA / "processed" / "projected_bracket.png"
-    if img.exists():
-        st.image(str(img), use_column_width=True)
-
-    with st.expander("📋 See the bracket round by round"):
-        round_cols = st.columns(4)
-        for col, rnd in zip(round_cols, ["Round of 32", "Round of 16", "Quarter-final", "Semi-final"]):
-            with col:
-                st.markdown(f"**{rnd}**")
-                for _, b in bracket[bracket["round"] == rnd].iterrows():
-                    t1 = f"**{b['team1']}**" if b["winner"] == b["team1"] else b["team1"]
-                    t2 = f"**{b['team2']}**" if b["winner"] == b["team2"] else b["team2"]
-                    st.markdown(
-                        f"<div style='border:1px solid #444; border-radius:6px; padding:5px 8px; "
-                        f"margin-bottom:6px; font-size:13px;'>{t1}<br>{t2}"
-                        f"<br><span style='color:#2E7D32; font-size:11px;'>→ {b['winner']} ({b['win_prob']}%)</span></div>",
-                        unsafe_allow_html=True,
-                    )
-        final = bracket[bracket["round"] == "Final"].iloc[0]
-        st.markdown(
-            f"<div style='border:2px solid #2E7D32; border-radius:8px; padding:12px; text-align:center; "
-            f"font-size:16px; margin-top:8px;'>🏆 <b>FINAL:</b> {final['team1']} 🆚 {final['team2']} → "
-            f"<b>{final['winner']} ({final['win_prob']}%)</b></div>",
-            unsafe_allow_html=True,
-        )
+    else:
+        st.info("Knockout predictions will appear when the group stage finishes.")
 
 
 # ───────────────────────── TAB 2: EXACT SCORES ─────────────────────────
