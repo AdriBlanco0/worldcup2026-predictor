@@ -1,0 +1,139 @@
+{
+ "champion": "Spain",
+ "path": {
+  "R32": [
+   [
+    "Germany",
+    "Paraguay"
+   ],
+   [
+    "France",
+    "Sweden"
+   ],
+   [
+    "South Africa",
+    "Canada"
+   ],
+   [
+    "Netherlands",
+    "Morocco"
+   ],
+   [
+    "Portugal",
+    "Croatia"
+   ],
+   [
+    "Spain",
+    "Austria"
+   ],
+   [
+    "United States",
+    "Bosnia and Herzegovina"
+   ],
+   [
+    "Belgium",
+    "Senegal"
+   ],
+   [
+    "Brazil",
+    "Japan"
+   ],
+   [
+    "Ivory Coast",
+    "Norway"
+   ],
+   [
+    "Mexico",
+    "Ecuador"
+   ],
+   [
+    "England",
+    "DR Congo"
+   ],
+   [
+    "Argentina",
+    "Cape Verde"
+   ],
+   [
+    "Australia",
+    "Egypt"
+   ],
+   [
+    "Switzerland",
+    "Algeria"
+   ],
+   [
+    "Colombia",
+    "Ghana"
+   ]
+  ],
+  "R16": [
+   [
+    "Germany",
+    "France"
+   ],
+   [
+    "Canada",
+    "Netherlands"
+   ],
+   [
+    "Portugal",
+    "Spain"
+   ],
+   [
+    "United States",
+    "Belgium"
+   ],
+   [
+    "Brazil",
+    "Norway"
+   ],
+   [
+    "Mexico",
+    "England"
+   ],
+   [
+    "Argentina",
+    "Australia"
+   ],
+   [
+    "Switzerland",
+    "Colombia"
+   ]
+  ],
+  "QF": [
+   [
+    "France",
+    "Netherlands"
+   ],
+   [
+    "Spain",
+    "United States"
+   ],
+   [
+    "Brazil",
+    "England"
+   ],
+   [
+    "Argentina",
+    "Colombia"
+   ]
+  ],
+  "SF": [
+   [
+    "France",
+    "Spain"
+   ],
+   [
+    "England",
+    "Argentina"
+   ]
+  ],
+  "Final": [
+   [
+    "Spain",
+    "Argentina"
+   ]
+  ]
+ }
+}

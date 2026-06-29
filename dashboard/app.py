@@ -425,40 +425,45 @@ with tab_scores:
 # ───────────────────────── TAB 3: TOURNAMENT ODDS ─────────────────────────
 with tab_odds:
     st.subheader("Who wins the World Cup?")
-    st.caption(
-        "**10,000 Monte Carlo simulations** of the full tournament — group stage, best thirds, "
-        "and the real knockout bracket — powered by the Poisson goal model and current Elo ratings. "
-        "Re-computed after every matchday."
-    )
 
-    odds = load_odds(mtime(DATA / "processed" / "tournament_odds.csv")).sort_values("Champion", ascending=False)
+    ko_odds_path = DATA / "processed" / "knockout_odds.csv"
+    knockout_phase = ko_odds_path.exists()
 
-    # Top contenders chart
-    top15 = odds.head(15).iloc[::-1]
-    fig, ax = plt.subplots(figsize=(9, 6))
-    bars = ax.barh(top15["team"], top15["Champion"], color="#2E7D32")
-    for bar, val in zip(bars, top15["Champion"]):
-        ax.text(val + 0.2, bar.get_y() + bar.get_height() / 2, f"{val:.1f}%", va="center", fontsize=10)
-    ax.set_xlabel("P(Champion) %")
-    ax.set_title("Champion probability — top 15", fontweight="bold")
-    ax.spines[["top", "right"]].set_visible(False)
-    st.pyplot(fig)
-    plt.close(fig)
+    if knockout_phase:
+        st.caption("**10,000 Monte Carlo simulations of the REAL knockout bracket** — every tie "
+                   "simulated with the Poisson + Elo model (extra time & penalties included), winners "
+                   "advanced through the actual bracket. Re-run after each match.")
+        odds = load_odds(mtime(ko_odds_path)).sort_values("Champion", ascending=False)
+        stage_cols = ["R16", "QF", "SF", "Final", "Champion"]
+        img = DATA / "processed" / "knockout_champion_odds.png"
+    else:
+        st.caption("**10,000 Monte Carlo simulations** of the full tournament. Re-computed after every matchday.")
+        odds = load_odds(mtime(DATA / "processed" / "tournament_odds.csv")).sort_values("Champion", ascending=False)
+        stage_cols = ["R32", "R16", "QF", "SF", "Final", "Champion"]
+        img = None
+
+    if img and img.exists():
+        st.image(str(img), use_column_width=True)
+    else:
+        top15 = odds.head(15).iloc[::-1]
+        fig, ax = plt.subplots(figsize=(9, 6))
+        bars = ax.barh(top15["team"], top15["Champion"], color="#2E7D32")
+        for bar, val in zip(bars, top15["Champion"]):
+            ax.text(val + 0.2, bar.get_y() + bar.get_height() / 2, f"{val:.1f}%", va="center", fontsize=10)
+        ax.set_xlabel("P(Champion) %")
+        ax.set_title("Champion probability — top 15", fontweight="bold")
+        ax.spines[["top", "right"]].set_visible(False)
+        st.pyplot(fig)
+        plt.close(fig)
 
     st.markdown("**Full table — probability of reaching each stage (%):**")
-    st.dataframe(
-        odds,
-        use_container_width=True, hide_index=True, height=600,
-        column_config={
-            "team": "Team",
-            "R32": st.column_config.ProgressColumn("Round of 32", min_value=0, max_value=100, format="%.1f%%"),
-            "R16": st.column_config.ProgressColumn("Round of 16", min_value=0, max_value=100, format="%.1f%%"),
-            "QF": st.column_config.ProgressColumn("Quarter-final", min_value=0, max_value=100, format="%.1f%%"),
-            "SF": st.column_config.ProgressColumn("Semi-final", min_value=0, max_value=100, format="%.1f%%"),
-            "Final": st.column_config.ProgressColumn("Final", min_value=0, max_value=100, format="%.1f%%"),
-            "Champion": st.column_config.ProgressColumn("🏆 Champion", min_value=0, max_value=100, format="%.1f%%"),
-        },
-    )
+    labels = {"R32": "Round of 32", "R16": "Round of 16", "QF": "Quarter-final",
+              "SF": "Semi-final", "Final": "Final", "Champion": "🏆 Champion"}
+    cfg = {"team": "Team"}
+    for c in stage_cols:
+        cfg[c] = st.column_config.ProgressColumn(labels[c], min_value=0, max_value=100, format="%.1f%%")
+    st.dataframe(odds[["team"] + stage_cols], use_container_width=True, hide_index=True, height=600,
+                 column_config=cfg)
 
     st.info(
         "💡 Note: this model is more bullish on the favourites than betting markets "
