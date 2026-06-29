@@ -159,76 +159,104 @@ tab_pred, tab_groups, tab_bracket, tab_scores, tab_odds, tab_conf, tab_teams, ta
 
 # ───────────────────────── TAB 1: PREDICTIONS ─────────────────────────
 with tab_pred:
-    st.subheader("Next matches")
-    st.caption(
-        "**Model: Random Forest v1** (World Cup history 1962-2022 + current Elo ratings) · "
-        "🟢 home win · 🟡 draw · 🔴 away win — kickoff times in Spanish time (CEST)"
-    )
+    st.subheader("⚽ Next matches")
 
-    dates = sorted(pred["date"].dt.date.unique())
-
-    # Default to the first date that still has unplayed matches; if none (group stage over),
-    # show the last matchday rather than day 1.
-    def date_has_pending(d):
-        day = pred[pred["date"].dt.date == d]
-        return any((m["home_team"], m["away_team"]) not in real_results for _, m in day.iterrows())
-
-    pending_idx = next((i for i, d in enumerate(dates) if date_has_pending(d)), None)
-    if pending_idx is None:
-        st.success("✅ Group stage complete — knockout predictions are in the **🗺️ Bracket** tab.", icon="🏆")
-        default_idx = len(dates) - 1
-    else:
-        default_idx = pending_idx
-    selected_date = st.selectbox("Pick a group-stage date", dates, index=default_idx)
-    day_matches = pred[pred["date"].dt.date == selected_date].sort_values("kickoff_spain")
-
-    for _, m in day_matches.iterrows():
-        key = (m["home_team"], m["away_team"])
-        with st.container(border=True):
-            left, right = st.columns([2, 3])
-            left.markdown(f"### {m['home_team']} 🆚 {m['away_team']}")
-            left.caption(f"Group {m['group'][-1]} · {m['kickoff_spain'].strftime('%d %b · %H:%M')} 🇪🇸")
-            exact = ""
-            if "pred_home_goals" in m and pd.notna(m["pred_home_goals"]):
-                exact = f"{int(m['pred_home_goals'])}-{int(m['pred_away_goals'])}"
-            if key in real_results:
-                hs, as_ = real_results[key]
-                actual = "Home win" if hs > as_ else ("Away win" if as_ > hs else "Draw")
-                verdict = "✅ Model was right" if actual == m["prediction"] else "❌ Model was wrong"
-                left.markdown(f"## ⚽ FINAL: {hs} - {as_}")
-                right.markdown(f"**Model pick (frozen pre-match): {m['prediction']}** → {verdict}")
-                if exact:
-                    exact_hit = "🎯 EXACT SCORE NAILED!" if exact == f"{hs}-{as_}" else ""
-                    right.caption(f"Predicted exact score: {exact}  {exact_hit}")
-            else:
-                right.markdown(f"**Model pick: {m['prediction']}**")
-                if exact:
-                    right.caption(f"🎯 Predicted exact score: {exact}")
-            right.markdown(probability_bar(m["p_home_win"], m["p_draw"], m["p_away_win"]),
-                           unsafe_allow_html=True)
+    # Upcoming knockout ties first (the live phase)
+    ko_path = DATA / "processed" / "knockout_predictions.csv"
+    ko = load_knockout(mtime(ko_path) if ko_path.exists() else 0)
+    if ko is not None and len(ko):
+        upcoming = ko[ko["home_score"].isna()].copy()
+        if "kickoff_spain" in upcoming:
+            upcoming = upcoming.sort_values("kickoff_spain")
+        if len(upcoming):
+            st.caption("Knockout stage — probability of advancing (extra time & penalties included). "
+                       "Kickoff in Spanish time 🇪🇸")
+            for _, m in upcoming.head(8).iterrows():
+                with st.container(border=True):
+                    left, right = st.columns([3, 2])
+                    ko_time = ""
+                    if pd.notna(m.get("kickoff_spain")):
+                        ko_time = pd.to_datetime(m["kickoff_spain"]).strftime("%d %b · %H:%M 🇪🇸")
+                    left.markdown(f"### {m['team1']} 🆚 {m['team2']}")
+                    left.caption(f"{m['round']} · {ko_time}")
+                    right.markdown(f"**{m['favorite']} advances ({max(m['p_team1_adv'], m['p_team2_adv']):.0f}%)** · pred {m['pred_score']}")
+                    right.markdown(probability_bar(round(m["p_team1_adv"], 0), 0, round(m["p_team2_adv"], 0)),
+                                   unsafe_allow_html=True)
+            st.caption("Full bracket and results in the **🗺️ Bracket** tab.")
+        else:
+            st.success("All knockout ties so far are played — see the **🗺️ Bracket** tab.", icon="🏆")
 
     st.divider()
-    st.subheader("All group-stage predictions")
+    with st.expander("📚 Group stage — predictions & results (completed)"):
+        st.caption(
+            "**Model: Random Forest v1** (World Cup history 1962-2022 + current Elo ratings) · "
+            "🟢 home win · 🟡 draw · 🔴 away win — kickoff times in Spanish time (CEST)"
+        )
 
-    groups = ["All"] + sorted(pred["group"].unique())
-    selected_group = st.selectbox("Filter by group", groups)
-    table = pred if selected_group == "All" else pred[pred["group"] == selected_group]
+        dates = sorted(pred["date"].dt.date.unique())
 
-    st.dataframe(
-        table[["kickoff_spain", "group", "home_team", "away_team",
-               "p_home_win", "p_draw", "p_away_win", "prediction"]],
-        use_container_width=True, hide_index=True,
-        column_config={
-            "kickoff_spain": st.column_config.DatetimeColumn("Kickoff 🇪🇸", format="DD MMM · HH:mm"),
-            "group": "Group",
-            "home_team": "Home",
-            "away_team": "Away",
-            "p_home_win": st.column_config.ProgressColumn("Home %", min_value=0, max_value=100, format="%.1f%%"),
-            "p_draw": st.column_config.ProgressColumn("Draw %", min_value=0, max_value=100, format="%.1f%%"),
-            "p_away_win": st.column_config.ProgressColumn("Away %", min_value=0, max_value=100, format="%.1f%%"),
-            "prediction": "Model pick",
-        },
-    )
+        # Default to the first date that still has unplayed matches; if none (group stage over),
+        # show the last matchday rather than day 1.
+        def date_has_pending(d):
+            day = pred[pred["date"].dt.date == d]
+            return any((m["home_team"], m["away_team"]) not in real_results for _, m in day.iterrows())
+
+        pending_idx = next((i for i, d in enumerate(dates) if date_has_pending(d)), None)
+        if pending_idx is None:
+            st.success("✅ Group stage complete — knockout predictions are in the **🗺️ Bracket** tab.", icon="🏆")
+            default_idx = len(dates) - 1
+        else:
+            default_idx = pending_idx
+        selected_date = st.selectbox("Pick a group-stage date", dates, index=default_idx)
+        day_matches = pred[pred["date"].dt.date == selected_date].sort_values("kickoff_spain")
+
+        for _, m in day_matches.iterrows():
+            key = (m["home_team"], m["away_team"])
+            with st.container(border=True):
+                left, right = st.columns([2, 3])
+                left.markdown(f"### {m['home_team']} 🆚 {m['away_team']}")
+                left.caption(f"Group {m['group'][-1]} · {m['kickoff_spain'].strftime('%d %b · %H:%M')} 🇪🇸")
+                exact = ""
+                if "pred_home_goals" in m and pd.notna(m["pred_home_goals"]):
+                    exact = f"{int(m['pred_home_goals'])}-{int(m['pred_away_goals'])}"
+                if key in real_results:
+                    hs, as_ = real_results[key]
+                    actual = "Home win" if hs > as_ else ("Away win" if as_ > hs else "Draw")
+                    verdict = "✅ Model was right" if actual == m["prediction"] else "❌ Model was wrong"
+                    left.markdown(f"## ⚽ FINAL: {hs} - {as_}")
+                    right.markdown(f"**Model pick (frozen pre-match): {m['prediction']}** → {verdict}")
+                    if exact:
+                        exact_hit = "🎯 EXACT SCORE NAILED!" if exact == f"{hs}-{as_}" else ""
+                        right.caption(f"Predicted exact score: {exact}  {exact_hit}")
+                else:
+                    right.markdown(f"**Model pick: {m['prediction']}**")
+                    if exact:
+                        right.caption(f"🎯 Predicted exact score: {exact}")
+                right.markdown(probability_bar(m["p_home_win"], m["p_draw"], m["p_away_win"]),
+                               unsafe_allow_html=True)
+
+        st.divider()
+        st.subheader("All group-stage predictions")
+
+        groups = ["All"] + sorted(pred["group"].unique())
+        selected_group = st.selectbox("Filter by group", groups)
+        table = pred if selected_group == "All" else pred[pred["group"] == selected_group]
+
+        st.dataframe(
+            table[["kickoff_spain", "group", "home_team", "away_team",
+                   "p_home_win", "p_draw", "p_away_win", "prediction"]],
+            use_container_width=True, hide_index=True,
+            column_config={
+                "kickoff_spain": st.column_config.DatetimeColumn("Kickoff 🇪🇸", format="DD MMM · HH:mm"),
+                "group": "Group",
+                "home_team": "Home",
+                "away_team": "Away",
+                "p_home_win": st.column_config.ProgressColumn("Home %", min_value=0, max_value=100, format="%.1f%%"),
+                "p_draw": st.column_config.ProgressColumn("Draw %", min_value=0, max_value=100, format="%.1f%%"),
+                "p_away_win": st.column_config.ProgressColumn("Away %", min_value=0, max_value=100, format="%.1f%%"),
+                "prediction": "Model pick",
+            },
+        )
 
 
 # ───────────────────────── TAB: GROUPS ─────────────────────────
