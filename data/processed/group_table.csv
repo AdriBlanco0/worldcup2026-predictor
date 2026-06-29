@@ -1,7 +1,7 @@
 group,team,played,won,drawn,lost,gf,ga,gd,points,p_first,p_top2,p_advance,status
 Group A,Mexico,3,3,0,0,6,0,6,9,100.0,100.0,100.0,✅ Qualified
 Group A,South Africa,3,1,1,1,2,3,-1,4,0.0,100.0,100.0,✅ Qualified
-Group A,South Korea,3,1,0,2,2,3,-1,3,0.0,0.0,67.9,🪙 3rd-place chance only
+Group A,South Korea,3,1,0,2,2,3,-1,3,0.0,0.0,0.0,❌ Eliminated
 Group A,Czech Republic,3,0,1,2,2,6,-4,1,0.0,0.0,0.0,❌ Eliminated
 Group B,Switzerland,3,2,1,0,7,3,4,7,100.0,100.0,100.0,✅ Qualified
 Group B,Canada,3,1,1,1,8,3,5,4,0.0,100.0,100.0,✅ Qualified
@@ -9,11 +9,11 @@ Group B,Bosnia and Herzegovina,3,1,1,1,5,6,-1,4,0.0,0.0,100.0,✅ Qualified
 Group B,Qatar,3,0,1,2,2,10,-8,1,0.0,0.0,0.0,❌ Eliminated
 Group C,Brazil,3,2,1,0,7,1,6,7,100.0,100.0,100.0,✅ Qualified
 Group C,Morocco,3,2,1,0,6,3,3,7,0.0,100.0,100.0,✅ Qualified
-Group C,Scotland,3,1,0,2,1,4,-3,3,0.0,0.0,11.3,🪙 3rd-place chance only
+Group C,Scotland,3,1,0,2,1,4,-3,3,0.0,0.0,0.0,❌ Eliminated
 Group C,Haiti,3,0,0,3,2,8,-6,0,0.0,0.0,0.0,❌ Eliminated
 Group D,United States,3,2,0,1,8,4,4,6,100.0,100.0,100.0,✅ Qualified
 Group D,Australia,3,1,1,1,2,2,0,4,0.0,100.0,100.0,✅ Qualified
-Group D,Paraguay,3,1,1,1,2,4,-2,4,0.0,0.0,99.8,🪙 3rd-place chance only
+Group D,Paraguay,3,1,1,1,2,4,-2,4,0.0,0.0,100.0,✅ Qualified
 Group D,Turkey,3,1,0,2,3,5,-2,3,0.0,0.0,0.0,❌ Eliminated
 Group E,Germany,3,2,0,1,10,4,6,6,100.0,100.0,100.0,✅ Qualified
 Group E,Ivory Coast,3,2,0,1,4,2,2,6,0.0,100.0,100.0,✅ Qualified
@@ -23,27 +23,27 @@ Group F,Netherlands,3,2,1,0,10,4,6,7,100.0,100.0,100.0,✅ Qualified
 Group F,Japan,3,1,2,0,7,3,4,5,0.0,100.0,100.0,✅ Qualified
 Group F,Sweden,3,1,1,1,7,7,0,4,0.0,0.0,100.0,✅ Qualified
 Group F,Tunisia,3,0,0,3,2,12,-10,0,0.0,0.0,0.0,❌ Eliminated
-Group G,Egypt,2,1,1,0,4,2,2,4,54.7,74.9,100.0,✅ Qualified
-Group G,Iran,2,0,2,0,2,2,0,2,26.6,43.0,62.6,⚪ Alive
-Group G,Belgium,2,0,2,0,1,1,0,2,18.7,71.9,82.2,⚪ Alive
-Group G,New Zealand,2,0,1,1,3,5,-2,1,0.0,10.2,17.3,⚪ Alive
-Group H,Spain,2,1,1,0,4,0,4,4,86.9,95.8,100.0,✅ Qualified
-Group H,Uruguay,2,0,2,0,3,3,0,2,10.9,16.2,29.5,⚪ Alive
-Group H,Cape Verde,2,0,2,0,2,2,0,2,2.1,51.8,57.9,⚪ Alive
-Group H,Saudi Arabia,2,0,1,1,1,5,-4,1,0.0,36.2,41.5,⚪ Alive
-Group I,France,2,2,0,0,6,1,5,6,77.7,100.0,100.0,✅ Qualified
-Group I,Norway,2,2,0,0,7,3,4,6,22.3,100.0,100.0,✅ Qualified
-Group I,Senegal,2,0,0,2,3,6,-3,0,0.0,0.0,41.1,🪙 3rd-place chance only
-Group I,Iraq,2,0,0,2,1,7,-6,0,0.0,0.0,1.4,🪙 3rd-place chance only
-Group J,Argentina,2,2,0,0,5,0,5,6,100.0,100.0,100.0,✅ Qualified
-Group J,Austria,2,1,0,1,3,3,0,3,0.0,59.9,83.2,⚪ Alive
-Group J,Algeria,2,1,0,1,2,4,-2,3,0.0,40.1,71.9,⚪ Alive
-Group J,Jordan,2,0,0,2,2,5,-3,0,0.0,0.0,0.0,❌ Eliminated
-Group K,Colombia,2,2,0,0,4,1,3,6,67.1,100.0,100.0,✅ Qualified
-Group K,Portugal,2,1,1,0,6,1,5,4,32.9,99.4,100.0,✅ Qualified
-Group K,DR Congo,2,0,1,1,1,2,-1,1,0.0,0.6,35.9,⚪ Alive
-Group K,Uzbekistan,2,0,0,2,1,8,-7,0,0.0,0.0,1.3,🪙 3rd-place chance only
-Group L,England,2,1,1,0,4,2,2,4,76.0,99.8,100.0,✅ Qualified
-Group L,Ghana,2,1,1,0,1,0,1,4,3.9,24.1,99.9,⚪ Alive
-Group L,Croatia,2,1,0,1,3,4,-1,3,20.1,76.1,95.4,⚪ Alive
-Group L,Panama,2,0,0,2,0,2,-2,0,0.0,0.0,0.0,❌ Eliminated
+Group G,Egypt,3,1,2,0,5,3,2,5,100.0,100.0,100.0,✅ Qualified
+Group G,Belgium,3,1,2,0,3,1,2,5,0.0,100.0,100.0,✅ Qualified
+Group G,Iran,3,0,3,0,3,3,0,3,0.0,0.0,100.0,✅ Qualified
+Group G,New Zealand,3,0,1,2,3,7,-4,1,0.0,0.0,0.0,❌ Eliminated
+Group H,Spain,3,2,1,0,6,1,5,7,100.0,100.0,100.0,✅ Qualified
+Group H,Saudi Arabia,3,1,1,1,3,6,-3,4,0.0,100.0,100.0,✅ Qualified
+Group H,Uruguay,3,0,2,1,4,5,-1,2,0.0,0.0,0.0,❌ Eliminated
+Group H,Cape Verde,3,0,2,1,3,4,-1,2,0.0,0.0,0.0,❌ Eliminated
+Group I,France,3,3,0,0,8,2,6,9,100.0,100.0,100.0,✅ Qualified
+Group I,Norway,3,2,0,1,8,5,3,6,0.0,100.0,100.0,✅ Qualified
+Group I,Senegal,3,1,0,2,5,6,-1,3,0.0,0.0,100.0,✅ Qualified
+Group I,Iraq,3,0,0,3,1,9,-8,0,0.0,0.0,0.0,❌ Eliminated
+Group J,Argentina,3,3,0,0,8,0,8,9,100.0,100.0,100.0,✅ Qualified
+Group J,Austria,3,1,1,1,4,4,0,4,0.0,100.0,100.0,✅ Qualified
+Group J,Algeria,3,1,1,1,3,5,-2,4,0.0,0.0,100.0,✅ Qualified
+Group J,Jordan,3,0,0,3,2,8,-6,0,0.0,0.0,0.0,❌ Eliminated
+Group K,Portugal,3,2,1,0,8,2,6,7,100.0,100.0,100.0,✅ Qualified
+Group K,Colombia,3,2,0,1,5,3,2,6,0.0,100.0,100.0,✅ Qualified
+Group K,DR Congo,3,0,2,1,2,3,-1,2,0.0,0.0,0.0,❌ Eliminated
+Group K,Uzbekistan,3,0,1,2,2,9,-7,1,0.0,0.0,0.0,❌ Eliminated
+Group L,England,3,2,1,0,7,2,5,7,100.0,100.0,100.0,✅ Qualified
+Group L,Croatia,3,2,0,1,5,5,0,6,0.0,100.0,100.0,✅ Qualified
+Group L,Ghana,3,1,1,1,2,2,0,4,0.0,0.0,100.0,✅ Qualified
+Group L,Panama,3,0,0,3,0,5,-5,0,0.0,0.0,0.0,❌ Eliminated
