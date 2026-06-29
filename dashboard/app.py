@@ -73,6 +73,11 @@ def load_thirds(data_version):
     return pd.read_csv(path) if path.exists() else None
 
 @st.cache_data
+def load_knockout(data_version):
+    path = DATA / "processed" / "knockout_predictions.csv"
+    return pd.read_csv(path) if path.exists() else None
+
+@st.cache_data
 def load_bracket(data_version):
     with open(DATA / "processed" / "projected_bracket.json", encoding="utf-8") as f:
         return json.load(f)
@@ -284,6 +289,35 @@ with tab_bracket:
         "into real teams as the groups finish."
     )
 
+    # Real knockout ties with predictions (once the knockout stage has started)
+    ko_path = DATA / "processed" / "knockout_predictions.csv"
+    ko = load_knockout(mtime(ko_path) if ko_path.exists() else 0)
+    if ko is not None and len(ko):
+        for rnd in ["Round of 32", "Round of 16", "Quarter-final", "Semi-final", "Final"]:
+            rmatches = ko[ko["round"] == rnd]
+            if len(rmatches) == 0:
+                continue
+            st.markdown(f"### {rnd}")
+            for _, m in rmatches.iterrows():
+                fav_p = max(m["p_team1_adv"], m["p_team2_adv"])
+                played = pd.notna(m.get("home_score"))
+                with st.container(border=True):
+                    left, right = st.columns([3, 2])
+                    left.markdown(f"**{m['team1']} 🆚 {m['team2']}**")
+                    left.caption(f"Model: {m['favorite']} advances ({fav_p:.0f}%) · predicted {m['pred_score']}")
+                    if played:
+                        hs, as_ = int(m["home_score"]), int(m["away_score"])
+                        winner = m["team1"] if hs > as_ else (m["team2"] if as_ > hs else "draw/pens")
+                        ok = "✅" if winner == m["favorite"] else ("➖" if winner == "draw/pens" else "❌")
+                        right.markdown(f"### {hs} - {as_} {ok}")
+                    else:
+                        right.markdown(probability_bar(round(m["p_team1_adv"], 0), 0, round(m["p_team2_adv"], 0)),
+                                       unsafe_allow_html=True)
+        st.divider()
+
+    st.subheader("🔮 Most likely full bracket (simulation)")
+    st.caption("How the whole knockout could play out if every favourite advances — the model's single "
+               "most likely path. The real ties above are updated with actual results.")
     bracket_data = load_bracket(mtime(DATA / "processed" / "projected_bracket.json"))
     bracket = pd.DataFrame(bracket_data["bracket"])
 
