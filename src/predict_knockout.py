@@ -54,6 +54,7 @@ def main():
         i, j = np.unravel_index(M.argmax(), M.shape)
 
         played = pd.notna(m.home_score)
+        advanced = m.advanced if "advanced" in bracket.columns and pd.notna(m.advanced) else None
         rows.append({
             "match_id": m.match_id, "round": m.round, "team1": t1, "team2": t2,
             "kickoff_spain": m.kickoff_spain,
@@ -62,6 +63,7 @@ def main():
             "favorite": t1 if p1_adv >= 0.5 else t2,
             "home_score": int(m.home_score) if played else None,
             "away_score": int(m.away_score) if played else None,
+            "advanced": advanced,
         })
 
     df = pd.DataFrame(rows)
@@ -71,9 +73,8 @@ def main():
     for r in df.itertuples(index=False):
         played = ""
         if pd.notna(r.home_score):
-            res = "✅" if ((r.home_score > r.away_score and r.favorite == r.team1) or
-                          (r.away_score > r.home_score and r.favorite == r.team2)) else "❌"
-            played = f"  [played {r.home_score}-{r.away_score} {res}]"
+            res = "✅" if r.advanced == r.favorite else "❌"
+            played = f"  [played {int(r.home_score)}-{int(r.away_score)}, {r.advanced} through {res}]"
         print(f"{r.team1} vs {r.team2}: {r.favorite} advances {max(r.p_team1_adv, r.p_team2_adv):.0f}% "
               f"(pred {r.pred_score}){played}")
 

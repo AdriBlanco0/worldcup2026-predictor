@@ -47,8 +47,10 @@ def main():
     with open("data/processed/poisson_params.json") as f:
         P = json.load(f)["neutral"]
     bracket = pd.read_csv("data/knockout_bracket.csv")
-    played = {(r.team1, r.team2): (r.home_score, r.away_score)
-              for r in bracket.itertuples(index=False) if pd.notna(r.home_score)}
+    # Played ties → the team that actually advanced (penalties included)
+    advanced = {(r.team1, r.team2): r.advanced
+                for r in bracket.itertuples(index=False)
+                if "advanced" in bracket.columns and pd.notna(r.advanced)}
 
     def lambdas(t1, t2):
         d = (elo.get(t1, 1500) - elo.get(t2, 1500)) / 400
@@ -57,11 +59,8 @@ def main():
 
     def play_tie(t1, t2):
         """Return the winner of a single knockout tie."""
-        if (t1, t2) in played:
-            hs, as_ = played[(t1, t2)]
-            if hs != as_:
-                return t1 if hs > as_ else t2
-            # real draw recorded → decided by ET/pens
+        if (t1, t2) in advanced:
+            return advanced[(t1, t2)]  # already played (penalties included)
         l1, l2 = lambdas(t1, t2)
         g1, g2 = rng.poisson(l1), rng.poisson(l2)
         if g1 != g2:
@@ -98,10 +97,8 @@ def main():
 
     # ── Deterministic "most likely bracket" (favorite advances each tie) ──
     def fav(t1, t2):
-        if (t1, t2) in played:
-            hs, as_ = played[(t1, t2)]
-            if hs != as_:
-                return t1 if hs > as_ else t2
+        if (t1, t2) in advanced:
+            return advanced[(t1, t2)]
         l1, l2 = lambdas(t1, t2)
         n = 11
         M = np.outer([poisson_pmf(i, l1) for i in range(n)], [poisson_pmf(j, l2) for j in range(n)])
@@ -139,11 +136,11 @@ def main():
     print("Saved knockout_champion_odds.png")
 
     # ── Bracket image (real matchups, winners of the most-likely path highlighted) ──
-    draw_bracket_image(path, champion, played)
+    draw_bracket_image(path, champion)
     print("Saved knockout_bracket.png")
 
 
-def draw_bracket_image(path, champion, played):
+def draw_bracket_image(path, champion):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -157,14 +154,6 @@ def draw_bracket_image(path, champion, played):
     n32 = len(path["R32"])
     ax.set_ylim(-1, n32 * 1.05)
     BOX_W, BOX_H, GAP = 0.92, 0.78, 1.05
-
-    def winner_of(tie):
-        a, b = tie
-        if (a, b) in played:
-            hs, as_ = played[(a, b)]
-            if hs != as_:
-                return a if hs > as_ else b
-        return None  # decided downstream; we highlight via next-round membership
 
     # y-position of each tie per round (centered over its feeders)
     ypos = {}

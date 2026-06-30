@@ -348,9 +348,11 @@ with tab_bracket:
                     left.caption(f"{ko_time}Model: {m['favorite']} advances ({fav_p:.0f}%) · predicted {m['pred_score']}")
                     if played:
                         hs, as_ = int(m["home_score"]), int(m["away_score"])
-                        winner = m["team1"] if hs > as_ else (m["team2"] if as_ > hs else "draw/pens")
-                        ok = "✅" if winner == m["favorite"] else ("➖" if winner == "draw/pens" else "❌")
+                        adv = m.get("advanced")
+                        ok = "✅" if adv == m["favorite"] else "❌"
+                        pens = " (pens)" if hs == as_ else ""
                         right.markdown(f"### {hs} - {as_} {ok}")
+                        right.caption(f"{adv} advanced{pens}")
                     else:
                         right.markdown(probability_bar(round(m["p_team1_adv"], 0), 0, round(m["p_team2_adv"], 0)),
                                        unsafe_allow_html=True)
