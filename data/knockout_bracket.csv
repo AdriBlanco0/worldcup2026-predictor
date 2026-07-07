@@ -21,8 +21,9 @@ match_id,round,team1,team2,kickoff_spain,home_score,away_score,advanced
 20,Round of 16,United States,Belgium,,1.0,4.0,Belgium
 21,Round of 16,Brazil,Norway,,1.0,2.0,Norway
 22,Round of 16,Mexico,England,,2.0,3.0,England
-23,Round of 16,Argentina,Egypt,,,,
-24,Round of 16,Switzerland,Colombia,,,,
+23,Round of 16,Argentina,Egypt,,3.0,2.0,Argentina
+24,Round of 16,Switzerland,Colombia,,0.0,0.0,Switzerland
 25,Quarter-final,France,Morocco,,,,
 26,Quarter-final,Norway,England,,,,
 27,Quarter-final,Spain,Belgium,,,,
+28,Quarter-final,Argentina,Switzerland,,,,
