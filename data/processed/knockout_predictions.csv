@@ -17,11 +17,12 @@ match_id,round,team1,team2,kickoff_spain,p_team1_adv,p_team2_adv,pred_score,favo
 16,Round of 32,Colombia,Ghana,2026-07-04 03:30,93.5,6.5,3-0,Colombia,1.0,0.0,Colombia
 17,Round of 16,Paraguay,France,,18.4,81.6,0-2,France,0.0,1.0,France
 18,Round of 16,Canada,Morocco,,27.0,73.0,0-1,Morocco,0.0,3.0,Morocco
-19,Round of 16,Portugal,Spain,,31.0,69.0,0-1,Spain,,,
-20,Round of 16,United States,Belgium,,51.2,48.8,1-1,United States,,,
+19,Round of 16,Portugal,Spain,,31.0,69.0,0-1,Spain,0.0,1.0,Spain
+20,Round of 16,United States,Belgium,,51.2,48.8,1-1,United States,1.0,4.0,Belgium
 21,Round of 16,Brazil,Norway,,66.3,33.7,1-1,Brazil,1.0,2.0,Norway
 22,Round of 16,Mexico,England,,47.3,52.7,1-1,England,2.0,3.0,England
 23,Round of 16,Argentina,Egypt,,90.2,9.8,2-0,Argentina,,,
 24,Round of 16,Switzerland,Colombia,,37.9,62.1,1-1,Colombia,,,
 25,Quarter-final,France,Morocco,,68.9,31.1,1-0,France,,,
 26,Quarter-final,Norway,England,,35.6,64.4,1-1,England,,,
+27,Quarter-final,Spain,Belgium,,84.5,15.5,2-0,Spain,,,

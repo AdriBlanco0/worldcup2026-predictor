@@ -1,27 +1,28 @@
 match_id,round,team1,team2,kickoff_spain,home_score,away_score,advanced
-3,Round of 32,South Africa,Canada,2026-06-28 22:00,0,1,Canada
-9,Round of 32,Brazil,Japan,2026-06-29 19:00,2,1,Brazil
-1,Round of 32,Germany,Paraguay,2026-06-29 22:30,1,1,Paraguay
-4,Round of 32,Netherlands,Morocco,2026-06-30 03:00,1,1,Morocco
-10,Round of 32,Ivory Coast,Norway,2026-06-30 19:00,1,2,Norway
-2,Round of 32,France,Sweden,2026-06-30 23:00,3,0,France
-11,Round of 32,Mexico,Ecuador,2026-07-01 03:00,2,0,Mexico
-12,Round of 32,England,DR Congo,2026-07-01 18:00,2,1,England
-8,Round of 32,Belgium,Senegal,2026-07-01 22:00,3,2,Belgium
-7,Round of 32,United States,Bosnia and Herzegovina,2026-07-02 02:00,2,0,United States
-6,Round of 32,Spain,Austria,2026-07-02 21:00,3,0,Spain
-5,Round of 32,Portugal,Croatia,2026-07-03 01:00,2,1,Portugal
-15,Round of 32,Switzerland,Algeria,2026-07-03 05:00,2,0,Switzerland
-14,Round of 32,Australia,Egypt,2026-07-03 20:00,1,1,Egypt
-13,Round of 32,Argentina,Cape Verde,2026-07-04 00:00,3,2,Argentina
-16,Round of 32,Colombia,Ghana,2026-07-04 03:30,1,0,Colombia
-17,Round of 16,Paraguay,France,,0,1,France
-18,Round of 16,Canada,Morocco,,0,3,Morocco
-19,Round of 16,Portugal,Spain,,,,
-20,Round of 16,United States,Belgium,,,,
-21,Round of 16,Brazil,Norway,,1,2,Norway
-22,Round of 16,Mexico,England,,2,3,England
+3,Round of 32,South Africa,Canada,2026-06-28 22:00,0.0,1.0,Canada
+9,Round of 32,Brazil,Japan,2026-06-29 19:00,2.0,1.0,Brazil
+1,Round of 32,Germany,Paraguay,2026-06-29 22:30,1.0,1.0,Paraguay
+4,Round of 32,Netherlands,Morocco,2026-06-30 03:00,1.0,1.0,Morocco
+10,Round of 32,Ivory Coast,Norway,2026-06-30 19:00,1.0,2.0,Norway
+2,Round of 32,France,Sweden,2026-06-30 23:00,3.0,0.0,France
+11,Round of 32,Mexico,Ecuador,2026-07-01 03:00,2.0,0.0,Mexico
+12,Round of 32,England,DR Congo,2026-07-01 18:00,2.0,1.0,England
+8,Round of 32,Belgium,Senegal,2026-07-01 22:00,3.0,2.0,Belgium
+7,Round of 32,United States,Bosnia and Herzegovina,2026-07-02 02:00,2.0,0.0,United States
+6,Round of 32,Spain,Austria,2026-07-02 21:00,3.0,0.0,Spain
+5,Round of 32,Portugal,Croatia,2026-07-03 01:00,2.0,1.0,Portugal
+15,Round of 32,Switzerland,Algeria,2026-07-03 05:00,2.0,0.0,Switzerland
+14,Round of 32,Australia,Egypt,2026-07-03 20:00,1.0,1.0,Egypt
+13,Round of 32,Argentina,Cape Verde,2026-07-04 00:00,3.0,2.0,Argentina
+16,Round of 32,Colombia,Ghana,2026-07-04 03:30,1.0,0.0,Colombia
+17,Round of 16,Paraguay,France,,0.0,1.0,France
+18,Round of 16,Canada,Morocco,,0.0,3.0,Morocco
+19,Round of 16,Portugal,Spain,,0.0,1.0,Spain
+20,Round of 16,United States,Belgium,,1.0,4.0,Belgium
+21,Round of 16,Brazil,Norway,,1.0,2.0,Norway
+22,Round of 16,Mexico,England,,2.0,3.0,England
 23,Round of 16,Argentina,Egypt,,,,
 24,Round of 16,Switzerland,Colombia,,,,
 25,Quarter-final,France,Morocco,,,,
 26,Quarter-final,Norway,England,,,,
+27,Quarter-final,Spain,Belgium,,,,
