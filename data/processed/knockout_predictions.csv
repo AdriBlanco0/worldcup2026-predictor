@@ -23,7 +23,9 @@ match_id,round,team1,team2,kickoff_spain,p_team1_adv,p_team2_adv,pred_score,favo
 22,Round of 16,Mexico,England,,47.3,52.7,1-1,England,2.0,3.0,England
 23,Round of 16,Argentina,Egypt,,90.2,9.8,2-0,Argentina,3.0,2.0,Argentina
 24,Round of 16,Switzerland,Colombia,,37.9,62.1,1-1,Colombia,0.0,0.0,Switzerland
-25,Quarter-final,France,Morocco,,68.9,31.1,1-0,France,,,
-26,Quarter-final,Norway,England,,35.6,64.4,1-1,England,,,
-27,Quarter-final,Spain,Belgium,,84.5,15.5,2-0,Spain,,,
-28,Quarter-final,Argentina,Switzerland,,83.5,16.5,2-0,Argentina,,,
+25,Quarter-final,France,Morocco,,68.9,31.1,1-0,France,2.0,0.0,France
+26,Quarter-final,Norway,England,,35.6,64.4,1-1,England,1.0,2.0,England
+27,Quarter-final,Spain,Belgium,,84.5,15.5,2-0,Spain,2.0,1.0,Spain
+28,Quarter-final,Argentina,Switzerland,,83.5,16.5,2-0,Argentina,3.0,1.0,Argentina
+29,Semi-final,France,Spain,,47.6,52.4,1-1,Spain,,,
+30,Semi-final,England,Argentina,,35.5,64.5,1-1,Argentina,,,
