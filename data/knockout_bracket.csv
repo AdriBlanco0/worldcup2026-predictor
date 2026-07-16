@@ -28,4 +28,5 @@ match_id,round,team1,team2,kickoff_spain,home_score,away_score,advanced
 27,Quarter-final,Spain,Belgium,,2.0,1.0,Spain
 28,Quarter-final,Argentina,Switzerland,,3.0,1.0,Argentina
 29,Semi-final,France,Spain,,0.0,2.0,Spain
-30,Semi-final,England,Argentina,,,,
+30,Semi-final,England,Argentina,,1.0,2.0,Argentina
+31,Final,Spain,Argentina,,,,
