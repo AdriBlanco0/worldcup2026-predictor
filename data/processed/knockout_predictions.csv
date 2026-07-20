@@ -1,32 +1,32 @@
 match_id,round,team1,team2,kickoff_spain,p_team1_adv,p_team2_adv,pred_score,favorite,home_score,away_score,advanced
-3,Round of 32,South Africa,Canada,2026-06-28 22:00,34.8,65.2,1-1,Canada,0.0,1.0,Canada
-9,Round of 32,Brazil,Japan,2026-06-29 19:00,63.0,37.0,1-1,Brazil,2.0,1.0,Brazil
-1,Round of 32,Germany,Paraguay,2026-06-29 22:30,68.7,31.3,1-0,Germany,1.0,1.0,Paraguay
-4,Round of 32,Netherlands,Morocco,2026-06-30 03:00,51.6,48.4,1-1,Netherlands,1.0,1.0,Morocco
-10,Round of 32,Ivory Coast,Norway,2026-06-30 19:00,38.0,62.0,1-1,Norway,1.0,2.0,Norway
-2,Round of 32,France,Sweden,2026-06-30 23:00,91.6,8.4,2-0,France,3.0,0.0,France
-11,Round of 32,Mexico,Ecuador,2026-07-01 03:00,63.3,36.7,1-1,Mexico,2.0,0.0,Mexico
-12,Round of 32,England,DR Congo,2026-07-01 18:00,86.9,13.1,2-0,England,2.0,1.0,England
-8,Round of 32,Belgium,Senegal,2026-07-01 22:00,58.9,41.1,1-1,Belgium,3.0,2.0,Belgium
-7,Round of 32,United States,Bosnia and Herzegovina,2026-07-02 02:00,82.8,17.2,2-0,United States,2.0,0.0,United States
-6,Round of 32,Spain,Austria,2026-07-02 21:00,88.0,12.0,2-0,Spain,3.0,0.0,Spain
-5,Round of 32,Portugal,Croatia,2026-07-03 01:00,62.5,37.5,1-1,Portugal,2.0,1.0,Portugal
-15,Round of 32,Switzerland,Algeria,2026-07-03 05:00,61.0,39.0,1-1,Switzerland,2.0,0.0,Switzerland
-14,Round of 32,Australia,Egypt,2026-07-03 20:00,57.0,43.0,1-1,Australia,1.0,1.0,Egypt
-13,Round of 32,Argentina,Cape Verde,2026-07-04 00:00,97.2,2.8,4-0,Argentina,3.0,2.0,Argentina
-16,Round of 32,Colombia,Ghana,2026-07-04 03:30,93.5,6.5,3-0,Colombia,1.0,0.0,Colombia
-17,Round of 16,Paraguay,France,,18.4,81.6,0-2,France,0.0,1.0,France
-18,Round of 16,Canada,Morocco,,27.0,73.0,0-1,Morocco,0.0,3.0,Morocco
-19,Round of 16,Portugal,Spain,,31.0,69.0,0-1,Spain,0.0,1.0,Spain
-20,Round of 16,United States,Belgium,,51.2,48.8,1-1,United States,1.0,4.0,Belgium
-21,Round of 16,Brazil,Norway,,66.3,33.7,1-1,Brazil,1.0,2.0,Norway
-22,Round of 16,Mexico,England,,47.3,52.7,1-1,England,2.0,3.0,England
-23,Round of 16,Argentina,Egypt,,90.2,9.8,2-0,Argentina,3.0,2.0,Argentina
-24,Round of 16,Switzerland,Colombia,,37.9,62.1,1-1,Colombia,0.0,0.0,Switzerland
-25,Quarter-final,France,Morocco,,68.9,31.1,1-0,France,2.0,0.0,France
-26,Quarter-final,Norway,England,,35.6,64.4,1-1,England,1.0,2.0,England
-27,Quarter-final,Spain,Belgium,,84.5,15.5,2-0,Spain,2.0,1.0,Spain
-28,Quarter-final,Argentina,Switzerland,,83.5,16.5,2-0,Argentina,3.0,1.0,Argentina
-29,Semi-final,France,Spain,,47.6,52.4,1-1,Spain,0.0,2.0,Spain
-30,Semi-final,England,Argentina,,35.5,64.5,1-1,Argentina,1.0,2.0,Argentina
-31,Final,Spain,Argentina,,51.8,48.2,1-1,Spain,,,
+3,Round of 32,South Africa,Canada,2026-06-28 22:00,34.8,65.2,1-1,Canada,0,1,Canada
+9,Round of 32,Brazil,Japan,2026-06-29 19:00,63.0,37.0,1-1,Brazil,2,1,Brazil
+1,Round of 32,Germany,Paraguay,2026-06-29 22:30,68.7,31.3,1-0,Germany,1,1,Paraguay
+4,Round of 32,Netherlands,Morocco,2026-06-30 03:00,51.6,48.4,1-1,Netherlands,1,1,Morocco
+10,Round of 32,Ivory Coast,Norway,2026-06-30 19:00,38.0,62.0,1-1,Norway,1,2,Norway
+2,Round of 32,France,Sweden,2026-06-30 23:00,91.6,8.4,2-0,France,3,0,France
+11,Round of 32,Mexico,Ecuador,2026-07-01 03:00,63.3,36.7,1-1,Mexico,2,0,Mexico
+12,Round of 32,England,DR Congo,2026-07-01 18:00,86.9,13.1,2-0,England,2,1,England
+8,Round of 32,Belgium,Senegal,2026-07-01 22:00,58.9,41.1,1-1,Belgium,3,2,Belgium
+7,Round of 32,United States,Bosnia and Herzegovina,2026-07-02 02:00,82.8,17.2,2-0,United States,2,0,United States
+6,Round of 32,Spain,Austria,2026-07-02 21:00,88.0,12.0,2-0,Spain,3,0,Spain
+5,Round of 32,Portugal,Croatia,2026-07-03 01:00,62.5,37.5,1-1,Portugal,2,1,Portugal
+15,Round of 32,Switzerland,Algeria,2026-07-03 05:00,61.0,39.0,1-1,Switzerland,2,0,Switzerland
+14,Round of 32,Australia,Egypt,2026-07-03 20:00,57.0,43.0,1-1,Australia,1,1,Egypt
+13,Round of 32,Argentina,Cape Verde,2026-07-04 00:00,97.2,2.8,4-0,Argentina,3,2,Argentina
+16,Round of 32,Colombia,Ghana,2026-07-04 03:30,93.5,6.5,3-0,Colombia,1,0,Colombia
+17,Round of 16,Paraguay,France,,18.4,81.6,0-2,France,0,1,France
+18,Round of 16,Canada,Morocco,,27.0,73.0,0-1,Morocco,0,3,Morocco
+19,Round of 16,Portugal,Spain,,31.0,69.0,0-1,Spain,0,1,Spain
+20,Round of 16,United States,Belgium,,51.2,48.8,1-1,United States,1,4,Belgium
+21,Round of 16,Brazil,Norway,,66.3,33.7,1-1,Brazil,1,2,Norway
+22,Round of 16,Mexico,England,,47.3,52.7,1-1,England,2,3,England
+23,Round of 16,Argentina,Egypt,,90.2,9.8,2-0,Argentina,3,2,Argentina
+24,Round of 16,Switzerland,Colombia,,37.9,62.1,1-1,Colombia,0,0,Switzerland
+25,Quarter-final,France,Morocco,,68.9,31.1,1-0,France,2,0,France
+26,Quarter-final,Norway,England,,35.6,64.4,1-1,England,1,2,England
+27,Quarter-final,Spain,Belgium,,84.5,15.5,2-0,Spain,2,1,Spain
+28,Quarter-final,Argentina,Switzerland,,83.5,16.5,2-0,Argentina,3,1,Argentina
+29,Semi-final,France,Spain,,47.6,52.4,1-1,Spain,0,2,Spain
+30,Semi-final,England,Argentina,,35.5,64.5,1-1,Argentina,1,2,Argentina
+31,Final,Spain,Argentina,,51.8,48.2,1-1,Spain,1,0,Spain
